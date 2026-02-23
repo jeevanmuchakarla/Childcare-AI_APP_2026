@@ -1,32 +1,48 @@
-//
-//  ChildCare_AIApp.swift
-//  ChildCare AI
-//
-//  Created by G1 on 23/02/26.
-//
-
 import SwiftUI
-import SwiftData
 
 @main
 struct ChildCare_AIApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @StateObject private var appRouter = AppRouter()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(appRouter)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
+
+struct RootView: View {
+    @EnvironmentObject var appRouter: AppRouter
+    
+    var body: some View {
+        Group {
+            switch appRouter.currentScreen {
+            case .splash:
+                SplashView()
+            case .onboarding:
+                OnboardingView()
+            case .roleSelection:
+                RoleSelectionView()
+            case .login:
+                LoginView()
+            case .forgotPassword:
+                ForgotPasswordView()
+            case .createAccount(let role):
+                CreateAccountView(role: role)
+            case .home(let role):
+                switch role {
+                case .parent:
+                    ParentTabView()
+                case .preschool, .daycare, .babysitter:
+                    ProviderTabView(role: role)
+                case .admin:
+                    AdminTabView()
+                }
+            }
+        }
+        .animation(.easeInOut, value: appRouter.currentScreen)
+    }
+}
+
+
