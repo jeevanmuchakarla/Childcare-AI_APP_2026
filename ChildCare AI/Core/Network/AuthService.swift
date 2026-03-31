@@ -26,15 +26,8 @@ public class AuthService: ObservableObject {
     // Use localhost for simulator development.
     // If testing on physical device, use your Mac's LAN IP (e.g., http://192.168.1.x:8000/api)
     public var baseURL: String {
-        #if targetEnvironment(simulator)
-        return "http://localhost:8000/api"
-        #else
-        // Fallback to the known last IP, but try to use a dynamic one if provided
-        return "http://\(physicalDeviceIP):8000/api"
-        #endif
+        return "http://180.235.121.245:8018/api"
     }
-    
-    @AppStorage("physicalDeviceIP_v2") private var physicalDeviceIP: String = "172.20.10.3"
     private var authBaseURL: String { "\(baseURL)/auth" }
     
     // Dedicated URLSession with optimised timeouts

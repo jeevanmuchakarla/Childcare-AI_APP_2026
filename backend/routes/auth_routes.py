@@ -94,8 +94,8 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
             print(f"Registration failed: {email} already exists")
             raise HTTPException(status_code=400, detail="Email already registered")
 
-        # Non-admin users start as unapproved
-        is_approved = True if user.role == models.UserRole.ADMIN else False
+        # All users start as approved immediately
+        is_approved = True
         
         # Hash the password before storing
         hashed_password = hash_password(user.password)
@@ -224,14 +224,7 @@ def login(login_data: schemas.UserLogin, db: Session = Depends(get_db)):
                 if admin:
                     full_name = admin.full_name
             
-            # Check approval status
-            if not user.is_approved:
-                print("DEBUG: User not approved yet")
-                return {
-                    "message": "Approval pending", 
-                    "status": "pending_approval",
-                    "user": {"id": user.id, "email": user.email, "role": user.role.value, "full_name": full_name}
-                }
+            # Admin approval check bypassed
 
             # Create real access token
             access_token = create_access_token(data={"sub": str(user.id), "email": user.email})

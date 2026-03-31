@@ -8,7 +8,7 @@
 	<dict>
 		<!-- Use this ONLY if your backend is HTTP (not HTTPS) -->
 		<key>NSAllowsArbitraryLoads</key>
-		<false/>
+		<true/>
 	</dict>
 
 	<!-- ── Camera Permission ── -->
