@@ -1,1 +1,72 @@
+# ── Xcode ──────────────────────────────────────────────
+.DS_Store
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+build/
+build.log
+build_output.log
+
+# ── Swift Package Manager ───────────────────────────────
+.build/
+.swiftpm/
+Packages/
+
+# ── CocoaPods ──────────────────────────────────────────
+Pods/
+*.xcworkspace
+
+# ── macOS ──────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ── Python / Backend ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+.env
+*.env
+
+# ── SQLite / Database files ────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# ── Backend uploads (user-generated content) ───────────
 backend/uploads/
+
+# ── Logs & temp files ──────────────────────────────────
+*.log
+*.tmp
+db_output.txt
+
+# ── VS Code ────────────────────────────────────────────
+.vscode/
+
+# ── Ruby scripts (dev-only helpers) ────────────────────
+add_file.rb
+add_file_selection.rb
