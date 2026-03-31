@@ -2,7 +2,6 @@ import SwiftUI
 
 public struct SplashView: View {
     @EnvironmentObject var appRouter: AppRouter
-    @State private var isActive = false
     @State private var scale: CGFloat = 0.8
     @State private var opacity: Double = 0.0
     
@@ -15,24 +14,19 @@ public struct SplashView: View {
             VStack(spacing: 24) {
                 Spacer()
                 
-                // Futuristic Logo representation
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(AppTheme.primary)
-                        .frame(width: 90, height: 90)
-                        .shadow(color: AppTheme.primary.opacity(0.3), radius: 15, x: 0, y: 8)
-                    
-                    Image(systemName: "brain.head.profile")
-                        .font(.system(size: 40, weight: .light))
-                        .foregroundColor(.white)
-                }
+                // Baby Dancing Animation
+                BabyDancingAnimation()
+                    .frame(width: 240, height: 240)
+                    .padding(.bottom, 20)
                 
                 Text("ChildCare AI™")
                     .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(AppTheme.accentBlack) // Black text
+                    .foregroundColor(AppTheme.textPrimary) // Adaptive primary text
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
-                    .background(Color.white) // White box background
+                    .background(AppTheme.surface) // Adaptive surface background
+                    .cornerRadius(12)
+                    .shadow(color: Color.black.opacity(0.1), radius: 10)
                 
                 Text("AI-Powered Childcare Discovery")
                     .font(.subheadline)
@@ -59,8 +53,9 @@ public struct SplashView: View {
                 self.opacity = 1.0
             }
             
-            // Navigate to onboarding after 2.5 seconds
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            // Navigate after splash animation completes with a professional delay.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                // Aligned with requirements: always go to onboarding -> logins
                 appRouter.navigate(to: .onboarding)
             }
         }

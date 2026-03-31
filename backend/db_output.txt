@@ -1,0 +1,32 @@
+--- Bookings ---
+(51, 9, 11, 1, 'Confirmed')
+(52, 9, 12, 1, 'Confirmed')
+
+--- Booking 51 ---
+(51, 1, 'Confirmed')
+
+--- Children ---
+(1, 'Jeevan', 9)
+
+--- Users ---
+(9, 'jeevanmuchakarla107@gmail.com', 'Parent')
+(11, 'muchakarlaarjun@gmail.com', 'Preschool')
+(12, 'saveethadoremon@gmail.com', 'Daycare')
+(13, 'mjeevankiranm@gmail.com', 'Admin')
+
+--- Meal Records ---
+
+--- Activity Records ---
+(1, 1, 'Attendance', 'Checked In', datetime.datetime(2026, 3, 16, 6, 2, 2))
+
+--- Notifications ---
+(19, 9, '📚 Daily Update', 'A new activity (Attendance) has been recorded for Jeevan.', datetime.datetime(2026, 3, 16, 6, 2, 2))
+(17, 9, '📢 Suresh Preschool Status Update', 'Status changed to Special Event. ', datetime.datetime(2026, 3, 16, 6, 0, 57))
+(18, 13, '🏢 Center Status Change: Suresh Preschool', 'Operational status: Special Event', datetime.datetime(2026, 3, 16, 6, 0, 57))
+(15, 9, '📝 New Daily Note', 'A new note has been posted: Preschool Verified: Daily note with notifications...', datetime.datetime(2026, 3, 16, 5, 12, 9))
+(16, 13, '📝 Daily Note: Suresh Preschool', 'New note: Preschool Verified: Daily note with notifications...', datetime.datetime(2026, 3, 16, 5, 12, 9))
+(14, 9, '🚨 EMERGENCY ALERT', 'Hello', datetime.datetime(2026, 3, 16, 4, 56, 35))
+(13, 9, '💬 New Message', 'You received a new message from Joseph Daycare.', datetime.datetime(2026, 3, 16, 4, 50, 59))
+(12, 12, '💬 New Message', 'You received a new message from Jeevan Muchakarla.', datetime.datetime(2026, 3, 16, 4, 48, 18))
+(11, 11, '💬 New Message', 'You received a new message from Jeevan Muchakarla.', datetime.datetime(2026, 3, 16, 4, 35, 8))
+(10, 12, '💬 New Message', 'You received a new message from Jeevan Muchakarla.', datetime.datetime(2026, 3, 14, 18, 50, 3))

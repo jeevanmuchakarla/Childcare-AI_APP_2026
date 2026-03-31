@@ -1,0 +1,82 @@
+INFO:     Will watch for changes in these directories: ['/Users/admin/Desktop/ChildCare AI/ChildCare AI/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [22538] using WatchFiles
+INFO:     Started server process [22601]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63529 - "GET /health HTTP/1.1" 200 OK
+DEBUG: Login attempt for email: jeevanmuchakarla107@gmail.com
+DEBUG: User found: ID=9, Role=UserRole.PARENT
+DEBUG: Login successful, returning response
+INFO:     172.20.10.1:64472 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64473 - "GET /api/providers/?role=Preschool HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64473 - "GET /api/providers/?role=Daycare HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/profile/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/providers/?role=Preschool HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64474 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/providers/?role=Daycare HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64474 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/profile/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/providers/?role=Preschool HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/providers/?role=Daycare HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/inbox/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/messages/unread_count/9 HTTP/1.1" 200 OK
+INFO:     172.20.10.1:64472 - "GET /api/notifications/9 HTTP/1.1" 200 OK

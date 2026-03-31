@@ -2,48 +2,64 @@ import SwiftUI
 
 public struct ParentTabView: View {
     @EnvironmentObject var appRouter: AppRouter
+    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var messageStore: MessageStore
     @State private var selectedTab = 0
     
     public init() {}
     
     public var body: some View {
         TabView(selection: $selectedTab) {
-            ParentHomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-                .tag(0)
+            NavigationStack {
+                ParentHomeView()
+            }
+            .tabItem {
+                Image(systemName: "house")
+                Text("Home")
+            }
+            .tag(0)
             
-            // To be replaced by actual views in later phases
-            Text("Bookings View")
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Bookings")
-                }
-                .tag(1)
+            NavigationStack {
+                ParentBookingsView()
+            }
+            .tabItem {
+                Image(systemName: "calendar")
+                Text("Bookings")
+            }
+            .tag(1)
             
-            Text("Children View")
-                .tabItem {
-                    Image(systemName: "face.smiling.fill")
-                    Text("Children")
-                }
-                .tag(2)
+            NavigationStack {
+                ChildrenTabView(role: .parent)
+            }
+            .tabItem {
+                Image(systemName: "figure.and.child.holdinghands")
+                Text("Children")
+            }
+            .tag(2)
             
-            Text("Chat View")
-                .tabItem {
-                    Image(systemName: "message.fill")
-                    Text("Chat")
-                }
-                .tag(3)
+            NavigationStack {
+                ChatView(role: .parent)
+            }
+            .tabItem {
+                Label("Chat", systemImage: "message")
+            }
+            .badge(messageStore.totalUnread > 0 ? messageStore.totalUnread : 0)
+            .tag(3)
             
-            Text("Settings View")
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }
-                .tag(4)
+            NavigationStack {
+                SettingsDashboardView(role: .parent)
+            }
+            .tabItem {
+                Image(systemName: "gearshape")
+                Text("Settings")
+            }
+            .tag(4)
         }
-        .accentColor(AppTheme.primary)
+        .accentColor(themeManager.primaryColor)
+        .onAppear {
+            if let userId = AuthService.shared.currentUser?.id {
+                messageStore.startBadgePolling(userId: userId)
+            }
+        }
     }
 }

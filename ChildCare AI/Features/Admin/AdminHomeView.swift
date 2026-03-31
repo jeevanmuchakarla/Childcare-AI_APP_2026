@@ -2,83 +2,158 @@ import SwiftUI
 
 public struct AdminHomeView: View {
     @EnvironmentObject var appRouter: AppRouter
+    @EnvironmentObject var themeManager: ThemeManager
+    @ObservedObject var authService = AuthService.shared
     @State private var showingProfile = false
+    @State private var navigateToNotifications = false
+    @State private var stats: PlatformStats?
     
     public init() {}
     
     public var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    
-                    // Welcome & High level KPI
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Platform Overview")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(AppTheme.textPrimary)
-                        Text("Real-time metrics for ChildCare AI™")
-                            .font(.subheadline)
-                            .foregroundColor(AppTheme.textSecondary)
-                    }
-                    .padding(.horizontal, AppTheme.padding)
-                    .padding(.top, 10)
-                    
-                    HStack(spacing: 16) {
-                        AdminKPICard(title: "Active Users", value: "12.4K", color: .blue)
-                        AdminKPICard(title: "MRR", value: "$45.2K", color: .green)
-                        AdminKPICard(title: "Pending Verifications", value: "32", color: .orange)
-                    }
-                    .padding(.horizontal, AppTheme.padding)
-                    
-                    // User Management Section
-                    AdminSection(title: "User Management") {
-                        VStack(spacing: 12) {
-                            AdminNavRow(title: "Parents", icon: "person.2.fill", color: .blue, destination: AnyView(ParentManagementScreen()))
-                            AdminNavRow(title: "Preschools", icon: "book.circle.fill", color: .indigo, destination: AnyView(PreschoolManagementScreen()))
-                            AdminNavRow(title: "Daycare Centers", icon: "building.2.fill", color: .teal, destination: AnyView(DaycareManagementScreen()))
-                            AdminNavRow(title: "Babysitters", icon: "figure.walk", color: .pink, destination: AnyView(BabysitterManagementScreen()))
-                            AdminNavRow(title: "Approvals", icon: "checkmark.seal.fill", color: .orange, destination: AnyView(VerificationWorkflowScreen()))
+        NavigationStack {
+            ZStack {
+                AppTheme.background.ignoresSafeArea()
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 24) {
+                        Spacer().frame(height: 10)
+                        
+                        // Standard Header
+                        HStack(spacing: 12) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Good morning,")
+                                    .font(.caption)
+                                    .foregroundColor(AppTheme.textSecondary)
+                                Text(AuthService.shared.currentUser?.full_name ?? "Admin")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(AppTheme.textPrimary)
+                            }
+                            Spacer()
+                            
+                            // Notifications Bell
+                            Button(action: { navigateToNotifications = true }) {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color.white)
+                                        .frame(width: 44, height: 44)
+                                        .shadow(color: Color.black.opacity(0.05), radius: 5)
+                                    
+                                    Image(systemName: "bell.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(themeManager.primaryColor)
+                                    
+                                    Circle()
+                                        .fill(.red)
+                                        .frame(width: 10, height: 10)
+                                        .offset(x: 8, y: -8)
+                                }
+                            }
+                            .buttonStyle(BounceButtonStyle())
+                            
+                            Menu {
+                                Button(action: { showingProfile = true }) {
+                                    Label("View Profile", systemImage: "person.crop.circle")
+                                }
+                                Button(role: .destructive, action: { appRouter.logout() }) {
+                                    Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+                                }
+                            } label: {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .resizable()
+                                    .frame(width: 44, height: 44)
+                                    .foregroundColor(themeManager.primaryColor)
+                                    .background(Circle().fill(Color.white))
+                                    .shadow(color: Color.black.opacity(0.05), radius: 5)
+                            }
+                        }
+                        .padding(.horizontal, AppTheme.padding)
+                        .padding(.top, 10)
+                        
+                        // Welcome & High level KPI
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Platform Overview")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundColor(AppTheme.textPrimary)
+                            Text("Real-time metrics for ChildCare AI™")
+                                .font(.caption)
+                                .foregroundColor(AppTheme.textSecondary)
+                        }
+                        .padding(.horizontal, AppTheme.padding)
+                        .padding(.top, 4)
+                        
+                        HStack(spacing: 16) {
+                            AdminKPICard(
+                                title: "Active Users", 
+                                value: "\(stats?.users.total ?? 0)", 
+                                color: .blue
+                            )
+                            AdminKPICard(
+                                title: "Total Revenue", 
+                                value: "$\(String(format: "%.1f", (stats?.revenue.total_usd ?? 0)/1000))K", 
+                                color: .green
+                            )
+                            AdminKPICard(
+                                title: "Pending", 
+                                value: "\(stats?.metrics.pending_verification ?? 0)",
+                                color: .orange
+                            )
+                        }
+                        .padding(.horizontal, AppTheme.padding)
+                        
+                        // User Management Section
+                        AdminSection(title: "Management") {
+                            VStack(spacing: 12) {
+                                AdminNavRow(title: "Users", icon: "person.2.fill", color: .blue)
+                                AdminNavRow(title: "Approvals", icon: "checkmark.seal.fill", color: .orange)
+                                AdminNavRow(title: "Bookings", icon: "calendar.badge.clock", color: .cyan)
+                            }
+                        }
+                        
+                        // Core Operations Section
+                        AdminSection(title: "Analytics") {
+                            VStack(spacing: 12) {
+                                AdminNavRow(title: "Revenue", icon: "dollarsign.circle.fill", color: .green)
+                                AdminNavRow(title: "AI Performance", icon: "brain.head.profile", color: .purple)
+                            }
                         }
                     }
-                    
-                    // Core Operations Section
-                    AdminSection(title: "Core Operations") {
-                        VStack(spacing: 12) {
-                            AdminNavRow(title: "Revenue", icon: "dollarsign.circle.fill", color: .green, destination: AnyView(RevenueAnalyticsScreen()))
-                            AdminNavRow(title: "Bookings", icon: "calendar.badge.clock", color: .cyan, destination: AnyView(BookingMonitoringScreen()))
-                            AdminNavRow(title: "AI Performance", icon: "brain.head.profile", color: .purple, destination: AnyView(AIMetricsScreen()))
-                        }
-                    }
-                    
-                    // Admin Reports Section
-                    AdminSection(title: "System Reports") {
-                        VStack(spacing: 12) {
-                            AdminNavRow(title: "Booking Reports", icon: "chart.bar.doc.horizontal", color: .gray, destination: AnyView(BookingReportScreen()))
-                            AdminNavRow(title: "Revenue Reports", icon: "chart.pie.fill", color: .gray, destination: AnyView(AnalyticsReportScreen()))
-                            AdminNavRow(title: "Usage Reports", icon: "waveform.path.ecg", color: .gray, destination: AnyView(MetricsReportScreen()))
-                            AdminNavRow(title: "AI Insights", icon: "sparkles.rectangle.stack", color: .gray, destination: AnyView(AIInsightsScreen()))
-                        }
-                    }
-                    
-                    Spacer(minLength: 40)
                 }
             }
-            .background(AppTheme.background.ignoresSafeArea())
-            .navigationTitle("Admin Dashboard")
-            .navigationBarItems(trailing:
-                Menu {
-                    Button(action: { showingProfile = true }) { Label("Admin Settings", systemImage: "gear") }
-                    Button(role: .destructive, action: { appRouter.logout() }) { Label("Logout", systemImage: "rectangle.portrait.and.arrow.right") }
-                } label: {
-                    Image(systemName: "person.badge.key.fill")
-                        .foregroundColor(.indigo)
-                        .font(.title3)
+            .task {
+                do {
+                    stats = try await AdminService.shared.fetchStats()
+                } catch {
                 }
-            )
-            .background(
-                NavigationLink(destination: Text("Admin Settings"), isActive: $showingProfile) { EmptyView() }
-            )
+            }
+            .navigationBarHidden(true)
+            .navigationDestination(isPresented: $navigateToNotifications) {
+                NotificationsView()
+            }
+            .navigationDestination(isPresented: $showingProfile) {
+                ProfileView()
+            }
+            .navigationDestination(for: String.self) { title in
+                adminDestination(for: title)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func adminDestination(for title: String) -> some View {
+        switch title {
+        case "Users": AdminManagementView(initialTab: 0)
+        case "Approvals": PendingUsersView()
+        case "Bookings": AdminManagementView(initialTab: 2)
+        case "Revenue": RevenueAnalyticsScreen()
+        case "AI Performance": AIMetricsScreen()
+        case "Booking Reports": BookingReportScreen()
+        case "Revenue Reports": AnalyticsReportScreen()
+        case "Usage Reports": MetricsReportScreen()
+        case "AI Insights": AIInsightsScreen()
+        default: EmptyView()
         }
     }
 }
@@ -115,7 +190,12 @@ struct AdminKPICard: View {
 
 struct AdminSection<Content: View>: View {
     let title: String
-    let content: () -> Content
+    let content: Content
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -124,7 +204,7 @@ struct AdminSection<Content: View>: View {
                 .foregroundColor(AppTheme.textPrimary)
                 .padding(.horizontal, AppTheme.padding)
             
-            content()
+            content
                 .padding(.horizontal, AppTheme.padding)
         }
         .padding(.top, 10)
@@ -135,10 +215,9 @@ struct AdminNavRow: View {
     let title: String
     let icon: String
     let color: Color
-    let destination: AnyView
     
     var body: some View {
-        NavigationLink(destination: destination) {
+        NavigationLink(value: title) {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.title3)

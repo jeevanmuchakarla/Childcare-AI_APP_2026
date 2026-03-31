@@ -1,0 +1,19 @@
+{
+    "pythonVersion": "3.12",
+    "venvPath": ".",
+    "venv": "venv",
+    "include": [
+        "."
+    ],
+    "exclude": [
+        "**/venv",
+        "**/__pycache__"
+    ],
+    "extraPaths": [
+        ".",
+        "routes",
+        "utils"
+    ],
+    "typeCheckingMode": "basic",
+    "useLibraryCodeForTypes": true
+}

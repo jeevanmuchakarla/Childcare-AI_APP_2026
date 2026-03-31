@@ -1,5 +1,14 @@
 import SwiftUI
 
+public struct BounceButtonStyle: ButtonStyle {
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: configuration.isPressed)
+    }
+}
+
 public struct DarkNavyButton: View {
     public let title: String
     public let hasChevron: Bool
@@ -13,24 +22,37 @@ public struct DarkNavyButton: View {
     
     public var body: some View {
         Button(action: action) {
-            HStack {
+            HStack(spacing: 12) {
                 Text(title)
                 if hasChevron {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "arrow.right")
                         .font(.system(size: 14, weight: .bold))
                 }
             }
-            .font(.headline)
+            .font(.system(size: 17, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
             .frame(height: AppTheme.buttonHeight)
-            .background(AppTheme.accentBlack)
-            .cornerRadius(AppTheme.cornerRadius)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [Color(hex: "#1A1A1A"), Color(hex: "#000000")]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
+            .cornerRadius(18)
+            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+            )
         }
         .padding(.horizontal, AppTheme.padding)
+        .buttonStyle(BounceButtonStyle())
     }
 }
 public struct PrimaryButton: View {
+    @EnvironmentObject var themeManager: ThemeManager
     public let title: String
     public let action: () -> Void
     
@@ -42,19 +64,34 @@ public struct PrimaryButton: View {
     public var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.headline)
-                .foregroundColor(AppTheme.surface)
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .frame(height: AppTheme.buttonHeight)
-                .background(AppTheme.primaryGradient)
-                .cornerRadius(AppTheme.cornerRadius)
-                .shadow(color: AppTheme.primary.opacity(0.3), radius: 8, x: 0, y: 4)
+                .background(
+                    ZStack {
+                        themeManager.primaryGradient
+                        LinearGradient(
+                            gradient: Gradient(colors: [.white.opacity(0.2), .clear]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    }
+                )
+                .cornerRadius(18)
+                .shadow(color: themeManager.primaryColor.opacity(0.4), radius: 12, x: 0, y: 6)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                )
         }
         .padding(.horizontal, AppTheme.padding)
+        .buttonStyle(BounceButtonStyle())
     }
 }
 
 public struct SecondaryButton: View {
+    @EnvironmentObject var themeManager: ThemeManager
     public let title: String
     public let action: () -> Void
     
@@ -67,17 +104,18 @@ public struct SecondaryButton: View {
         Button(action: action) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(AppTheme.primary)
+                .foregroundColor(themeManager.primaryColor)
                 .frame(maxWidth: .infinity)
                 .frame(height: AppTheme.buttonHeight)
                 .background(AppTheme.surface)
                 .cornerRadius(AppTheme.cornerRadius)
                 .overlay(
                     RoundedRectangle(cornerRadius: AppTheme.cornerRadius)
-                        .stroke(AppTheme.primary, lineWidth: 2)
+                        .stroke(themeManager.primaryColor, lineWidth: 2)
                 )
         }
         .padding(.horizontal, AppTheme.padding)
+        .buttonStyle(BounceButtonStyle())
     }
 }
 
@@ -120,6 +158,7 @@ public struct CustomTextField: View {
 }
 
 public struct ActionCard: View {
+    @EnvironmentObject var themeManager: ThemeManager
     public let title: String
     public let iconName: String
     public let action: () -> Void
@@ -135,7 +174,7 @@ public struct ActionCard: View {
             VStack(spacing: 12) {
                 Image(systemName: iconName)
                     .font(.system(size: 32, weight: .light))
-                    .foregroundColor(AppTheme.primary)
+                    .foregroundColor(themeManager.primaryColor)
                 
                 Text(title)
                     .font(.subheadline)
@@ -148,10 +187,12 @@ public struct ActionCard: View {
             .cornerRadius(AppTheme.cornerRadius)
             .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 3)
         }
+        .buttonStyle(BounceButtonStyle())
     }
 }
 
 public struct AvatarButton: View {
+    @EnvironmentObject var themeManager: ThemeManager
     public let action: () -> Void
     
     public init(action: @escaping () -> Void) {
@@ -163,12 +204,13 @@ public struct AvatarButton: View {
             Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: 40, height: 40)
-                .foregroundColor(AppTheme.primary)
+                .foregroundColor(themeManager.primaryColor)
         }
     }
 }
 
 public struct SegmentedSelectionCard: View {
+    @EnvironmentObject var themeManager: ThemeManager
     public let title: String
     public let description: String
     public let priceText: String
@@ -188,18 +230,19 @@ public struct SegmentedSelectionCard: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
-                        .font(.headline)
-                        .foregroundColor(isSelected ? AppTheme.primary : AppTheme.textPrimary)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(isSelected ? themeManager.primaryColor : AppTheme.textPrimary)
                     
                     Text(description)
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(AppTheme.textSecondary)
                     
                     if !priceText.isEmpty {
                         Text(priceText)
-                            .font(.caption2)
+                            .font(.caption) // Changed from .caption2 to .caption
                             .foregroundColor(AppTheme.textSecondary)
-                            .padding(.top, 4)
+                            .padding(.top, 8) // Increased padding from 4 to 8
                     }
                 }
                 
@@ -207,25 +250,53 @@ public struct SegmentedSelectionCard: View {
                 
                 ZStack {
                     Circle()
-                        .stroke(isSelected ? AppTheme.primary : Color.gray.opacity(0.3), lineWidth: 2)
+                        .stroke(isSelected ? themeManager.primaryColor : Color.gray.opacity(0.3), lineWidth: 2)
                         .frame(width: 20, height: 20)
                     
                     if isSelected {
                         Circle()
-                            .fill(AppTheme.primary)
+                            .fill(themeManager.primaryGradient)
                             .frame(width: 10, height: 10)
                     }
                 }
             }
-            .padding()
+            .padding(20)
             .background(AppTheme.surface)
             .cornerRadius(12)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(isSelected ? AppTheme.primary : Color.gray.opacity(0.2), lineWidth: isSelected ? 2 : 1)
+                    .stroke(isSelected ? themeManager.primaryColor : Color.gray.opacity(0.2), lineWidth: isSelected ? 2 : 1)
             )
             .padding(.horizontal, AppTheme.padding)
         }
         .buttonStyle(PlainButtonStyle())
+    }
+}
+
+public struct GrowthChartView: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    public let data: [Double]
+    
+    public init(data: [Double]) {
+        self.data = data
+    }
+    
+    public var body: some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            ForEach(0..<data.count, id: \.self) { index in
+                VStack(spacing: 8) {
+                    Spacer()
+                    ZStack(alignment: .bottom) {
+                        Capsule()
+                            .fill(Color(hex: "#F1F4F9"))
+                            .frame(width: 20)
+                        
+                        Capsule()
+                            .fill(themeManager.primaryGradient)
+                            .frame(width: 20, height: max(0, min(120, CGFloat(data[index]))))
+                    }
+                }
+            }
+        }
     }
 }

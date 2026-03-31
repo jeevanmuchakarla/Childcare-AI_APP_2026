@@ -1,105 +1,219 @@
 import SwiftUI
 
 public struct ChildProfileView: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var childStore: ChildStore
+    @State private var showingEditProfile = false
+    @State private var childPhoto: UIImage? = nil
+    
+    let childId: Int
     let name: String
     let age: String
+    let role: UserRole
     
-    public init(name: String, age: String) {
+    public init(childId: Int, name: String, age: String, role: UserRole) {
+        self.childId = childId
         self.name = name
         self.age = age
+        self.role = role
+    }
+    
+    // Dynamically retrieve the child model from the store if parent
+    private var childModel: Child? {
+        if role == .parent {
+            return childStore.children.first { $0.id == childId }
+        }
+        return nil
     }
     
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                // Header Profile Info
-                VStack(spacing: 12) {
-                    ZStack {
-                        Circle()
-                            .fill(AppTheme.primaryGradient)
-                            .frame(width: 100, height: 100)
-                            .shadow(color: AppTheme.primary.opacity(0.3), radius: 10, x: 0, y: 5)
+        VStack(spacing: 0) {
+            // New Premium Header
+            ZStack(alignment: .top) {
+                // Background Gradient
+                LinearGradient(colors: [themeManager.primaryColor, themeManager.primaryColor.opacity(0.8)], startPoint: .top, endPoint: .bottom)
+                    .frame(height: 220)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
+                    // Header Bar
+                    HStack {
+                        Button(action: { dismiss() }) {
+                            Circle()
+                                .fill(Color.white.opacity(0.2))
+                                .frame(width: 40, height: 40)
+                                .overlay(
+                                    Image(systemName: "chevron.left")
+                                        .font(.system(size: 16, weight: .bold))
+                                        .foregroundColor(.white)
+                                )
+                        }
+                        
+                        Spacer()
+                        
+                        if role == .parent {
+                            Button(action: { showingEditProfile = true }) {
+                                Text("Edit")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                                    .background(Color.white.opacity(0.2))
+                                    .cornerRadius(20)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                    
+                    // Centered Profile Image & Name
+                    VStack(spacing: 12) {
+                        ZStack {
+                            if let photo = childPhoto {
+                                Image(uiImage: photo)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 3))
+                                    .shadow(color: Color.black.opacity(0.1), radius: 10)
+                            } else {
+                                Circle()
+                                    .fill(Color.white.opacity(0.2))
+                                    .frame(width: 100, height: 100)
+                                    .overlay(
+                                        Text(String(name.prefix(1)))
+                                            .font(.system(size: 40, weight: .bold))
+                                            .foregroundColor(.white)
+                                    )
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            }
+                        }
+                        
+                        VStack(spacing: 4) {
+                            Text(childModel?.name ?? name)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(AppTheme.textPrimary)
                             
-                        Text(String(name.prefix(1)))
-                            .font(.system(size: 40, weight: .bold))
-                            .foregroundColor(.white)
+                            HStack {
+                                Image(systemName: "calendar")
+                                Text(childModel?.age ?? age)
+                            }
+                            .font(.caption)
+                            .foregroundColor(AppTheme.textSecondary)
+                        }
                     }
-                    .padding(.top, 20)
-                    
-                    Text(name)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(AppTheme.textPrimary)
-                    
-                    Text("\(age) Old • Joined Sep 2023")
-                        .font(.subheadline)
-                        .foregroundColor(AppTheme.textSecondary)
+                    .padding(.top, 5)
                 }
-                
-                // Action Buttons
-                HStack(spacing: 16) {
-                    NavigationLink(destination: DailyReportOverviewView(childName: name)) {
-                        VStack(spacing: 8) {
-                            Image(systemName: "list.clipboard.fill")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("Daily Report")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(AppTheme.primaryGradient)
-                        .cornerRadius(AppTheme.cornerRadius)
-                        .shadow(color: AppTheme.primary.opacity(0.3), radius: 5, x: 0, y: 3)
-                    }
+            }
+            
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 24) {
                     
-                    Button(action: {}) {
-                        VStack(spacing: 8) {
-                            Image(systemName: "message.fill")
-                                .font(.title2)
-                                .foregroundColor(AppTheme.primary)
-                            Text("Message Provider")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(AppTheme.primary)
+                    // Medical & Emergency Info
+                    VStack(alignment: .leading, spacing: 16) {
+                        sectionHeader(title: "Important Information", icon: "exclamationmark.shield.fill", color: .red)
+                        
+                        VStack(spacing: 12) {
+                            InfoRow(
+                                icon: "heart.text.square.fill", 
+                                title: "Food Allergies", 
+                                value: (childModel?.allergies?.isEmpty == false) ? childModel!.allergies! : "None specified", 
+                                color: .red
+                            )
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(AppTheme.surface)
-                        .cornerRadius(AppTheme.cornerRadius)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: AppTheme.cornerRadius)
-                                .stroke(AppTheme.primary, lineWidth: 2)
-                        )
                     }
+                    .padding()
+                    .background(AppTheme.surface)
+                    .cornerRadius(AppTheme.cornerRadius)
+                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 4)
+                    
+                    // Personal Details
+                    VStack(alignment: .leading, spacing: 16) {
+                        sectionHeader(title: "Medical & Health Notes", icon: "cross.case.fill", color: .blue)
+                        
+                        VStack(spacing: 12) {
+                            InfoRow(
+                                icon: "doc.text.fill", 
+                                title: "Notes", 
+                                value: (childModel?.medicalNotes?.isEmpty == false) ? childModel!.medicalNotes! : "No medical notes", 
+                                color: .blue
+                            )
+                        }
+                    }
+                    .padding()
+                    .background(AppTheme.surface)
+                    .cornerRadius(AppTheme.cornerRadius)
+                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 4)
+                    
+                    // Emergency Info
+                    VStack(alignment: .leading, spacing: 16) {
+                        sectionHeader(title: "Emergency Info", icon: "phone.circle.fill", color: .green)
+                        
+                        VStack(spacing: 12) {
+                            InfoRow(
+                                icon: "phone.fill", 
+                                title: "Emergency Contact", 
+                                value: (childModel?.emergencyContact?.isEmpty == false) ? childModel!.emergencyContact! : "Not provided", 
+                                color: .green
+                            )
+                        }
+                    }
+                    .padding()
+                    .background(AppTheme.surface)
+                    .cornerRadius(AppTheme.cornerRadius)
+                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 4)
                 }
                 .padding(.horizontal, AppTheme.padding)
-                
-                // Medical & Emergency Info
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Important Information")
-                        .font(.headline)
-                        .foregroundColor(AppTheme.textPrimary)
-                    
-                    InfoRow(icon: "cross.case.fill", title: "Allergies", value: "Peanuts, Penicillin", color: .red)
-                    InfoRow(icon: "pills.fill", title: "Medications", value: "None", color: .blue)
-                    InfoRow(icon: "phone.circle.fill", title: "Emergency Contact", value: "Mom: 555-0192", color: .green)
-                    InfoRow(icon: "person.crop.circle.badge.plus", title: "Authorized Pickups", value: "Mom, Dad, Grandma", color: .purple)
-                }
-                .padding()
-                .background(AppTheme.surface)
-                .cornerRadius(AppTheme.cornerRadius)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
-                .padding(.horizontal, AppTheme.padding)
+                .padding(.top, 24)
                 
                 Spacer(minLength: 40)
             }
         }
         .background(AppTheme.background.ignoresSafeArea())
-        .navigationTitle("\(name)'s Profile")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
+        .onAppear { 
+            fetchChildPhoto()
+        }
+        .sheet(isPresented: $showingEditProfile) {
+            EditChildProfileView(
+                childId: childId, 
+                name: childModel?.name ?? name, 
+                age: childModel?.age ?? age,
+                medicalNotes: childModel?.medicalNotes,
+                foodAllergies: childModel?.allergies,
+                emergencyContact: childModel?.emergencyContact
+            )
+        }
+    }
+    
+    private func fetchChildPhoto() {
+        Task {
+            do {
+                let url = URL(string: "\(AuthService.shared.baseURL)/profile/child/\(childId)/photo")!
+                let (data, response) = try await URLSession.shared.data(from: url)
+                if let http = response as? HTTPURLResponse, http.statusCode == 200, let image = UIImage(data: data) {
+                    await MainActor.run {
+                        self.childPhoto = image
+                    }
+                }
+            } catch {
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(title: String, icon: String, color: Color) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: icon)
+                .foregroundColor(color)
+            Text(title)
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(AppTheme.textPrimary)
+        }
     }
 }
 
@@ -129,3 +243,4 @@ struct InfoRow: View {
         }
     }
 }
+

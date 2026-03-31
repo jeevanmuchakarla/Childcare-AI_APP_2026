@@ -13,9 +13,7 @@ public struct DaycareManagementScreen: View {
     public var body: some View { AdminListScreen(title: "Daycare Centers", icon: "building.2.fill") }
 }
 
-public struct BabysitterManagementScreen: View {
-    public var body: some View { AdminListScreen(title: "Babysitters", icon: "figure.walk") }
-}
+
 
 public struct VerificationWorkflowScreen: View {
     public var body: some View { AdminListScreen(title: "Pending Approvals", icon: "checkmark.seal.fill") }

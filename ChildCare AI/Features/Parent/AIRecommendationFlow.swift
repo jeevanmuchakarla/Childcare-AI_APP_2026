@@ -4,34 +4,44 @@ enum AIRecommendationStep: Int, CaseIterable {
     case type = 1
     case age = 2
     case budget = 3
-    case distance = 4
+    case location = 4
     case timing = 5
     case ratings = 6
     case results = 7
-    case booking = 8
 }
+
+
 
 public struct AIRecommendationFlow: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var bookingStore: BookingStore
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var currentStep: AIRecommendationStep = .type
     
     // State variables
     @State private var selectedType = ""
     @State private var selectedAge = "1-2 years"
     @State private var selectedBudget = "Standard"
-    @State private var distanceValue: Double = 5.0
+    @State private var selectedLocation = "Anywhere in Chennai"
     @State private var dropoffTime = "08:00 AM"
     @State private var pickupTime = "05:00 PM"
     @State private var selectedRating = 4
     
+    @State private var showingInlineDropoff = false
+    @State private var showingInlinePickup = false
+    @State private var tempDropoffDate = Date()
+    @State private var tempPickupDate = Date()
+    
     @State private var isAnalyzing = false
+    @State private var recommendations: [AIRecommendation] = []
+    @State private var errorMessage: String? = nil
     
     public init() {}
     
     public var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                if currentStep != .results && currentStep != .booking && !isAnalyzing {
+                if currentStep != .results && !isAnalyzing {
                     // Progress Bar Header
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
@@ -46,7 +56,7 @@ public struct AIRecommendationFlow: View {
                             }) {
                                 Image(systemName: "chevron.left")
                                     .font(.title3)
-                                    .foregroundColor(AppTheme.primary)
+                                    .foregroundColor(themeManager.primaryColor)
                             }
                             
                             Spacer()
@@ -71,7 +81,7 @@ public struct AIRecommendationFlow: View {
                                     .cornerRadius(4)
                                 
                                 Rectangle()
-                                    .fill(AppTheme.primary)
+                                    .fill(themeManager.primaryColor)
                                     .frame(width: geometry.size.width * CGFloat(currentStep.rawValue) / 6.0, height: 8)
                                     .cornerRadius(4)
                                     .animation(.easeInOut, value: currentStep.rawValue)
@@ -93,11 +103,10 @@ public struct AIRecommendationFlow: View {
                             case .type: typeSelectionView
                             case .age: ageSelectionView
                             case .budget: budgetSelectionView
-                            case .distance: distanceSelectionView
+                            case .location: locationSelectionView
                             case .timing: timingSelectionView
                             case .ratings: ratingsSelectionView
                             case .results: resultsView
-                            case .booking: bookingConfirmationView
                             }
                         }
                     }
@@ -105,13 +114,15 @@ public struct AIRecommendationFlow: View {
                     .padding(.bottom, 40)
                 }
                 
-                if currentStep != .results && currentStep != .booking && !isAnalyzing {
+                if currentStep != .results && !isAnalyzing {
                     VStack(spacing: 16) {
                         PrimaryButton(title: currentStep == .ratings ? "Find Matches" : "Continue") {
-                            withAnimation {
-                                if currentStep == .ratings {
-                                    startAnalysis()
-                                } else {
+                            if currentStep == .ratings {
+                                Task {
+                                    await startAnalysis()
+                                }
+                            } else {
+                                withAnimation {
                                     currentStep = AIRecommendationStep(rawValue: currentStep.rawValue + 1) ?? .results
                                 }
                             }
@@ -126,26 +137,116 @@ public struct AIRecommendationFlow: View {
         }
     }
     
-    private func startAnalysis() {
+    @MainActor
+    private func startAnalysis() async {
         isAnalyzing = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            withAnimation {
-                isAnalyzing = false
-                currentStep = .results
+        errorMessage = nil
+        recommendations = []
+        
+        let typeVal = selectedType.isEmpty ? "Preschool" : selectedType
+        let timingVal = "\(dropoffTime)-\(pickupTime)"
+        do {
+            let results = try await AIService.shared.fetchRecommendations(
+                type: typeVal,
+                budget: selectedBudget,
+                location: selectedLocation == "Anywhere in Chennai" ? nil : selectedLocation,
+                age: selectedAge,
+                timing: timingVal
+            )
+            
+            if !results.isEmpty {
+                self.recommendations = results
+                self.isAnalyzing = false
+                withAnimation {
+                    self.currentStep = .results
+                }
+            } else {
+                self.errorMessage = "No recommendations found. Try adjusting your preferences."
+                self.isAnalyzing = false
             }
+        } catch {
+            self.errorMessage = "Failed to fetch AI recommendations: \(error.localizedDescription)"
+            self.isAnalyzing = false
         }
+    }
+    
+    
+    private func useMockData() {
+        let typeVal = selectedType.isEmpty ? "Preschools" : selectedType
+        
+        let mockData: [AIRecommendation]
+        if typeVal.contains("Daycare") {
+            mockData = [
+                AIRecommendation(id: 1, name: "Happy Tots Daycare Center", provider_type: "Daycare", rating: 4.9, distance_km: 1.2, monthly_price: 850, match_score: 98, experience: "10 years", address: "123 Main St, Chennai", phone: "9840123456", timing: "08:00 AM-05:00 PM", age_range: "1-5", latitude: 13.0405, longitude: 80.2337),
+                AIRecommendation(id: 2, name: "Safe Haven Childcare", provider_type: "Daycare", rating: 4.7, distance_km: 3.1, monthly_price: 700, match_score: 92, experience: "8 years", address: "456 Side Rd, Chennai", phone: "9840654321", timing: "07:30 AM-06:00 PM", age_range: "1-6", latitude: 13.0489, longitude: 80.1114),
+            ]
+        } else {
+            mockData = [
+                AIRecommendation(id: 3, name: "Bright Futures Preschool", provider_type: "Preschool", rating: 4.9, distance_km: 1.2, monthly_price: 1200, match_score: 98, experience: "12 years", address: "321 Education St, Chennai", phone: "9840111222", timing: "09:00 AM-03:00 PM", age_range: "2-5", latitude: 13.0405, longitude: 80.2337),
+                AIRecommendation(id: 4, name: "Little Learners Prep", provider_type: "Preschool", rating: 4.7, distance_km: 2.5, monthly_price: 950, match_score: 92, experience: "7 years", address: "654 School Ln, Chennai", phone: "9840333444", timing: "08:30 AM-01:30 PM", age_range: "3-5", latitude: 13.0850, longitude: 80.2189),
+            ]
+        }
+        
+        self.recommendations = mockData
+        self.isAnalyzing = false
+        self.currentStep = .results
     }
     
     // MARK: - Step Views
     
+    
     private var typeSelectionView: some View {
         VStack(alignment: .leading, spacing: 24) {
+            // App Description Txt Section
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 8) {
+                    Image(systemName: "sparkles")
+                        .foregroundColor(themeManager.primaryColor)
+                        .font(.headline)
+                    Text("About ChildCare AI")
+                        .font(.headline)
+                        .foregroundColor(AppTheme.textPrimary)
+                }
+                
+                Text("ChildCare AI leverages advanced algorithms to match your family with the highest-rated preschools and daycares. Our platform simplifies the search process, providing real-time data and personalized recommendations centered on your child's developmental needs and your family's preferences.")
+                    .font(.subheadline)
+                    .foregroundColor(AppTheme.textSecondary)
+                    .lineSpacing(4)
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                HStack(spacing: 16) {
+                    Label("Verified Providers", systemImage: "checkmark.seal.fill")
+                        .font(.caption)
+                        .foregroundColor(themeManager.primaryColor)
+                    
+                    Label("Real-time Data", systemImage: "bolt.fill")
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                }
+                .padding(.top, 4)
+            }
+            .padding(20)
+            .background(themeManager.primaryColor.opacity(0.05))
+            .cornerRadius(18)
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(themeManager.primaryColor.opacity(0.1), lineWidth: 1)
+            )
+            .padding(.bottom, 8)
+
             HeaderView(title: "What type of care are you looking for?")
             
-            VStack(spacing: 16) {
-                SelectionCard(title: "Preschool", sub: "Early education focus", icon: "book.fill", isSelected: selectedType == "Preschool") { selectedType = "Preschool" }
-                SelectionCard(title: "Daycare Center", sub: "Structured daily care", icon: "building.2.fill", isSelected: selectedType == "Daycare Center") { selectedType = "Daycare Center" }
-                SelectionCard(title: "Babysitter", sub: "Flexible, personal care", icon: "person.2.fill", isSelected: selectedType == "Babysitter") { selectedType = "Babysitter" }
+            VStack(spacing: 20) {
+                SelectionCard(title: "Preschools", sub: "Early education focus", icon: "book.fill", isSelected: selectedType == "Preschools") { 
+                    withAnimation(.spring()) {
+                        selectedType = "Preschools"
+                    }
+                }
+                SelectionCard(title: "Daycares", sub: "Structured daily care", icon: "building.2.fill", isSelected: selectedType == "Daycares") { 
+                    withAnimation(.spring()) {
+                        selectedType = "Daycares"
+                    }
+                }
             }
         }
         .padding(.top, 30)
@@ -155,22 +256,26 @@ public struct AIRecommendationFlow: View {
         VStack(alignment: .leading, spacing: 24) {
             HeaderView(title: "How old is your child?")
             
-            let ages = ["0-12 months", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5+ years"]
+            let ages = ["Infant (0-12m)", "Toddler (1-2y)", "Preschooler (3-4y)", "Pre-K (4-5y)", "Explorer (5-6y)", "Student (6y+)"]
             
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                 ForEach(ages, id: \.self) { age in
-                    Button(action: { selectedAge = age }) {
+                    Button(action: { 
+                        withAnimation(.spring()) {
+                            selectedAge = age 
+                        }
+                    }) {
                         Text(age)
-                            .font(.body)
-                            .fontWeight(selectedAge == age ? .bold : .medium)
-                            .foregroundColor(selectedAge == age ? AppTheme.primary : AppTheme.textPrimary)
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(selectedAge == age ? .white : AppTheme.textPrimary)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 20)
-                            .background(AppTheme.surface)
-                            .cornerRadius(16)
+                            .frame(height: 80)
+                            .background(selectedAge == age ? themeManager.primaryColor : AppTheme.surface)
+                            .cornerRadius(20)
+                            .shadow(color: selectedAge == age ? themeManager.primaryColor.opacity(0.3) : Color.black.opacity(0.05), radius: 10, y: 5)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(selectedAge == age ? AppTheme.primary : Color.gray.opacity(0.2), lineWidth: selectedAge == age ? 2 : 1)
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(selectedAge == age ? Color.white.opacity(0.2) : Color.gray.opacity(0.1), lineWidth: 1)
                             )
                     }
                 }
@@ -209,29 +314,43 @@ public struct AIRecommendationFlow: View {
         .padding(.top, 30)
     }
     
-    private var distanceSelectionView: some View {
+    private var locationSelectionView: some View {
         VStack(alignment: .leading, spacing: 24) {
-            HeaderView(title: "Preferred distance?")
+            HeaderView(title: "Preferred location?")
             
-            VStack(spacing: 40) {
-                Text("\(Int(distanceValue)) km")
-                    .font(.system(size: 48, weight: .bold))
-                    .foregroundColor(AppTheme.primary)
-                
-                Slider(value: $distanceValue, in: 1...20, step: 1)
-                    .accentColor(AppTheme.primary)
-                
-                HStack {
-                    Text("1 km")
-                        .font(.caption)
-                        .foregroundColor(AppTheme.textSecondary)
-                    Spacer()
-                    Text("20 km")
-                        .font(.caption)
-                        .foregroundColor(AppTheme.textSecondary)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 16) {
+                    let locations = ["Anywhere in Chennai", "Anna Nagar", "T Nagar", "Adyar", "Velachery", "Porur", "Tambaram", "Sholinganallur", "Medavakkam", "OMR"]
+                    
+                    ForEach(locations, id: \.self) { location in
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                selectedLocation = location
+                            }
+                        }) {
+                            HStack {
+                                Text(location)
+                                    .font(.headline)
+                                    .foregroundColor(selectedLocation == location ? .white : AppTheme.textPrimary)
+                                Spacer()
+                                if selectedLocation == location {
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            .padding()
+                            .background(selectedLocation == location ? themeManager.primaryColor : AppTheme.surface)
+                            .cornerRadius(16)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(selectedLocation == location ? Color.clear : Color.gray.opacity(0.1), lineWidth: 1)
+                            )
+                        }
+                        .buttonStyle(BounceButtonStyle())
+                    }
                 }
+                .padding(.top, 10)
             }
-            .padding(.top, 40)
         }
         .padding(.top, 30)
     }
@@ -240,79 +359,145 @@ public struct AIRecommendationFlow: View {
         VStack(alignment: .leading, spacing: 24) {
             HeaderView(title: "Timing preference?")
             
-            VStack(spacing: 20) {
-                VStack(alignment: .leading, spacing: 8) {
+            VStack(spacing: 24) {
+                // Drop-off
+                VStack(alignment: .leading, spacing: 12) {
                     Text("Drop-off Time")
-                        .font(.subheadline)
+                        .font(.headline)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    HStack {
-                        Image(systemName: "clock")
-                            .foregroundColor(AppTheme.textSecondary)
-                        Text(dropoffTime)
-                            .foregroundColor(AppTheme.textPrimary)
-                        Spacer()
+                    Button(action: { 
+                        withAnimation { 
+                            showingInlineDropoff.toggle()
+                            showingInlinePickup = false
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(themeManager.primaryColor)
+                            Text(dropoffTime)
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(AppTheme.textPrimary)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.gray)
+                                .rotationEffect(.degrees(showingInlineDropoff ? 180 : 0))
+                        }
+                        .padding(20)
+                        .background(AppTheme.surface)
+                        .cornerRadius(16)
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 5)
                     }
-                    .padding()
-                    .background(AppTheme.surface)
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                    )
+                    
+                    if showingInlineDropoff {
+                        DatePicker("", selection: $tempDropoffDate, displayedComponents: .hourAndMinute)
+                            .datePickerStyle(.wheel)
+                            .labelsHidden()
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(AppTheme.surface)
+                            .cornerRadius(16)
+                            .onChange(of: tempDropoffDate) { oldValue, newValue in
+                                dropoffTime = newValue.formatted(date: .omitted, time: .shortened)
+                            }
+                    }
                 }
                 
-                VStack(alignment: .leading, spacing: 8) {
+                // Pick-up
+                VStack(alignment: .leading, spacing: 12) {
                     Text("Pick-up Time")
-                        .font(.subheadline)
+                        .font(.headline)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    HStack {
-                        Image(systemName: "clock")
-                            .foregroundColor(AppTheme.textSecondary)
-                        Text(pickupTime)
-                            .foregroundColor(AppTheme.textPrimary)
-                        Spacer()
+                    Button(action: { 
+                        withAnimation { 
+                            showingInlinePickup.toggle()
+                            showingInlineDropoff = false
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(themeManager.primaryColor)
+                            Text(pickupTime)
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(AppTheme.textPrimary)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.gray)
+                                .rotationEffect(.degrees(showingInlinePickup ? 180 : 0))
+                        }
+                        .padding(20)
+                        .background(AppTheme.surface)
+                        .cornerRadius(16)
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 5)
                     }
-                    .padding()
-                    .background(AppTheme.surface)
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                    )
+                    
+                    if showingInlinePickup {
+                        DatePicker("", selection: $tempPickupDate, displayedComponents: .hourAndMinute)
+                            .datePickerStyle(.wheel)
+                            .labelsHidden()
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(AppTheme.surface)
+                            .cornerRadius(16)
+                            .onChange(of: tempPickupDate) { oldValue, newValue in
+                                pickupTime = newValue.formatted(date: .omitted, time: .shortened)
+                            }
+                    }
                 }
             }
         }
-        .padding(.top, 30)
     }
-    
     private var ratingsSelectionView: some View {
         VStack(alignment: .leading, spacing: 24) {
             HeaderView(title: "Minimum Rating?")
             
-            VStack(spacing: 20) {
-                HStack(spacing: 12) {
+            VStack(spacing: 30) {
+                HStack(spacing: 15) {
                     ForEach(1...5, id: \.self) { star in
-                        Image(systemName: "star.fill")
-                            .font(.system(size: 40))
-                            .foregroundColor(star <= selectedRating ? .yellow : Color.gray.opacity(0.3))
-                            .onTapGesture {
-                                withAnimation {
-                                    selectedRating = star
-                                }
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                                selectedRating = star
                             }
+                        }) {
+                            Image(systemName: star <= selectedRating ? "star.fill" : "star")
+                                .font(.system(size: 44, weight: .bold))
+                                .foregroundColor(star <= selectedRating ? .yellow : Color.gray.opacity(0.3))
+                                .scaleEffect(star <= selectedRating ? 1.1 : 1.0)
+                        }
                     }
                 }
                 .padding(.top, 40)
                 
-                Text("\(selectedRating) Stars & Above")
-                    .font(.headline)
-                    .foregroundColor(AppTheme.textSecondary)
+                VStack(spacing: 8) {
+                    Text("\(selectedRating) Stars & Above")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(AppTheme.textPrimary)
+                    
+                    Text(ratingDescription(for: selectedRating))
+                        .font(.subheadline)
+                        .foregroundColor(themeManager.primaryColor)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 8)
+                        .background(themeManager.primaryColor.opacity(0.1))
+                        .cornerRadius(20)
+                }
             }
             .frame(maxWidth: .infinity)
         }
         .padding(.top, 30)
+    }
+    
+    private func ratingDescription(for rating: Int) -> String {
+        switch rating {
+        case 1: return "All Verified Providers"
+        case 2: return "Consistent Quality"
+        case 3: return "High Quality Standards"
+        case 4: return "Top Tier Experience"
+        case 5: return "Premium Excellence Only"
+        default: return ""
+        }
     }
     
     private var resultsView: some View {
@@ -324,7 +509,7 @@ public struct AIRecommendationFlow: View {
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.title3)
-                        .foregroundColor(AppTheme.primary)
+                        .foregroundColor(themeManager.primaryColor)
                 }
                 Spacer()
                 Text("AI Recommendations")
@@ -336,115 +521,158 @@ public struct AIRecommendationFlow: View {
             }
             .padding(.top, 20)
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Based on your preferences")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(AppTheme.textPrimary)
-                
-                HStack {
-                    ZStack {
-                        Capsule()
-                            .fill(Color(hex: "#20C997").opacity(0.2))
-                        Text("95% Match")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(hex: "#20C997"))
-                    }
-                    .frame(width: 90, height: 28)
-                    Spacer()
-                }
-            }
-            
-            // Result Card
-            VStack(alignment: .leading, spacing: 0) {
-                // Image Placeholder
-                ZStack(alignment: .topTrailing) {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .frame(height: 140)
+            if let error = errorMessage {
+                Text("Error: \(error)")
+                    .foregroundColor(.red)
+                    .padding()
+            } else if recommendations.isEmpty {
+                Text("No recommendations found.")
+                    .foregroundColor(AppTheme.textSecondary)
+                    .padding()
+            } else {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(selectedType.isEmpty ? "Top Matches" : "Best \(selectedType)")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(AppTheme.textPrimary)
                     
-                    Image(systemName: "heart")
-                        .foregroundColor(.white)
-                        .padding(12)
-                        .background(Circle().fill(Color.black.opacity(0.3)))
-                        .padding(8)
+                    Text("AI-optimized matches for your family")
+                        .font(.subheadline)
+                        .foregroundColor(AppTheme.textSecondary)
                 }
                 
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Text("Bright Beginnings \(selectedType)")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(AppTheme.textPrimary)
-                            .lineLimit(1)
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 2) {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                                .font(.caption)
-                            Text("4.9")
-                                .font(.caption)
-                                .fontWeight(.bold)
+                ForEach(recommendations) { rec in
+                    // Result Card with Deep Navigation
+                    VStack(alignment: .leading, spacing: 0) {
+                        NavigationLink(destination: AIRecommendationDetailView(recommendation: rec)) {
+                            VStack(alignment: .leading, spacing: 0) {
+                                // Image Placeholder
+                                ZStack(alignment: .topTrailing) {
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.1))
+                                        .frame(height: 140)
+                                        .overlay(
+                                            Image(systemName: "photo")
+                                                .foregroundColor(.gray.opacity(0.3))
+                                        )
+                                    
+                                    HStack {
+                                        ZStack {
+                                            Capsule()
+                                                .fill(themeManager.primaryColor.opacity(0.9))
+                                            Text("\(rec.match_score)% Match")
+                                                .font(.caption)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .frame(width: 90, height: 28)
+                                        .padding(8)
+                                        
+                                        Spacer()
+                                        
+                                        Image(systemName: "heart")
+                                            .foregroundColor(.white)
+                                            .padding(12)
+                                            .background(Circle().fill(Color.black.opacity(0.2)))
+                                            .padding(8)
+                                    }
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 12) {
+                                    HStack {
+                                        Text(rec.name)
+                                            .font(.headline)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(AppTheme.textPrimary)
+                                            .lineLimit(1)
+                                        
+                                        Spacer()
+                                        
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                                .font(.caption)
+                                            Text(String(format: "%.1f", rec.rating))
+                                                .font(.caption)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(AppTheme.textPrimary)
+                                        }
+                                    }
+                                    
+                                    HStack(spacing: 16) {
+                                        Label("\(String(format: "%.1f", rec.distance_km)) km", systemImage: "location")
+                                            .font(.subheadline)
+                                            .foregroundColor(AppTheme.textSecondary)
+                                        
+                                        Label("$\(rec.monthly_price)/mo", systemImage: "dollarsign.circle")
+                                            .font(.subheadline)
+                                            .foregroundColor(AppTheme.textSecondary)
+                                    }
+                                }
+                                .padding(16)
+                            }
                         }
-                    }
-                    
-                    HStack(spacing: 16) {
-                        Label("\(Int(distanceValue)) km", systemImage: "location")
-                            .font(.subheadline)
-                            .foregroundColor(AppTheme.textSecondary)
+                        .buttonStyle(PlainButtonStyle())
                         
-                        Label(selectedBudget == "Standard" ? "$950/mo" : selectedBudget == "Premium" ? "$1250/mo" : "$700/mo", systemImage: "dollarsign.circle")
-                            .font(.subheadline)
-                            .foregroundColor(AppTheme.textSecondary)
+                        // Action Buttons Footer
+                        HStack(spacing: 12) {
+                            Button(action: {
+                                if let phone = rec.phone, !phone.isEmpty {
+                                    let cleanedPhone = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                                    if let url = URL(string: "tel://\(cleanedPhone)") {
+                                        if UIApplication.shared.canOpenURL(url) {
+                                            UIApplication.shared.open(url)
+                                        } else {
+                                            print("Error: Cannot open tel URL for \(cleanedPhone)")
+                                        }
+                                    }
+                                }
+                            }) {
+                                Text("Call")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(themeManager.primaryColor)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 44)
+                                    .background(themeManager.primaryColor.opacity(0.1))
+                                    .cornerRadius(12)
+                            }
+                            .buttonStyle(BounceButtonStyle())
+                            
+                            Button(action: {
+                                if let lat = rec.latitude, let lon = rec.longitude {
+                                    // Use exact coordinates
+                                    let urlString = "http://maps.apple.com/?ll=\(lat),\(lon)&q=\(rec.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+                                    if let url = URL(string: urlString) {
+                                        UIApplication.shared.open(url)
+                                    }
+                                } else if let address = rec.address, let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                                    // Fallback to address search
+                                    let appleMapsURL = URL(string: "http://maps.apple.com/?q=\(encodedAddress)")!
+                                    UIApplication.shared.open(appleMapsURL)
+                                }
+                            }) {
+                                Text("Go")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 44)
+                                    .background(themeManager.primaryColor)
+                                    .cornerRadius(12)
+                            }
+                            .buttonStyle(BounceButtonStyle())
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 16)
                     }
-                    
-                    PrimaryButton(title: "Book Visit") {
-                        currentStep = .booking
-                    }
-                    .padding(.top, 8)
+                    .background(AppTheme.surface)
+                    .cornerRadius(24)
+                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 4)
+                    .padding(.bottom, 16)
                 }
-                .padding(16)
             }
-            .background(AppTheme.surface)
-            .cornerRadius(16)
-            .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
-            
         }
     }
     
-    private var bookingConfirmationView: some View {
-        VStack(spacing: 24) {
-            Spacer().frame(height: 100)
-            
-            ZStack {
-                Circle()
-                    .fill(Color.green.opacity(0.2))
-                    .frame(width: 100, height: 100)
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 60))
-                    .foregroundColor(.green)
-            }
-            
-            Text("Booking Confirmed!")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(AppTheme.textPrimary)
-            
-            Text("Your visit has been successfully scheduled.")
-                .font(.body)
-                .multilineTextAlignment(.center)
-                .foregroundColor(AppTheme.textSecondary)
-            
-            Spacer().frame(height: 40)
-            
-            PrimaryButton(title: "Return to Home") {
-                presentationMode.wrappedValue.dismiss()
-            }
-        }
-    }
 }
 
 // MARK: - Helper Views
@@ -459,6 +687,7 @@ struct HeaderView: View {
 }
 
 struct SelectionCard: View {
+    @EnvironmentObject var themeManager: ThemeManager
     let title: String
     let sub: String
     let icon: String
@@ -467,80 +696,138 @@ struct SelectionCard: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 16) {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundColor(isSelected ? .white : AppTheme.primary)
-                    .frame(width: 50, height: 50)
-                    .background(isSelected ? AppTheme.primary : AppTheme.primary.opacity(0.1))
-                    .cornerRadius(12)
+            HStack(spacing: 20) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(isSelected ? themeManager.primaryColor : themeManager.primaryColor.opacity(0.1))
+                        .frame(width: 80, height: 80)
+                    
+                    Image(systemName: icon)
+                        .font(.system(size: 36))
+                        .foregroundColor(isSelected ? .white : themeManager.primaryColor)
+                }
                 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text(title)
-                        .font(.headline)
-                        .foregroundColor(isSelected ? AppTheme.primary : AppTheme.textPrimary)
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(isSelected ? themeManager.primaryColor : AppTheme.textPrimary)
                     Text(sub)
-                        .font(.caption)
+                        .font(.system(size: 16))
                         .foregroundColor(AppTheme.textSecondary)
                 }
+                
                 Spacer()
+                
                 if isSelected {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(AppTheme.primary)
-                        .font(.title3)
+                    ZStack {
+                        Circle()
+                            .fill(themeManager.primaryColor)
+                            .frame(width: 28, height: 28)
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.white)
+                    }
                 }
             }
-            .padding()
+            .padding(24)
             .background(AppTheme.surface)
-            .cornerRadius(16)
+            .cornerRadius(24)
             .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? AppTheme.primary : Color.clear, lineWidth: 2)
+                RoundedRectangle(cornerRadius: 24)
+                    .stroke(isSelected ? themeManager.primaryColor : Color.clear, lineWidth: 2)
             )
-            .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+            .shadow(color: isSelected ? themeManager.primaryColor.opacity(0.1) : Color.black.opacity(0.05), radius: 15, y: 5)
         }
+        .buttonStyle(BounceButtonStyle())
     }
 }
 
 struct AnalyzingView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var rotation: Double = 0
+    @State private var scale: CGFloat = 1.0
     
     var body: some View {
-        VStack(spacing: 30) {
-            Spacer().frame(height: 120)
+        VStack(spacing: 40) {
+            Spacer().frame(height: 80)
             
             ZStack {
+                // Outer Pulsing Circle
                 Circle()
-                    .stroke(AppTheme.primary.opacity(0.3), lineWidth: 8)
-                    .frame(width: 120, height: 120)
+                    .stroke(themeManager.primaryColor.opacity(0.1), lineWidth: 20)
+                    .frame(width: 160, height: 160)
+                    .scaleEffect(scale)
                 
+                // Rotating Progress
                 Circle()
-                    .trim(from: 0, to: 0.7)
-                    .stroke(AppTheme.primary, style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                    .trim(from: 0, to: 0.6)
+                    .stroke(themeManager.primaryColor, style: StrokeStyle(lineWidth: 6, lineCap: .round))
                     .frame(width: 120, height: 120)
                     .rotationEffect(.degrees(rotation))
-                    .onAppear {
-                        withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-                            rotation = 360
-                        }
-                    }
                 
+                // Brain Icon with pulse
                 Image(systemName: "brain.head.profile")
-                    .font(.system(size: 40))
-                    .foregroundColor(AppTheme.primary)
+                    .font(.system(size: 50))
+                    .foregroundColor(themeManager.primaryColor)
+                    .scaleEffect(scale)
+            }
+            .onAppear {
+                withAnimation(Animation.linear(duration: 1.5).repeatForever(autoreverses: false)) {
+                    rotation = 360
+                }
+                withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
+                    scale = 1.1
+                }
             }
             
-            VStack(spacing: 12) {
+            VStack(spacing: 16) {
                 Text("Analyzing Profiles...")
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(AppTheme.textPrimary)
                 
-                Text("Matching your requirements against verified providers.")
-                    .font(.subheadline)
+                Text("Matching your requirements against\nverified providers in your area.")
+                    .font(.body)
                     .foregroundColor(AppTheme.textSecondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
+            }
+            
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 60)
+    }
+}
+
+struct AIFormField: View {
+    let label: String
+    @Binding var text: String
+    let placeholder: String
+    var keyboardType: UIKeyboardType = .default
+    var isLarge: Bool = false
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(label)
+                .font(.caption)
+                .fontWeight(.bold)
+                .foregroundColor(.gray)
+            
+            if isLarge {
+                TextEditor(text: $text)
+                    .frame(height: 80)
+                    .padding(12)
+                    .background(AppTheme.surface)
+                    .cornerRadius(12)
+                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
+            } else {
+                TextField(placeholder, text: $text)
+                    .keyboardType(keyboardType)
+                    .padding()
+                    .background(AppTheme.surface)
+                    .cornerRadius(12)
+                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
             }
         }
     }

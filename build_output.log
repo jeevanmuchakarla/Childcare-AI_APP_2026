@@ -1,0 +1,787 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project "ChildCare AI.xcodeproj" -scheme "ChildCare AI" build -destination "generic/platform=iOS Simulator"
+
+2026-03-17 00:11:17.813 xcodebuild[82317:3921340] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'ChildCare AI' in project 'ChildCare AI' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/admin/Desktop/ChildCare AI/ChildCare AI/ChildCare AI/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: c263bad4e52fdb5f657520ef75703b0f
+Build description path: /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/XCBuildData/c263bad4e52fdb5f657520ef75703b0f.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -o /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache
+
+CompileAssetCatalogVariant thinned /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Assets.xcassets (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Assets.xcassets --compile /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 26.2 --platform iphonesimulator
+/* com.apple.actool.compilation-results */
+/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare AI.build/Debug-iphonesimulator/ChildCare AI.build/assetcatalog_generated_info.plist_thinned
+/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare AI.build/Debug-iphonesimulator/ChildCare AI.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare AI.build/Debug-iphonesimulator/ChildCare AI.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare AI.build/Debug-iphonesimulator/ChildCare AI.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver ChildCare\ AI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver ChildCare\ AI normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target x86_64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/PhotosUI-1OQK0N908742A6UMFS36QGEFX.pcm
+
+SwiftCompile normal arm64 Compiling\ ProviderChildrenOverview.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderChildrenOverview.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderChildrenOverview.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+/Users/admin/Desktop/ChildCare AI/ChildCare AI/ChildCare AI/Features/Provider/ProviderChildrenOverview.swift:778:36: warning: value 'errorString' was defined but never used; consider replacing with boolean test
+                            if let errorString = String(data: data, encoding: .utf8) {
+                               ~~~~^~~~~~~~~~~~~~
+                                                                                     != nil
+/Users/admin/Desktop/ChildCare AI/ChildCare AI/ChildCare AI/Features/Provider/ProviderChildrenOverview.swift:853:32: warning: value 'errorString' was defined but never used; consider replacing with boolean test
+                        if let errorString = String(data: data, encoding: .utf8) {
+                           ~~~~^~~~~~~~~~~~~~
+                                                                                 != nil
+
+SwiftCompile normal arm64 Compiling\ ProviderHomeView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ ProviderInsightViews.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderInsightViews.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderInsightViews.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ AIRecommendationFlow.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/AIRecommendationFlow.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/AIRecommendationFlow.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ ParentHomeView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ChildCare_AI (in target 'ChildCare AI' from project 'ChildCare AI')
+
+EmitSwiftModule normal arm64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ ProviderBookingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderBookingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderBookingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ ChildCare_AI (in target 'ChildCare AI' from project 'ChildCare AI')
+
+EmitSwiftModule normal x86_64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 Compiling\ CreateDailyReportView.swift,\ DailyNotesView.swift,\ DailyTimelineView.swift,\ GamesAndPlayView.swift,\ GamesPeriodView.swift,\ IncidentLogView.swift,\ LearningProgressView.swift,\ LogActivityView.swift,\ MealTrackingView.swift,\ MissingScreens.swift,\ MoodTrackerRedesign.swift,\ NapScheduleView.swift,\ ParentProfileDetailView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CreateDailyReportView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/DailyNotesView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/DailyTimelineView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/GamesAndPlayView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/GamesPeriodView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/IncidentLogView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/LearningProgressView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/LogActivityView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MealTrackingView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MissingScreens.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MoodTrackerRedesign.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/NapScheduleView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ParentProfileDetailView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CreateDailyReportView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/DailyNotesView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/DailyTimelineView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/GamesAndPlayView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/GamesPeriodView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/IncidentLogView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/LearningProgressView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/LogActivityView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MealTrackingView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MissingScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/MoodTrackerRedesign.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/NapScheduleView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ParentProfileDetailView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ChildCare_AI (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProviderHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriver\ Compilation\ Requirements ChildCare\ AI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProviderInsightViews.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 Compiling\ ProviderTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling ParentHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftdoc (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftdoc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.abi.json (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.abi.json /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftsourceinfo (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftsourceinfo /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftCompile normal x86_64 Compiling\ ParentStatusView.swift,\ PhotoGalleryRedesign.swift,\ ProviderBookingsView.swift,\ ProviderChildrenOverview.swift,\ ProviderHomeView.swift,\ ProviderInsightViews.swift,\ ProviderTabView.swift,\ AppearanceSettingsView.swift,\ MyRatingsView.swift,\ NotificationsView.swift,\ PayoutSettingsView.swift,\ ProfileView.swift,\ SettingsDashboardView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ParentStatusView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/PhotoGalleryRedesign.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderBookingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderChildrenOverview.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderHomeView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderInsightViews.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/AppearanceSettingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/MyRatingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/NotificationsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/PayoutSettingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/ProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ParentStatusView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/PhotoGalleryRedesign.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderBookingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderChildrenOverview.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+/Users/admin/Desktop/ChildCare AI/ChildCare AI/ChildCare AI/Features/Provider/ProviderChildrenOverview.swift:778:36: warning: value 'errorString' was defined but never used; consider replacing with boolean test
+                            if let errorString = String(data: data, encoding: .utf8) {
+                               ~~~~^~~~~~~~~~~~~~
+                                                                                     != nil
+/Users/admin/Desktop/ChildCare AI/ChildCare AI/ChildCare AI/Features/Provider/ProviderChildrenOverview.swift:853:32: warning: value 'errorString' was defined but never used; consider replacing with boolean test
+                        if let errorString = String(data: data, encoding: .utf8) {
+                           ~~~~^~~~~~~~~~~~~~
+                                                                                 != nil
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderInsightViews.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/ProviderTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/AppearanceSettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/MyRatingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/NotificationsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/PayoutSettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/ProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 Compiling\ OnboardingView.swift,\ RegistrationFlows.swift,\ RoleSelectionView.swift,\ SplashView.swift,\ AddChildProfileView.swift,\ ChildProfileView.swift,\ ChildrenTabView.swift,\ ChildSelectionView.swift,\ DailyReportDetails.swift,\ DailyReportOverviewView.swift,\ EditChildProfileView.swift,\ AIRecommendationFlow.swift,\ BookingFormView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/OnboardingView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/RegistrationFlows.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/RoleSelectionView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/SplashView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/AddChildProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildrenTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildSelectionView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/DailyReportDetails.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/DailyReportOverviewView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/EditChildProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/AIRecommendationFlow.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/BookingFormView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/OnboardingView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/RegistrationFlows.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/RoleSelectionView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/SplashView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/AddChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildrenTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildSelectionView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/DailyReportDetails.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/DailyReportOverviewView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/EditChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/AIRecommendationFlow.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/BookingFormView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProviderTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 Compiling\ AppHeader.swift,\ BabyDancingAnimation.swift,\ BabySymbol.swift,\ UIComponents.swift,\ ActivityService.swift,\ AdminService.swift,\ AuthService.swift,\ BaseService.swift,\ BookingService.swift,\ ChildService.swift,\ DailyNoteService.swift,\ DiscoveryService.swift,\ MealService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/AppHeader.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/BabyDancingAnimation.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/BabySymbol.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/UIComponents.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ActivityService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/AdminService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/AuthService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/BaseService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/BookingService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ChildService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/DailyNoteService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/DiscoveryService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/MealService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/AppHeader.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/BabyDancingAnimation.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/BabySymbol.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Components/UIComponents.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ActivityService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/AdminService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/AuthService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/BaseService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/BookingService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ChildService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/DailyNoteService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/DiscoveryService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/MealService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+LinkAssetCatalog /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Assets.xcassets (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-linkAssetCatalog --thinned /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_output/thinned --thinned-dependencies /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_generated_info.plist_unthinned --output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app --plist-output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare AI.app/Assets.car (in target 'ChildCare AI' from project 'ChildCare AI')
+note: Emplaced /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare AI.app/AppIcon60x60@2x.png (in target 'ChildCare AI' from project 'ChildCare AI')
+note: Emplaced /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare AI.app/AppIcon76x76@2x~ipad.png (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProviderBookingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 Compiling\ ChatView.swift,\ MessagesView.swift,\ ParentBookingsView.swift,\ ParentHomeView.swift,\ ParentingInsightDetailView.swift,\ ParentTabView.swift,\ PaymentsView.swift,\ ProviderBookingApplicationView.swift,\ ProviderCategoryListView.swift,\ ProviderDetailView.swift,\ SearchProvidersView.swift,\ CenterProfileView.swift,\ CheckInOutView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ChatView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/MessagesView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentBookingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentHomeView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentingInsightDetailView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/PaymentsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderBookingApplicationView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderCategoryListView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderDetailView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/SearchProvidersView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CenterProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CheckInOutView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ChatView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/MessagesView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentBookingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentingInsightDetailView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ParentTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/PaymentsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderBookingApplicationView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderCategoryListView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/ProviderDetailView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Parent/SearchProvidersView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CenterProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Provider/CheckInOutView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+ProcessInfoPlistFile /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/Info.plist /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/empty-ChildCare\ AI.plist (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-infoPlistUtility /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/empty-ChildCare\ AI.plist -producttype com.apple.product-type.application -genpkginfo /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/assetcatalog_generated_info.plist -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/Info.plist
+
+SwiftDriverJobDiscovery normal arm64 Compiling AIRecommendationFlow.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 Compiling\ AdminManagementView.swift,\ AdminMessagesView.swift,\ AdminPaymentsView.swift,\ AdminReportsView.swift,\ AdminScreens.swift,\ AdminTabView.swift,\ ChildcareManagementView.swift,\ PendingUsersView.swift,\ AdminAccessView.swift,\ AdminLoginView.swift,\ CreateAccountView.swift,\ ForgotPasswordView.swift,\ LoginView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminManagementView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminMessagesView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminPaymentsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminReportsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminScreens.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/ChildcareManagementView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/PendingUsersView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/AdminAccessView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/AdminLoginView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/CreateAccountView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/ForgotPasswordView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/LoginView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminManagementView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminMessagesView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminPaymentsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminReportsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/ChildcareManagementView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/PendingUsersView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/AdminAccessView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/AdminLoginView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/CreateAccountView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/ForgotPasswordView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Auth/LoginView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 Compiling\ SettingsScreens.swift,\ SettingsView.swift,\ BookingStore.swift,\ ChatContact.swift,\ ChildStore.swift,\ MessageStore.swift,\ UserRole.swift,\ AppRouter.swift,\ ChildCare_AIApp.swift,\ ContentView.swift,\ Item.swift,\ GeneratedAssetSymbols.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsScreens.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/BookingStore.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/ChatContact.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/ChildStore.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/MessageStore.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/UserRole.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Navigation/AppRouter.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/ChildCare_AIApp.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/ContentView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Item.swift /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/BookingStore.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/ChatContact.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/ChildStore.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/MessageStore.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Models/UserRole.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Navigation/AppRouter.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/ChildCare_AIApp.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/ContentView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Item.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for ChildCare_AI (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriver\ Compilation\ Requirements ChildCare\ AI normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target x86_64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProviderChildrenOverview.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 Compiling\ MessageService.swift,\ NotificationService.swift,\ PhotoService.swift,\ ProfileService.swift,\ ProviderStatsService.swift,\ AppTheme.swift,\ ThemeManager.swift,\ AdminAIPerformanceView.swift,\ AdminAnalyticsView.swift,\ AdminBookingReportsView.swift,\ AdminCommunicationView.swift,\ AdminDashboardView.swift,\ AdminHomeView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/MessageService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/NotificationService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/PhotoService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ProfileService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ProviderStatsService.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Theme/AppTheme.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Theme/ThemeManager.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminAIPerformanceView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminAnalyticsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminBookingReportsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminCommunicationView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminDashboardView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/MessageService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/NotificationService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/PhotoService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ProfileService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Network/ProviderStatsService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Theme/AppTheme.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Core/Theme/ThemeManager.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminAIPerformanceView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminAnalyticsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminBookingReportsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminCommunicationView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal x86_64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Admin/AdminHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftMergeGeneratedHeaders /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/ChildCare_AI-Swift.h /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-Swift.h /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-Swift.h (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-swiftHeaderTool -arch arm64 /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-Swift.h -arch x86_64 /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-Swift.h -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/ChildCare_AI-Swift.h
+
+SwiftDriverJobDiscovery normal x86_64 Compiling AppHeader.swift, BabyDancingAnimation.swift, BabySymbol.swift, UIComponents.swift, ActivityService.swift, AdminService.swift, AuthService.swift, BaseService.swift, BookingService.swift, ChildService.swift, DailyNoteService.swift, DiscoveryService.swift, MealService.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftdoc (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftdoc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.abi.json /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.abi.json (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.abi.json /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftsourceinfo (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftsourceinfo /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare_AI.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+SwiftCompile normal arm64 Compiling\ ChildProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ ChildrenTabView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildrenTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/ChildrenTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling ChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 Compiling\ SettingsScreens.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling ChildrenTabView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling SettingsScreens.swift, SettingsView.swift, BookingStore.swift, ChatContact.swift, ChildStore.swift, MessageStore.swift, UserRole.swift, AppRouter.swift, ChildCare_AIApp.swift, ContentView.swift, Item.swift, GeneratedAssetSymbols.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsScreens.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 Compiling\ PayoutSettingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/PayoutSettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/PayoutSettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ SettingsView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftCompile normal arm64 Compiling\ EditChildProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/EditChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Children/EditChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal x86_64 Compiling MessageService.swift, NotificationService.swift, PhotoService.swift, ProfileService.swift, ProviderStatsService.swift, AppTheme.swift, ThemeManager.swift, AdminAIPerformanceView.swift, AdminAnalyticsView.swift, AdminBookingReportsView.swift, AdminCommunicationView.swift, AdminDashboardView.swift, AdminHomeView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 Compiling\ SettingsDashboardView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling PayoutSettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 Compiling\ ProfileView.swift /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/ProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftCompile normal arm64 /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI/ChildCare\ AI/Features/Settings/ProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling EditChildProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ProfileView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriver\ Compilation ChildCare\ AI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/arm64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI.debug.dylib normal arm64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.2-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -filelist /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.LinkFileList -install_name @rpath/ChildCare\ AI.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI.swiftmodule @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare_AI-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-arm64.txt (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    construct-stub-executor-link-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'ChildCare AI' from project 'ChildCare AI')
+
+Ld /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI normal arm64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.2-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.app-Simulated.xcent.der /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI
+
+SwiftDriverJobDiscovery normal x86_64 Compiling ChatView.swift, MessagesView.swift, ParentBookingsView.swift, ParentHomeView.swift, ParentingInsightDetailView.swift, ParentTabView.swift, PaymentsView.swift, ProviderBookingApplicationView.swift, ProviderCategoryListView.swift, ProviderDetailView.swift, SearchProvidersView.swift, CenterProfileView.swift, CheckInOutView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling AdminManagementView.swift, AdminMessagesView.swift, AdminPaymentsView.swift, AdminReportsView.swift, AdminScreens.swift, AdminTabView.swift, ChildcareManagementView.swift, PendingUsersView.swift, AdminAccessView.swift, AdminLoginView.swift, CreateAccountView.swift, ForgotPasswordView.swift, LoginView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling ParentStatusView.swift, PhotoGalleryRedesign.swift, ProviderBookingsView.swift, ProviderChildrenOverview.swift, ProviderHomeView.swift, ProviderInsightViews.swift, ProviderTabView.swift, AppearanceSettingsView.swift, MyRatingsView.swift, NotificationsView.swift, PayoutSettingsView.swift, ProfileView.swift, SettingsDashboardView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling OnboardingView.swift, RegistrationFlows.swift, RoleSelectionView.swift, SplashView.swift, AddChildProfileView.swift, ChildProfileView.swift, ChildrenTabView.swift, ChildSelectionView.swift, DailyReportDetails.swift, DailyReportOverviewView.swift, EditChildProfileView.swift, AIRecommendationFlow.swift, BookingFormView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling CreateDailyReportView.swift, DailyNotesView.swift, DailyTimelineView.swift, GamesAndPlayView.swift, GamesPeriodView.swift, IncidentLogView.swift, LearningProgressView.swift, LogActivityView.swift, MealTrackingView.swift, MissingScreens.swift, MoodTrackerRedesign.swift, NapScheduleView.swift, ParentProfileDetailView.swift (in target 'ChildCare AI' from project 'ChildCare AI')
+
+SwiftDriver\ Compilation ChildCare\ AI normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ChildCare_AI -Onone -enforce-exclusivity\=checked @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target x86_64-apple-ios26.2-simulator -g -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/admin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_const_extract_protocols.json -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-generated-files.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-own-target-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-all-target-headers.hmap -Xcc -iquote -Xcc /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-project-headers.hmap -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources-normal/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources/x86_64 -Xcc -I/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-Swift.h -working-directory /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI.debug.dylib normal x86_64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.2-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -filelist /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.LinkFileList -install_name @rpath/ChildCare\ AI.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI.swiftmodule @/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare_AI-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-x86_64.txt (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    construct-stub-executor-link-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'ChildCare AI' from project 'ChildCare AI')
+
+CreateUniversalBinary /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI.debug.dylib normal arm64\ x86_64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI.debug.dylib /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI.debug.dylib -output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI.debug.dylib
+
+Ld /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI normal x86_64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.2-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -F/Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI-ExecutorLinkFileList-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.app-Simulated.xcent.der /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI
+
+CreateUniversalBinary /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI normal arm64\ x86_64 (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/Binary/ChildCare\ AI /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/Binary/ChildCare\ AI -output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI
+
+CopySwiftLibs /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI.debug.dylib --scan-folder /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/Frameworks --scan-folder /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/PlugIns --scan-folder /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/SystemExtensions --scan-folder /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ChildCare_AI --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 26.2 --bundle-identifier com.jeevan.ChildCare-AI --output /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app --target-triple arm64-apple-ios26.2-simulator --target-triple x86_64-apple-ios26.2-simulator --binary-file /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI --dependency-file /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI_dependency_info.dat --dependency-file /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI_dependency_info.dat --stringsdata-file /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.SwiftFileList --source-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.SwiftFileList --metadata-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.DependencyMetadataFileList --static-metadata-file-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/ChildCare\ AI.DependencyStaticMetadataFileList --swift-const-vals-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/arm64/ChildCare\ AI.SwiftConstValuesFileList --swift-const-vals-list /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Intermediates.noindex/ChildCare\ AI.build/Debug-iphonesimulator/ChildCare\ AI.build/Objects-normal/x86_64/ChildCare\ AI.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-03-17 00:13:14.778 appintentsmetadataprocessor[82574:3924800] Starting appintentsmetadataprocessor export
+2026-03-17 00:13:14.785 appintentsmetadataprocessor[82574:3924800] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CodeSign /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI.debug.dylib (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/ChildCare\ AI.debug.dylib
+
+CodeSign /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/__preview.dylib (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app/__preview.dylib
+
+CodeSign /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app
+
+Validate /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app (in target 'ChildCare AI' from project 'ChildCare AI')
+    cd /Users/admin/Desktop/ChildCare\ AI/ChildCare\ AI
+    builtin-validationUtility /Users/admin/Library/Developer/Xcode/DerivedData/ChildCare_AI-eewellgfnbdxpucqlhsdfibdhwoc/Build/Products/Debug-iphonesimulator/ChildCare\ AI.app -shallow-bundle -infoplist-subpath Info.plist
+
+** BUILD SUCCEEDED **
+

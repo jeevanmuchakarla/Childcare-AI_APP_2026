@@ -2,6 +2,8 @@ import SwiftUI
 
 public struct ProviderTabView: View {
     @EnvironmentObject var appRouter: AppRouter
+    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var messageStore: MessageStore
     let role: UserRole
     @State private var selectedTab = 0
     
@@ -11,42 +13,58 @@ public struct ProviderTabView: View {
     
     public var body: some View {
         TabView(selection: $selectedTab) {
-            ProviderHomeView(role: role)
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+            NavigationStack {
+                Group {
+                    ProviderDashboardView()
                 }
-                .tag(0)
+            }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            .tag(0)
             
-            // To be replaced
-            ProviderBookingsView(role: role)
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Bookings")
-                }
-                .tag(1)
+            NavigationStack {
+                ProviderBookingsView()
+            }
+            .tabItem {
+                Image(systemName: "calendar")
+                Text("Bookings")
+            }
+            .tag(1)
             
-            Text("Provider Children View")
-                .tabItem {
-                    Image(systemName: "face.smiling.fill")
-                    Text("Children")
-                }
-                .tag(2)
+            NavigationStack {
+                ProviderChildrenOverview(role: role)
+            }
+            .tabItem {
+                Image(systemName: "face.smiling.fill")
+                Text("Children")
+            }
+            .tag(2)
             
-            Text("Provider Chat View")
-                .tabItem {
-                    Image(systemName: "message.fill")
-                    Text("Chat")
-                }
-                .tag(3)
+            NavigationStack {
+                ChatView(role: role)
+            }
+            .tabItem {
+                Label("Chat", systemImage: "message.fill")
+            }
+            .badge(messageStore.totalUnread > 0 ? messageStore.totalUnread : 0)
+            .tag(3)
             
-            Text("Provider Settings")
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }
-                .tag(4)
+            NavigationStack {
+                SettingsDashboardView(role: role)
+            }
+            .tabItem {
+                Image(systemName: "gearshape.fill")
+                Text("Settings")
+            }
+            .tag(4)
         }
-        .accentColor(AppTheme.primary)
+        .accentColor(themeManager.primaryColor)
+        .onAppear {
+            if let userId = AuthService.shared.currentUser?.id {
+                messageStore.startBadgePolling(userId: userId)
+            }
+        }
     }
 }

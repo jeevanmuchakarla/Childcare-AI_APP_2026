@@ -2,16 +2,140 @@ import SwiftUI
 
 // MARK: - 1. Attendance Detail
 public struct AttendanceDetailScreen: View {
+    @EnvironmentObject var themeManager: ThemeManager
     let childName: String
+    @State private var selectedMonth = "October 2023"
+    
     public var body: some View {
-        DetailContainer(title: "Attendance", icon: "clock.fill", color: .blue) {
-            VStack(spacing: 20) {
-                StatusRow(label: "Check In", value: "8:15 AM", subtext: "by Mom")
-                StatusRow(label: "Check Out", value: "4:30 PM (Expected)", subtext: "by Dad")
-                Divider()
-                Text("Total Time: 8h 15m")
-                    .font(.headline)
+        VStack(spacing: 0) {
+            AppHeader(title: "Attendance")
+            
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Monthly Selector
+                    HStack {
+                        Button(action: {}) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(themeManager.primaryColor)
+                        }
+                        Spacer()
+                        Text(selectedMonth)
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .foregroundColor(AppTheme.textPrimary)
+                        Spacer()
+                        Button(action: {}) {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(themeManager.primaryColor)
+                        }
+                    }
+                    .padding()
+                    .background(AppTheme.cardBackground)
+                    .cornerRadius(12)
+                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.divider, lineWidth: 1))
+                    
+                    // Summary Boxes
+                    HStack(spacing: 12) {
+                        AttendanceSummaryBox(count: "22", label: "Present", color: .green)
+                        AttendanceSummaryBox(count: "1", label: "Absent", color: .red)
+                        AttendanceSummaryBox(count: "8", label: "Holiday", color: .blue)
+                    }
+                    
+                    // Calendar Grid
+                    VStack(spacing: 0) {
+                        // Days of week
+                        HStack {
+                            ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
+                                Text(day)
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(AppTheme.textSecondary)
+                                    .frame(maxWidth: .infinity)
+                            }
+                        }
+                        .padding(.vertical, 12)
+                        
+                        // Dates Grid
+                        let days = Array(1...31)
+                        let columns = Array(repeating: GridItem(.flexible()), count: 7)
+                        
+                        LazyVGrid(columns: columns, spacing: 12) {
+                            ForEach(days, id: \.self) { day in
+                                CalendarDayCell(day: "\(day)", status: getStatus(for: day))
+                            }
+                        }
+                        .padding(.bottom, 20)
+                    }
+                    .padding()
+                    .background(AppTheme.cardBackground)
+                    .cornerRadius(16)
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.divider, lineWidth: 1))
+                    .shadow(color: Color.black.opacity(0.02), radius: 10)
+                }
+                .padding()
             }
+        }
+        .background(AppTheme.background.ignoresSafeArea())
+        .navigationBarHidden(true)
+    }
+    
+    private func getStatus(for day: Int) -> AttendanceDayStatus {
+        if day == 12 { return .absent }
+        if day > 25 { return .none }
+        return .present
+    }
+}
+
+enum AttendanceDayStatus {
+    case present, absent, holiday, none
+}
+
+struct AttendanceSummaryBox: View {
+    let count: String
+    let label: String
+    let color: Color
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            Text(count)
+                .font(.trackerTitle)
+                .fontWeight(.bold)
+                .foregroundColor(color)
+            Text(label)
+                .font(.caption)
+                .foregroundColor(AppTheme.textSecondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .background(AppTheme.cardBackground)
+        .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(AppTheme.divider, lineWidth: 1)
+        )
+    }
+}
+
+struct CalendarDayCell: View {
+    let day: String
+    let status: AttendanceDayStatus
+    
+    var body: some View {
+        Text(day)
+            .font(.subheadline)
+            .fontWeight(.medium)
+            .foregroundColor(status == .none ? AppTheme.textSecondary : AppTheme.textPrimary)
+            .frame(width: 32, height: 32)
+            .background(backgroundColor)
+            .cornerRadius(8)
+    }
+    
+    private var backgroundColor: Color {
+        switch status {
+        case .present: return Color.green.opacity(0.12)
+        case .absent: return Color.red.opacity(0.12)
+        case .holiday: return Color.blue.opacity(0.12)
+        case .none: return Color.clear
         }
     }
 }
@@ -22,9 +146,10 @@ public struct MealReportScreen: View {
     public var body: some View {
         DetailContainer(title: "Meals", icon: "fork.knife", color: .green) {
             VStack(alignment: .leading, spacing: 20) {
-                MealRow(mealType: "Breakfast", food: "Oatmeal & Bananas", percentage: "100%", time: "8:30 AM")
-                MealRow(mealType: "Lunch", food: "Chicken Nuggets & Peas", percentage: "75%", time: "12:00 PM")
-                MealRow(mealType: "Snack", food: "Apple Slices", percentage: "All", time: "3:00 PM")
+                LogMealRow(mealType: "Breakfast", food: "Oatmeal & Bananas", percentage: "100%", time: "8:30 AM")
+                LogMealRow(mealType: "Lunch", food: "Chicken Nuggets & Peas", percentage: "75%", time: "12:00 PM")
+                LogMealRow(mealType: "Snack", food: "Apple Slices", percentage: "All", time: "3:00 PM")
+                LogMealRow(mealType: "Dinner", food: "Pasta & Vegetables", percentage: "Most", time: "6:00 PM")
             }
         }
     }
@@ -52,8 +177,8 @@ public struct ActivitiesLogScreen: View {
     public var body: some View {
         DetailContainer(title: "Activities", icon: "figure.play", color: .orange) {
             VStack(alignment: .leading, spacing: 16) {
-                ActivityRow(time: "9:30 AM", activity: "Outdoor Play", desc: "Played on swings.")
-                ActivityRow(time: "10:30 AM", activity: "Art Time", desc: "Finger painting.")
+                LogActivityRow(time: "9:30 AM", activity: "Outdoor Play", desc: "Played on swings.")
+                LogActivityRow(time: "10:30 AM", activity: "Art Time", desc: "Finger painting.")
             }
         }
     }
@@ -81,8 +206,8 @@ public struct GamesActivityScreen: View {
     public var body: some View {
         DetailContainer(title: "Games", icon: "gamecontroller.fill", color: .purple) {
             VStack(alignment: .leading, spacing: 16) {
-                ActivityRow(time: "11:00 AM", activity: "Simon Says", desc: "Great listening skills.")
-                ActivityRow(time: "2:00 PM", activity: "Building Blocks", desc: "Built a tall tower.")
+                LogActivityRow(time: "11:00 AM", activity: "Simon Says", desc: "Great listening skills.")
+                LogActivityRow(time: "2:00 PM", activity: "Building Blocks", desc: "Built a tall tower.")
             }
         }
     }
@@ -119,21 +244,25 @@ public struct MoodTrackingScreen: View {
 public struct MediaGalleryScreen: View {
     let childName: String
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                // Placeholder images
-                ForEach(0..<3) { _ in
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .frame(height: 200)
-                        .cornerRadius(AppTheme.cornerRadius)
-                        .overlay(Image(systemName: "photo").font(.largeTitle).foregroundColor(.gray))
+        VStack(spacing: 0) {
+            AppHeader(title: "Photos")
+            
+            ScrollView {
+                VStack(spacing: 16) {
+                    // Placeholder images
+                    ForEach(0..<3) { _ in
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(height: 200)
+                            .cornerRadius(AppTheme.cornerRadius)
+                            .overlay(Image(systemName: "photo").font(.largeTitle).foregroundColor(.gray))
+                    }
                 }
+                .padding()
             }
-            .padding()
         }
         .background(AppTheme.background.ignoresSafeArea())
-        .navigationTitle("Photos")
+        .navigationBarHidden(true)
     }
 }
 
@@ -154,17 +283,21 @@ public struct CareNotesScreen: View {
 public struct DailyTimelineScreen: View {
     let childName: String
     public var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                TimelineItem(time: "8:15 AM", title: "Checked In", desc: "Arrived at center.", color: .blue)
-                TimelineItem(time: "8:30 AM", title: "Breakfast", desc: "Ate all oatmeal.", color: .green)
-                TimelineItem(time: "9:30 AM", title: "Outdoor Play", desc: "Swings and slide.", color: .orange)
-                TimelineItem(time: "1:00 PM", title: "Nap Time", desc: "Slept well.", color: .indigo)
+        VStack(spacing: 0) {
+            AppHeader(title: "Daily Timeline")
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    TimelineItem(time: "8:15 AM", title: "Checked In", desc: "Arrived at center.", color: .blue)
+                    TimelineItem(time: "8:30 AM", title: "Breakfast", desc: "Ate all oatmeal.", color: .green)
+                    TimelineItem(time: "9:30 AM", title: "Outdoor Play", desc: "Swings and slide.", color: .orange)
+                    TimelineItem(time: "1:00 PM", title: "Nap Time", desc: "Slept well.", color: .indigo)
+                }
+                .padding()
             }
-            .padding()
         }
         .background(AppTheme.background.ignoresSafeArea())
-        .navigationTitle("Daily Timeline")
+        .navigationBarHidden(true)
     }
 }
 
@@ -173,35 +306,57 @@ struct DetailContainer<Content: View>: View {
     let title: String
     let icon: String
     let color: Color
-    let content: () -> Content
+    let content: Content
+    
+    init(title: String, icon: String, color: Color, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.icon = icon
+        self.color = color
+        self.content = content()
+    }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                HStack {
-                    Image(systemName: icon)
-                        .font(.title)
-                        .foregroundColor(color)
-                    Text(title)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(AppTheme.textPrimary)
+        VStack(spacing: 0) {
+            AppHeader(title: title)
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    HStack {
+                        ZStack {
+                            Circle()
+                                .fill(color.opacity(0.1))
+                                .frame(width: 56, height: 56)
+                            Image(systemName: icon)
+                                .font(.title)
+                                .foregroundColor(color)
+                        }
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(title)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(AppTheme.textPrimary)
+                            Text("Latest Update")
+                                .font(.caption)
+                                .foregroundColor(AppTheme.textSecondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, 20)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        content
+                    }
+                    .padding(20)
+                    .background(AppTheme.cardBackground)
+                    .cornerRadius(AppTheme.cornerRadius)
+                    .overlay(RoundedRectangle(cornerRadius: AppTheme.cornerRadius).stroke(AppTheme.divider, lineWidth: 1))
+                    .shadow(color: Color.black.opacity(0.04), radius: 10, x: 0, y: 5)
                 }
-                .padding(.top, 20)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    content()
-                }
-                .padding(20)
-                .background(AppTheme.surface)
-                .cornerRadius(AppTheme.cornerRadius)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .padding(.horizontal, AppTheme.padding)
             }
-            .padding(.horizontal, AppTheme.padding)
         }
         .background(AppTheme.background.ignoresSafeArea())
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
     }
 }
 
@@ -217,7 +372,7 @@ struct StatusRow: View {
                     .foregroundColor(AppTheme.textSecondary)
                 Text(subtext)
                     .font(.caption)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(AppTheme.textSecondary.opacity(0.8))
             }
             Spacer()
             Text(value)
@@ -227,13 +382,13 @@ struct StatusRow: View {
     }
 }
 
-struct MealRow: View {
+struct LogMealRow: View {
     let mealType: String
     let food: String
     let percentage: String
     let time: String
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Text(mealType)
                     .font(.headline)
@@ -256,11 +411,13 @@ struct MealRow: View {
                     .foregroundColor(.green)
             }
             Divider()
+                .background(AppTheme.divider)
         }
     }
 }
 
-struct ActivityRow: View {
+struct LogActivityRow: View {
+    @EnvironmentObject var themeManager: ThemeManager
     let time: String
     let activity: String
     let desc: String
@@ -269,7 +426,7 @@ struct ActivityRow: View {
             Text(time)
                 .font(.caption)
                 .fontWeight(.bold)
-                .foregroundColor(AppTheme.primary)
+                .foregroundColor(themeManager.primaryColor)
                 .frame(width: 65, alignment: .leading)
             
             VStack(alignment: .leading, spacing: 4) {
@@ -287,6 +444,7 @@ struct ActivityRow: View {
 }
 
 struct TimelineItem: View {
+    @EnvironmentObject var themeManager: ThemeManager
     let time: String
     let title: String
     let desc: String
@@ -298,7 +456,7 @@ struct TimelineItem: View {
                     .fill(color)
                     .frame(width: 12, height: 12)
                 Rectangle()
-                    .fill(Color.gray.opacity(0.3))
+                    .fill(AppTheme.divider)
                     .frame(width: 2, height: 40)
             }
             .padding(.top, 4)
@@ -312,16 +470,17 @@ struct TimelineItem: View {
                     Text(time)
                         .font(.caption)
                         .fontWeight(.bold)
-                        .foregroundColor(color)
+                        .foregroundColor(color == .primary ? themeManager.primaryColor : color)
                 }
                 Text(desc)
                     .font(.subheadline)
                     .foregroundColor(AppTheme.textSecondary)
             }
             .padding()
-            .background(AppTheme.surface)
+            .background(AppTheme.cardBackground)
             .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.03), radius: 3, x: 0, y: 1)
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.divider, lineWidth: 1))
+            .shadow(color: Color.black.opacity(0.02), radius: 3, x: 0, y: 1)
         }
     }
 }
