@@ -119,6 +119,22 @@ public struct AdminLoginView: View {
                     .disabled(isLoading || email.isEmpty || password.isEmpty)
                     .buttonStyle(BounceButtonStyle())
                     .padding(.top, 10)
+                    
+                    VStack(spacing: 4) {
+                        Text("Don't have an account?")
+                            .font(.subheadline)
+                            .foregroundColor(AppTheme.textSecondary)
+                        
+                        Button("Create Account") {
+                            appRouter.navigate(to: .createAccount(.admin))
+                        }
+                        .buttonStyle(BounceButtonStyle())
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundColor(themeManager.primaryColor)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 20)
                 }
                 .padding(24)
             }
