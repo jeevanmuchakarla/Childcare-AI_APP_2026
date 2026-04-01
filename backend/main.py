@@ -12,9 +12,15 @@ from routes import auth_routes, profile_routes, provider_routes, booking_routes,
 # Create tables
 Base.metadata.create_all(bind=engine)
 
+from fastapi.responses import FileResponse
+
 @app.get("/api")
 def home():
     return {"message": "Childcare AI Backend Connected to MySQL"}
+
+@app.get("/privacy-policy")
+def get_privacy_policy():
+    return FileResponse("static/privacy-policy.html")
 
 # Create uploads directory if it doesn't exist
 import os
