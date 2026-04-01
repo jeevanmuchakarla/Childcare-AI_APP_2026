@@ -314,7 +314,7 @@ public struct CreateAccountView: View {
                 DispatchQueue.main.async {
                     isLoading = false
                     // Show success alert and navigate to login
-                    let alert = UIAlertController(title: "Request Sent", message: "Your registration request has been sent to the admin for approval. You will receive an email once your account is live.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Success", message: "Your account has been created successfully. You can now log in!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
                         appRouter.navigate(to: .login(role))
                     })
