@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -33,31 +26,26 @@
             position: relative;
             overflow: hidden;
         }
-
-        .hero-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 680px;
-            margin: 0 auto;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.25) 0%, transparent 65%);
         }
+        .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
 
         .logo-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.35);
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.35);
             border-radius: 50px;
             padding: 8px 20px;
             margin-bottom: 24px;
         }
-
-        .logo-badge span {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #a78bfa;
-            letter-spacing: 0.05em;
-        }
+        .logo-badge svg { width: 20px; height: 20px; }
+        .logo-badge span { font-size: 0.9rem; font-weight: 600; color: #a78bfa; letter-spacing: 0.05em; }
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -66,18 +54,16 @@
             margin-bottom: 14px;
             line-height: 1.2;
         }
-
         .hero p {
             color: #94a3b8;
             font-size: 1.05rem;
             max-width: 480px;
             margin: 0 auto 24px;
         }
-
         .effective-date {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 20px;
             padding: 6px 18px;
             font-size: 0.82rem;
@@ -91,15 +77,13 @@
             margin: -20px auto 0;
             padding: 0 16px;
         }
-
         .toc {
             background: #1e1e2e;
-            border: 1px solid rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139,92,246,0.2);
             border-radius: 16px;
             padding: 28px 32px;
             margin-bottom: 32px;
         }
-
         .toc h3 {
             font-size: 0.7rem;
             font-weight: 600;
@@ -108,24 +92,13 @@
             text-transform: uppercase;
             margin-bottom: 16px;
         }
-
         .toc ol {
             list-style: none;
             columns: 2;
             column-gap: 24px;
         }
-
-        @media (max-width: 540px) {
-            .toc ol {
-                columns: 1;
-            }
-        }
-
-        .toc li {
-            margin-bottom: 8px;
-            break-inside: avoid;
-        }
-
+        @media (max-width: 540px) { .toc ol { columns: 1; } }
+        .toc li { margin-bottom: 8px; break-inside: avoid; }
         .toc a {
             color: #a78bfa;
             text-decoration: none;
@@ -135,11 +108,7 @@
             gap: 8px;
             transition: color 0.2s;
         }
-
-        .toc a:hover {
-            color: #c4b5fd;
-        }
-
+        .toc a:hover { color: #c4b5fd; }
         .toc-num {
             display: inline-flex;
             align-items: center;
@@ -147,7 +116,7 @@
             width: 20px;
             height: 20px;
             border-radius: 6px;
-            background: rgba(139, 92, 246, 0.2);
+            background: rgba(139,92,246,0.2);
             font-size: 0.72rem;
             font-weight: 700;
             color: #a78bfa;
@@ -163,16 +132,13 @@
 
         .section {
             background: #1e1e2e;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 16px;
             padding: 32px;
             margin-bottom: 20px;
             transition: border-color 0.2s;
         }
-
-        .section:hover {
-            border-color: rgba(139, 92, 246, 0.25);
-        }
+        .section:hover { border-color: rgba(139,92,246,0.25); }
 
         .section-header {
             display: flex;
@@ -180,7 +146,6 @@
             gap: 14px;
             margin-bottom: 20px;
         }
-
         .section-icon {
             width: 40px;
             height: 40px;
@@ -190,48 +155,44 @@
             justify-content: center;
             font-size: 1.1rem;
             flex-shrink: 0;
-            background: rgba(139, 92, 246, 0.15);
         }
+        .icon-purple { background: rgba(139,92,246,0.15); }
+        .icon-blue   { background: rgba(59,130,246,0.15); }
+        .icon-green  { background: rgba(34,197,94,0.15); }
+        .icon-orange { background: rgba(249,115,22,0.15); }
+        .icon-teal   { background: rgba(20,184,166,0.15); }
+        .icon-pink   { background: rgba(236,72,153,0.15); }
+        .icon-red    { background: rgba(239,68,68,0.15); }
+        .icon-yellow { background: rgba(234,179,8,0.15); }
+        .icon-indigo { background: rgba(99,102,241,0.15); }
+        .icon-cyan   { background: rgba(6,182,212,0.15); }
 
         .section h2 {
             font-size: 1.15rem;
             font-weight: 700;
             color: #f1f5f9;
         }
-
         .section-num {
             font-size: 0.72rem;
             color: #64748b;
             font-weight: 500;
         }
 
-        .section p {
-            color: #94a3b8;
-            font-size: 0.93rem;
-            margin-bottom: 12px;
-        }
-
-        .section p:last-child {
-            margin-bottom: 0;
-        }
+        .section p { color: #94a3b8; font-size: 0.93rem; margin-bottom: 12px; }
+        .section p:last-child { margin-bottom: 0; }
 
         .section ul {
             list-style: none;
             margin-top: 8px;
         }
-
         .section ul li {
             color: #94a3b8;
             font-size: 0.93rem;
             padding: 7px 0 7px 20px;
             position: relative;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
         }
-
-        .section ul li:last-child {
-            border-bottom: none;
-        }
-
+        .section ul li:last-child { border-bottom: none; }
         .section ul li::before {
             content: '';
             position: absolute;
@@ -243,11 +204,7 @@
             background: #7c3aed;
             opacity: 0.6;
         }
-
-        .section ul li strong {
-            color: #c4b5fd;
-            font-weight: 600;
-        }
+        .section ul li strong { color: #c4b5fd; font-weight: 600; }
 
         .subsection-label {
             font-size: 0.78rem;
@@ -259,59 +216,38 @@
         }
 
         .callout {
-            background: rgba(139, 92, 246, 0.08);
+            background: rgba(139,92,246,0.08);
             border-left: 3px solid #7c3aed;
             border-radius: 0 8px 8px 0;
             padding: 14px 18px;
             margin: 16px 0;
         }
-
-        .callout p {
-            color: #c4b5fd !important;
-            font-size: 0.88rem !important;
-            margin: 0 !important;
-        }
+        .callout p { color: #c4b5fd !important; font-size: 0.88rem !important; margin: 0 !important; }
 
         .highlight-box {
-            background: rgba(34, 197, 94, 0.06);
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            background: rgba(34,197,94,0.06);
+            border: 1px solid rgba(34,197,94,0.2);
             border-radius: 10px;
             padding: 14px 18px;
             margin: 16px 0;
         }
-
-        .highlight-box p {
-            color: #86efac !important;
-            font-size: 0.88rem !important;
-            margin: 0 !important;
-        }
+        .highlight-box p { color: #86efac !important; font-size: 0.88rem !important; margin: 0 !important; }
 
         /* Contact Card */
         .contact-card {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.08) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.3);
+            background: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(59,130,246,0.08) 100%);
+            border: 1px solid rgba(139,92,246,0.3);
             border-radius: 16px;
             padding: 32px;
             text-align: center;
             margin-bottom: 20px;
         }
-
-        .contact-card h2 {
-            color: #f1f5f9;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .contact-card p {
-            color: #94a3b8;
-            font-size: 0.93rem;
-            margin-bottom: 16px;
-        }
-
+        .contact-card h2 { color: #f1f5f9; font-size: 1.2rem; margin-bottom: 10px; }
+        .contact-card p { color: #94a3b8; font-size: 0.93rem; margin-bottom: 16px; }
         .contact-email {
             display: inline-block;
-            background: rgba(139, 92, 246, 0.2);
-            border: 1px solid rgba(139, 92, 246, 0.4);
+            background: rgba(139,92,246,0.2);
+            border: 1px solid rgba(139,92,246,0.4);
             border-radius: 8px;
             padding: 10px 22px;
             color: #a78bfa;
@@ -320,10 +256,7 @@
             text-decoration: none;
             transition: background 0.2s;
         }
-
-        .contact-email:hover {
-            background: rgba(139, 92, 246, 0.35);
-        }
+        .contact-email:hover { background: rgba(139,92,246,0.35); }
 
         /* Footer */
         footer {
@@ -334,151 +267,286 @@
             max-width: 760px;
             margin: 0 auto;
         }
-
-        footer strong {
-            color: #64748b;
-        }
+        footer strong { color: #64748b; }
     </style>
 </head>
-
 <body>
 
-    <!-- Hero -->
-    <div class="hero">
-        <div class="hero-inner">
-            <div class="logo-badge">
-                <span>ChildCare AI</span>
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="logo-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>ChildCare AI</span>
+        </div>
+        <h1>Privacy Policy</h1>
+        <p>Your trust is the foundation of everything we build. Here's how we protect it.</p>
+        <span class="effective-date">Effective Date: April 1, 2026</span>
+    </div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc-wrapper">
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+            <li><a href="#s1"><span class="toc-num">1</span> Introduction</a></li>
+            <li><a href="#s2"><span class="toc-num">2</span> Data We Collect</a></li>
+            <li><a href="#s3"><span class="toc-num">3</span> How We Use Your Data</a></li>
+            <li><a href="#s4"><span class="toc-num">4</span> Data Sharing &amp; Disclosure</a></li>
+            <li><a href="#s5"><span class="toc-num">5</span> Data Security</a></li>
+            <li><a href="#s6"><span class="toc-num">6</span> Data Retention</a></li>
+            <li><a href="#s7"><span class="toc-num">7</span> Your Rights</a></li>
+            <li><a href="#s8"><span class="toc-num">8</span> Third-Party Services</a></li>
+            <li><a href="#s9"><span class="toc-num">9</span> Children's Privacy</a></li>
+            <li><a href="#s10"><span class="toc-num">10</span> Policy Updates</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Sections -->
+<div class="content">
+
+    <div class="section" id="s1">
+        <div class="section-header">
+            <div class="section-icon icon-purple">🛡️</div>
+            <div>
+                <div class="section-num">Section 1</div>
+                <h2>Introduction</h2>
             </div>
-            <h1>Privacy Policy</h1>
-            <p>Your trust is the foundation of everything we build. Here's how we protect it.</p>
-            <span class="effective-date">Effective Date: April 1, 2026</span>
+        </div>
+        <p>Welcome to <strong style="color:#c4b5fd">ChildCare AI</strong> ("we," "our," or "us"). ChildCare AI is an AI-powered childcare management platform designed to connect parents with licensed preschools and daycare centers, streamline bookings, and provide real-time insights into child care activities.</p>
+        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use the ChildCare AI mobile application, web platform, and related services (collectively, the "Services"). By using ChildCare AI, you agree to the practices described in this policy.</p>
+        <div class="callout">
+            <p><strong>Note:</strong> ChildCare AI serves multiple user roles — Parents, Care Center Providers, and Admins. The data we collect may vary depending on your role.</p>
         </div>
     </div>
 
-    <!-- Table of Contents -->
-    <div class="toc-wrapper">
-        <div class="toc">
-            <h3>Table of Contents</h3>
-            <ol>
-                <li><a href="#s1"><span class="toc-num">1</span> Introduction</a></li>
-                <li><a href="#s2"><span class="toc-num">2</span> Data We Collect</a></li>
-                <li><a href="#s3"><span class="toc-num">3</span> How We Use Your Data</a></li>
-                <li><a href="#s4"><span class="toc-num">4</span> Data Sharing & Disclosure</a></li>
-                <li><a href="#s5"><span class="toc-num">5</span> Data Security</a></li>
-                <li><a href="#s6"><span class="toc-num">6</span> Data Retention</a></li>
-                <li><a href="#s7"><span class="toc-num">7</span> Your Rights</a></li>
-                <li><a href="#s8"><span class="toc-num">8</span> Third-Party Services</a></li>
-                <li><a href="#s9"><span class="toc-num">9</span> Children's Privacy</a></li>
-                <li><a href="#s10"><span class="toc-num">10</span> AI Data Processing</a></li>
-                <li><a href="#s11"><span class="toc-num">11</span> Policy Updates</a></li>
-            </ol>
+    <div class="section" id="s2">
+        <div class="section-header">
+            <div class="section-icon icon-blue">📋</div>
+            <div>
+                <div class="section-num">Section 2</div>
+                <h2>Data We Collect</h2>
+            </div>
+        </div>
+
+        <div class="subsection-label">a) Personal Information</div>
+        <ul>
+            <li><strong>Full name, email address, and phone number</strong></li>
+            <li><strong>Date of birth and profile photo</strong> (optional)</li>
+            <li><strong>Account credentials</strong> — passwords stored in hashed form (bcrypt)</li>
+            <li><strong>Role designation</strong> — Parent, Provider (Preschool/Daycare), or Admin</li>
+        </ul>
+
+        <div class="subsection-label">b) Child Information (Parents Only)</div>
+        <ul>
+            <li><strong>Child's name, date of birth, and gender</strong></li>
+            <li><strong>Allergies and dietary restrictions</strong></li>
+            <li><strong>Medical notes and special care requirements</strong></li>
+            <li><strong>Profile photo and emergency contact details</strong></li>
+        </ul>
+
+        <div class="subsection-label">c) Care Center Data (Providers Only)</div>
+        <ul>
+            <li><strong>Facility name, license number, and capacity</strong></li>
+            <li><strong>Address, operating hours, and pricing information</strong></li>
+            <li><strong>Staff details and provider qualifications</strong></li>
+        </ul>
+
+        <div class="subsection-label">d) Activity & Usage Data</div>
+        <ul>
+            <li><strong>Booking records</strong> — dates, times, status, and history</li>
+            <li><strong>Daily reports</strong> — meals, attendance, activities, and photos logged by providers</li>
+            <li><strong>Device type, operating system, and app version</strong></li>
+            <li><strong>Interaction logs</strong> — features used and session duration</li>
+            <li><strong>Crash reports and performance diagnostics</strong></li>
+        </ul>
+    </div>
+
+    <div class="section" id="s3">
+        <div class="section-header">
+            <div class="section-icon icon-green">⚡</div>
+            <div>
+                <div class="section-num">Section 3</div>
+                <h2>How We Use Your Data</h2>
+            </div>
+        </div>
+        <ul>
+            <li><strong>Childcare Matching:</strong> Connect parents with suitable preschools and daycare centers based on preferences and availability</li>
+            <li><strong>Booking Management:</strong> Process, confirm, and manage reservations between parents and care centers</li>
+            <li><strong>Daily Reporting:</strong> Enable providers to log and share real-time updates on meals, attendance, and activities with parents</li>
+            <li><strong>AI-Powered Insights:</strong> Analyze usage patterns to provide smart recommendations and center efficiency metrics</li>
+            <li><strong>Notifications &amp; Alerts:</strong> Send timely booking confirmations, daily report updates, and important announcements</li>
+            <li><strong>Service Improvement:</strong> Use aggregated, anonymized data to enhance our AI models and improve app experience</li>
+            <li><strong>Account Management:</strong> Authenticate users, handle password changes, and manage account preferences</li>
+            <li><strong>Admin Oversight:</strong> Enable platform administrators to monitor user registrations, approve accounts, and review platform health</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s4">
+        <div class="section-header">
+            <div class="section-icon icon-orange">🤝</div>
+            <div>
+                <div class="section-num">Section 4</div>
+                <h2>Data Sharing &amp; Disclosure</h2>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <p>✅ We do <strong>not</strong> sell your personal or child data. We may share information only in the following limited circumstances:</p>
+        </div>
+        <ul>
+            <li><strong>Between Parents &amp; Providers:</strong> When a booking is made, relevant parent and child information is shared with the booked care center to facilitate care</li>
+            <li><strong>Service Providers:</strong> Trusted third-party vendors (hosting, email delivery, analytics) operating under strict data protection agreements</li>
+            <li><strong>Platform Administrators:</strong> ChildCare AI admins may access account information to resolve disputes, approve registrations, or ensure platform safety</li>
+            <li><strong>Legal Requirements:</strong> When required by law, regulation, or valid legal process</li>
+            <li><strong>Safety:</strong> To protect the rights, safety, or property of ChildCare AI, our users, or the public</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s5">
+        <div class="section-header">
+            <div class="section-icon icon-teal">🔒</div>
+            <div>
+                <div class="section-num">Section 5</div>
+                <h2>Data Security</h2>
+            </div>
+        </div>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+            <li><strong>Encryption:</strong> All data is encrypted in transit (TLS/SSL) and at rest (AES-256)</li>
+            <li><strong>Secure Authentication:</strong> Passwords are hashed using bcrypt; JWT-based token management ensures secure session access</li>
+            <li><strong>Role-Based Access Control:</strong> Data is scoped per user role — parents cannot access other children's data; providers cannot see other centers' data</li>
+            <li><strong>Regular Audits:</strong> We conduct periodic security assessments and vulnerability testing</li>
+        </ul>
+        <div class="callout">
+            <p>While we take every reasonable precaution, no method of electronic storage or transmission is 100% secure. We encourage you to use a strong, unique password and keep your account credentials confidential.</p>
         </div>
     </div>
 
-    <!-- Sections -->
-    <div class="content">
-
-        <div class="section" id="s1">
-            <div class="section-header">
-                <div class="section-icon">🛡️</div>
-                <div>
-                    <div class="section-num">Section 1</div>
-                    <h2>Introduction</h2>
-                </div>
-            </div>
-            <p>Welcome to <strong>ChildCare AI</strong>. We connect parents with licensed preschools and daycare
-                centers, streamline bookings, and provide real-time insights.</p>
-            <p>This Privacy Policy explains how we collect and safeguard your information. By using the app, you agree
-                to these practices.</p>
-        </div>
-
-        <div class="section" id="s2">
-            <div class="section-header">
-                <div class="section-icon">📋</div>
-                <div>
-                    <div class="section-num">Section 2</div>
-                    <h2>Data We Collect</h2>
-                </div>
-            </div>
-            <ul>
-                <li><strong>Personal Data:</strong> Name, email, and phone number.</li>
-                <li><strong>Child Data:</strong> Name, age, allergies, and care requirements.</li>
-                <li><strong>Usage Data:</strong> How you interact with our app features.</li>
-            </ul>
-        </div>
-
-        <div class="section" id="s3">
-            <div class="section-header">
-                <div class="section-icon">⚡</div>
-                <div>
-                    <div class="section-num">Section 3</div>
-                    <h2>How We Use Your Data</h2>
-                </div>
-            </div>
-            <ul>
-                <li><strong>Childcare Matching:</strong> To find best providers for you.</li>
-                <li><strong>AI Insights:</strong> To provide smart recommendations.</li>
-                <li><strong>Reporting:</strong> For real-time updates from centers.</li>
-            </ul>
-        </div>
-
-        <div class="section" id="s4">
-            <div class="section-header">
-                <div class="section-icon">🤝</div>
-                <div>
-                    <div class="section-num">Section 4</div>
-                    <h2>Data Sharing</h2>
-                </div>
-            </div>
-            <p>We do not sell your personal data. We share information only with providers you choose to book with or
-                trusted service partners.</p>
-        </div>
-
-        <div class="section" id="s10">
-            <div class="section-header">
-                <div class="section-icon">🤖</div>
-                <div>
-                    <div class="section-num">Section 10</div>
-                    <h2>AI Data Processing</h2>
-                </div>
-            </div>
-            <p>To provide high-quality matching, our app uses AI technology. Here is how your data is handled:</p>
-            <ul>
-                <li><strong>We collect:</strong> User input text and preferences (including care type, budget, and location).</li>
-                <li><strong>We use:</strong> AI-powered analysis to generate personalized childcare recommendations.</li>
-                <li><strong>We send to:</strong> Secure third-party AI service providers (primarily <strong>OpenAI</strong>) via our encrypted backend.</li>
-            </ul>
-            <div class="callout">
-                <p><strong>Privacy Guarantee:</strong> We do not share your personal identity (name/email) with AI providers. Data is anonymized before processing and is not used for model training.</p>
+    <div class="section" id="s6">
+        <div class="section-header">
+            <div class="section-icon icon-yellow">🕐</div>
+            <div>
+                <div class="section-num">Section 6</div>
+                <h2>Data Retention</h2>
             </div>
         </div>
-
-        <div class="section" id="s11">
-            <div class="section-header">
-                <div class="section-icon">🔄</div>
-                <div>
-                    <div class="section-num">Section 11</div>
-                    <h2>Policy Updates</h2>
-                </div>
-            </div>
-            <p>We may update this policy occasionally. Significant changes will be notified via the app.</p>
-        </div>
-
-        <!-- Contact -->
-        <div class="contact-card">
-            <h2>Questions?</h2>
-            <p>Email: <a href="mailto:jeevankiran14341@gmail.com" class="contact-email">jeevankiran14341@gmail.com</a>
-            </p>
-            <p>Phone: +91 9347255885</p>
-            <p>Address: ChildcareAI Technologies, Chennai, India</p>
-        </div>
-
+        <p>We retain your personal data for as long as your account is active or as needed to provide you with our Services. Specifically:</p>
+        <ul>
+            <li><strong>Active Accounts:</strong> Data is retained throughout the period your account remains active</li>
+            <li><strong>Account Deletion:</strong> Upon account deletion, all personal and child data is permanently removed from our systems within 30 days</li>
+            <li><strong>Booking Records:</strong> Archived booking history may be retained for up to 12 months for dispute resolution</li>
+            <li><strong>Anonymized Data:</strong> Aggregated, de-identified data used for research and service improvement may be retained indefinitely</li>
+        </ul>
     </div>
 
-    <footer>
-        <p>© 2026 ChildcareAI Technologies. All rights reserved.</p>
-    </footer>
+    <div class="section" id="s7">
+        <div class="section-header">
+            <div class="section-icon icon-pink">👤</div>
+            <div>
+                <div class="section-num">Section 7</div>
+                <h2>Your Rights</h2>
+            </div>
+        </div>
+        <p>You have full control over your data. As a ChildCare AI user, you may:</p>
+        <ul>
+            <li><strong>Access:</strong> View all personal and child data stored in your account at any time through the app</li>
+            <li><strong>Correction:</strong> Update or correct your personal information via your Profile settings</li>
+            <li><strong>Deletion:</strong> Request permanent deletion of your account and all associated data from Settings → Delete Account</li>
+            <li><strong>Data Export:</strong> Request a copy of your account data in a portable format by contacting support</li>
+            <li><strong>Withdraw Consent:</strong> Disable data sharing for non-essential features at any time through your device settings</li>
+            <li><strong>Opt-Out:</strong> Disable push notifications from App Preferences or device notification settings</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s8">
+        <div class="section-header">
+            <div class="section-icon icon-indigo">🔗</div>
+            <div>
+                <div class="section-num">Section 8</div>
+                <h2>Third-Party Services</h2>
+            </div>
+        </div>
+        <p>ChildCare AI may integrate with or use the following third-party services. Each has its own privacy policy governing its use of your data:</p>
+        <ul>
+            <li><strong>Cloud Hosting:</strong> For secure, scalable data storage and API services</li>
+            <li><strong>Email Delivery:</strong> For transactional emails (booking confirmations, password resets)</li>
+            <li><strong>Push Notifications:</strong> Via Apple Push Notification Service (APNs) for iOS alerts</li>
+            <li><strong>Analytics:</strong> Anonymized usage analytics to understand app performance and user behavior</li>
+        </ul>
+        <p>We do not integrate with advertising networks or sell data to any third parties for marketing purposes.</p>
+    </div>
+
+    <div class="section" id="s9">
+        <div class="section-header">
+            <div class="section-icon icon-red">👶</div>
+            <div>
+                <div class="section-num">Section 9</div>
+                <h2>Children's Privacy</h2>
+            </div>
+        </div>
+        <p>ChildCare AI's Services are designed for use by <strong style="color:#fca5a5">parents, guardians, and care center operators</strong> — not by children directly.</p>
+        <ul>
+            <li><strong>Parental Consent:</strong> All child data is entered by a verified parent or guardian. We do not knowingly collect information directly from children under 13</li>
+            <li><strong>Limited Collection:</strong> Child data collected (name, age, allergies, medical notes) is used exclusively to facilitate the care services you have requested</li>
+            <li><strong>No Child Accounts:</strong> Children do not have their own accounts or login credentials on our platform</li>
+            <li><strong>Deletion on Request:</strong> Parents may request the deletion of all associated child data at any time</li>
+        </ul>
+        <p>If you believe we have inadvertently collected information from a child without appropriate consent, please contact us immediately at <a href="mailto:jeevankiran14341@gmail.com" style="color:#a78bfa">jeevankiran14341@gmail.com</a>.</p>
+    </div>
+
+    <div class="section" id="s10">
+        <div class="section-header">
+            <div class="section-icon icon-cyan">🤖</div>
+            <div>
+                <div class="section-num">Section 10</div>
+                <h2>AI Data Processing</h2>
+            </div>
+        </div>
+        <p>To provide high-quality matching, our app uses AI technology. Here is how your data is handled:</p>
+        <ul>
+            <li><strong>We collect:</strong> User input text and preferences (including care type, budget, and location).</li>
+            <li><strong>We use:</strong> AI-powered analysis to generate personalized childcare recommendations.</li>
+            <li><strong>We send to:</strong> Secure third-party AI service providers (primarily <strong>OpenAI</strong>) via our encrypted backend.</li>
+        </ul>
+        <div class="callout">
+            <p><strong>Privacy Guarantee:</strong> We do not share your personal identity (name/email) with AI providers. Data is anonymized before processing and is not used for model training.</p>
+        </div>
+    </div>
+
+    <div class="section" id="s11">
+        <div class="section-header">
+            <div class="section-icon icon-cyan">🔄</div>
+            <div>
+                <div class="section-num">Section 11</div>
+                <h2>Policy Updates</h2>
+            </div>
+        </div>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.</p>
+        <ul>
+            <li><strong>Notification:</strong> We will notify you of significant changes via in-app notification or email at least 7 days before changes take effect</li>
+            <li><strong>Continued Use:</strong> Your continued use of the Services after the effective date constitutes acceptance of the updated policy</li>
+            <li><strong>Version History:</strong> The "Effective Date" at the top of this page always reflects the date of the most recent revision</li>
+        </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <h2>Questions or Concerns?</h2>
+        <p>If you have any questions about this Privacy Policy or how we handle your data, we're here to help.</p>
+        <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:6px;">📧 <a href="mailto:jeevankiran14341@gmail.com" class="contact-email">jeevankiran14341@gmail.com</a></p>
+        <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:6px;">📞 +91 9347255885</p>
+        <p style="color:#94a3b8;font-size:0.88rem;">📍 ChildcareAI Technologies, Chennai, Tamil Nadu, India</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 <strong>ChildcareAI Technologies</strong>, Chennai, Tamil Nadu, India. All rights reserved. &nbsp;|&nbsp; Effective Date: April 1, 2026</p>
+</footer>
 
 </body>
-
 </html>
