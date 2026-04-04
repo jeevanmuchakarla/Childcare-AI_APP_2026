@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01154FECC0CF087C7EF1461C /* AIConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0287D8BF251F5F237A272C /* AIConsentManager.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		849F044D2F4C05D40058973D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,34 +31,28 @@
 		849F043D2F4C05D30058973D /* ChildCare AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChildCare AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849F044C2F4C05D40058973D /* ChildCare AITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChildCare AITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849F04562F4C05D40058973D /* ChildCare AIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChildCare AIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0287D8BF251F5F237A272C /* AIConsentManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AIConsentManager.swift; path = "ChildCare AI/Core/Privacy/AIConsentManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		848759442F7B700D001BEDDE /* Exceptions for "ChildCare AI" folder in "ChildCare AI" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"ChildCare-AI-Info.plist",
-			);
-			target = 849F043C2F4C05D30058973D /* ChildCare AI */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		849F043F2F4C05D30058973D /* ChildCare AI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				848759442F7B700D001BEDDE /* Exceptions for "ChildCare AI" folder in "ChildCare AI" target */,
 			);
 			path = "ChildCare AI";
 			sourceTree = "<group>";
 		};
 		849F044F2F4C05D40058973D /* ChildCare AITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "ChildCare AITests";
 			sourceTree = "<group>";
 		};
 		849F04592F4C05D40058973D /* ChildCare AIUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "ChildCare AIUITests";
 			sourceTree = "<group>";
 		};
@@ -92,6 +90,7 @@
 				849F044F2F4C05D40058973D /* ChildCare AITests */,
 				849F04592F4C05D40058973D /* ChildCare AIUITests */,
 				849F043E2F4C05D30058973D /* Products */,
+				CE0287D8BF251F5F237A272C /* AIConsentManager.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,8 +123,6 @@
 				849F043F2F4C05D30058973D /* ChildCare AI */,
 			);
 			name = "ChildCare AI";
-			packageProductDependencies = (
-			);
 			productName = "ChildCare AI";
 			productReference = 849F043D2F4C05D30058973D /* ChildCare AI.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +144,6 @@
 				849F044F2F4C05D40058973D /* ChildCare AITests */,
 			);
 			name = "ChildCare AITests";
-			packageProductDependencies = (
-			);
 			productName = "ChildCare AITests";
 			productReference = 849F044C2F4C05D40058973D /* ChildCare AITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,8 +165,6 @@
 				849F04592F4C05D40058973D /* ChildCare AIUITests */,
 			);
 			name = "ChildCare AIUITests";
-			packageProductDependencies = (
-			);
 			productName = "ChildCare AIUITests";
 			productReference = 849F04562F4C05D40058973D /* ChildCare AIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -249,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01154FECC0CF087C7EF1461C /* AIConsentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,11 +404,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3A6793X68J;
+				DEVELOPMENT_TEAM = J93L8HVLVU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ChildCare-AI-Info.plist";
 				INFOPLIST_KEY_NSAppTransportSecurity_NSAllowsArbitraryLoads = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ChildCare AI uses your camera to capture photos for daily reports, incident logs, and child activity updates.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "ChildCare AI uses Face ID so you can sign in quickly and securely.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "ChildCare AI uses the microphone when recording videos for daily activity reports.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "ChildCare AI saves photos of your child's activities to your photo library if you choose to do so.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "ChildCare AI needs access to your photo library to attach images to daily reports and incident logs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,7 +424,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeevan.ChildCare-AI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saveetha.childcareai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -444,11 +443,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3A6793X68J;
+				DEVELOPMENT_TEAM = J93L8HVLVU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ChildCare-AI-Info.plist";
 				INFOPLIST_KEY_NSAppTransportSecurity_NSAllowsArbitraryLoads = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ChildCare AI uses your camera to capture photos for daily reports, incident logs, and child activity updates.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "ChildCare AI uses Face ID so you can sign in quickly and securely.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "ChildCare AI uses the microphone when recording videos for daily activity reports.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "ChildCare AI saves photos of your child's activities to your photo library if you choose to do so.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "ChildCare AI needs access to your photo library to attach images to daily reports and incident logs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,7 +463,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeevan.ChildCare-AI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saveetha.childcareai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

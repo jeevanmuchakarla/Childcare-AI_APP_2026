@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ChildCare AI</title>
+    <meta name="description" content="ChildCare AI Privacy Policy — how we collect, use, and protect your data.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f0f14;
+            color: #e2e8f0;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.35);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin-bottom: 24px;
+        }
+        .logo-badge span { font-size: 0.9rem; font-weight: 600; color: #a78bfa; letter-spacing: 0.05em; }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto 24px;
+        }
+        .effective-date {
+            display: inline-block;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            letter-spacing: 0.03em;
+        }
+
+        /* Table of Contents */
+        .toc-wrapper {
+            max-width: 760px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+        }
+        .toc {
+            background: #1e1e2e;
+            border: 1px solid rgba(139,92,246,0.2);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+        }
+        .toc h3 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #7c6fa0;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .toc ol {
+            list-style: none;
+            columns: 2;
+            column-gap: 24px;
+        }
+        @media (max-width: 540px) { .toc ol { columns: 1; } }
+        .toc li { margin-bottom: 8px; break-inside: avoid; }
+        .toc a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        .toc a:hover { color: #c4b5fd; }
+        .toc-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            background: rgba(139,92,246,0.2);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #a78bfa;
+            flex-shrink: 0;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 16px 80px;
+        }
+
+        .section {
+            background: #1e1e2e;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s;
+        }
+        .section:hover { border-color: rgba(139,92,246,0.25); }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            background: rgba(139,92,246,0.15);
+        }
+
+        .section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        .section-num {
+            font-size: 0.72rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .section p { color: #94a3b8; font-size: 0.93rem; margin-bottom: 12px; }
+        .section p:last-child { margin-bottom: 0; }
+
+        .section ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .section ul li {
+            color: #94a3b8;
+            font-size: 0.93rem;
+            padding: 7px 0 7px 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .section ul li:last-child { border-bottom: none; }
+        .section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #7c3aed;
+            opacity: 0.6;
+        }
+        .section ul li strong { color: #c4b5fd; font-weight: 600; }
+
+        .subsection-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #7c6fa0;
+            text-transform: uppercase;
+            margin: 18px 0 8px;
+        }
+
+        .callout {
+            background: rgba(139,92,246,0.08);
+            border-left: 3px solid #7c3aed;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+        }
+        .callout p { color: #c4b5fd !important; font-size: 0.88rem !important; margin: 0 !important; }
+
+        .highlight-box {
+            background: rgba(34,197,94,0.06);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 16px 0;
+        }
+        .highlight-box p { color: #86efac !important; font-size: 0.88rem !important; margin: 0 !important; }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(59,130,246,0.08) 100%);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-card h2 { color: #f1f5f9; font-size: 1.2rem; margin-bottom: 10px; }
+        .contact-card p { color: #94a3b8; font-size: 0.93rem; margin-bottom: 16px; }
+        .contact-email {
+            display: inline-block;
+            background: rgba(139,92,246,0.2);
+            border: 1px solid rgba(139,92,246,0.4);
+            border-radius: 8px;
+            padding: 10px 22px;
+            color: #a78bfa;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .contact-email:hover { background: rgba(139,92,246,0.35); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px 16px 40px;
+            color: #475569;
+            font-size: 0.8rem;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        footer strong { color: #64748b; }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="logo-badge">
+            <span>ChildCare AI</span>
+        </div>
+        <h1>Privacy Policy</h1>
+        <p>Your trust is the foundation of everything we build. Here's how we protect it.</p>
+        <span class="effective-date">Effective Date: April 1, 2026</span>
+    </div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc-wrapper">
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+            <li><a href="#s1"><span class="toc-num">1</span> Introduction</a></li>
+            <li><a href="#s2"><span class="toc-num">2</span> Data We Collect</a></li>
+            <li><a href="#s3"><span class="toc-num">3</span> How We Use Your Data</a></li>
+            <li><a href="#s4"><span class="toc-num">4</span> Data Sharing & Disclosure</a></li>
+            <li><a href="#s5"><span class="toc-num">5</span> Data Security</a></li>
+            <li><a href="#s6"><span class="toc-num">6</span> Data Retention</a></li>
+            <li><a href="#s7"><span class="toc-num">7</span> Your Rights</a></li>
+            <li><a href="#s8"><span class="toc-num">8</span> Third-Party Services</a></li>
+            <li><a href="#s9"><span class="toc-num">9</span> Children's Privacy</a></li>
+            <li><a href="#s10"><span class="toc-num">10</span> Policy Updates</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Sections -->
+<div class="content">
+
+    <div class="section" id="s1">
+        <div class="section-header">
+            <div class="section-icon">🛡️</div>
+            <div>
+                <div class="section-num">Section 1</div>
+                <h2>Introduction</h2>
+            </div>
+        </div>
+        <p>Welcome to <strong>ChildCare AI</strong>. We connect parents with licensed preschools and daycare centers, streamline bookings, and provide real-time insights.</p>
+        <p>This Privacy Policy explains how we collect and safeguard your information. By using the app, you agree to these practices.</p>
+    </div>
+
+    <div class="section" id="s2">
+        <div class="section-header">
+            <div class="section-icon">📋</div>
+            <div>
+                <div class="section-num">Section 2</div>
+                <h2>Data We Collect</h2>
+            </div>
+        </div>
+        <ul>
+            <li><strong>Personal Data:</strong> Name, email, and phone number.</li>
+            <li><strong>Child Data:</strong> Name, age, allergies, and care requirements.</li>
+            <li><strong>Usage Data:</strong> How you interact with our app features.</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s3">
+        <div class="section-header">
+            <div class="section-icon">⚡</div>
+            <div>
+                <div class="section-num">Section 3</div>
+                <h2>How We Use Your Data</h2>
+            </div>
+        </div>
+        <ul>
+            <li><strong>Childcare Matching:</strong> To find best providers for you.</li>
+            <li><strong>AI Insights:</strong> To provide smart recommendations.</li>
+            <li><strong>Reporting:</strong> For real-time updates from centers.</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s4">
+        <div class="section-header">
+            <div class="section-icon">🤝</div>
+            <div>
+                <div class="section-num">Section 4</div>
+                <h2>Data Sharing</h2>
+            </div>
+        </div>
+        <p>We do not sell your personal data. We share information only with providers you choose to book with or trusted service partners.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <h2>Questions?</h2>
+        <p>Email: <a href="mailto:jeevankiran14341@gmail.com" class="contact-email">jeevankiran14341@gmail.com</a></p>
+        <p>Phone: +91 9347255885</p>
+        <p>Address: ChildcareAI Technologies, Chennai, India</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 ChildcareAI Technologies. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

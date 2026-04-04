@@ -246,6 +246,10 @@ public struct PrivacyAndDataScreen: View {
                                 SupportRow(title: "App Privacy & Data", icon: "shield.lefthalf.filled")
                             }
                             
+                            NavigationLink(destination: AIDataUsageView()) {
+                                SupportRow(title: "AI Data Usage", icon: "brain.head.profile")
+                            }
+                            
                             Button(action: { showingDownloadAlert = true }) {
                                 SupportRow(title: "Download My Data", icon: "arrow.down.circle", showDivider: false)
                             }
@@ -295,23 +299,49 @@ public struct AppPrivacyScreen: View {
             AppHeader(title: "App Privacy")
             
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 24) {
-                    PrivacySection(title: "Data Collection", content: "We collect only essential information such as your name, contact details, and child profiles to facilitate childcare bookings and communication.")
+                VStack(alignment: .leading, spacing: 28) {
+                    PrivacySection(title: "Data Integrity & Security", 
+                                   content: "We implement industry-standard encryption (AES-256) and secure protocols (SSL/TLS) to safeguard your personal and child data. Your privacy is protected by robust role-based access controls.")
                     
-                    PrivacySection(title: "Communication", content: "Messages sent through the app are stored securely to provide you with a history of your conversations with providers.")
+                    PrivacySection(title: "Purpose-Driven Collection", 
+                                   content: "We collect only essential information—such as contact details and child profiles—required to facilitate seamless childcare bookings and real-time updates from providers.")
                     
-                    PrivacySection(title: "Location Data", content: "We use location data only to help you find childcare providers near you. This data is not shared with third parties.")
+                    PrivacySection(title: "AI Privacy Standards", 
+                                   content: "Our AI-powered recommendations use anonymized preferences. You have full control over AI data usage and can revoke consent at any time from the 'AI Data Usage' menu.")
                     
-                    PrivacySection(title: "Third-Party Sharing", content: "ChildCare AI does not sell your personal data. Data is only shared with childcare providers you explicitly choose to book with.")
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Version Information")
-                            .font(.headline)
-                        Text("App Version: 1.0.0 (Build 2026.03.14)")
+                    PrivacySection(title: "Third-Party Disclosure", 
+                                   content: "ChildCare AI never sells your personal data. We only share information with care centers you explicitly book with and trusted infrastructure partners.")
+
+                    VStack(alignment: .center, spacing: 16) {
+                        Divider()
+                        
+                        Text("For more detailed information, please read our full Privacy Policy.")
+                            .font(.caption)
+                            .foregroundColor(AppTheme.textSecondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+
+                        Link(destination: URL(string: "https://childcare-ai.com/privacy")!) {
+                            HStack {
+                                Text("Full Privacy Policy")
+                                Image(systemName: "arrow.up.right")
+                            }
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .fontWeight(.semibold)
+                            .foregroundColor(themeManager.primaryColor)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .background(themeManager.primaryColor.opacity(0.1))
+                            .cornerRadius(12)
+                        }
+                        
+                        Text("Version 1.0.0 (Build 2026.04.01)")
+                            .font(.system(size: 10))
+                            .foregroundColor(.gray.opacity(0.6))
+                            .padding(.top, 8)
                     }
-                    .padding(.top, 24)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 12)
                 }
                 .padding(24)
             }
@@ -1408,5 +1438,250 @@ struct PrivacySectionItem: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - AI Consent Popup View
+/// Presented as a sheet before the first AI call. User must Allow or Deny.
+public struct AIConsentPopupView: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    let onAllow: () -> Void
+    let onDeny: () -> Void
+
+    public var body: some View {
+        VStack(spacing: 0) {
+            themeManager.primaryGradient
+                .frame(height: 4)
+
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 28) {
+                    ZStack {
+                        Circle()
+                            .fill(themeManager.primaryColor.opacity(0.1))
+                            .frame(width: 88, height: 88)
+                        Image(systemName: "brain.head.profile")
+                            .font(.system(size: 40))
+                            .foregroundColor(themeManager.primaryColor)
+                    }
+                    .padding(.top, 36)
+
+                    VStack(spacing: 8) {
+                        Text("AI Data Usage Notice")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(AppTheme.textPrimary)
+                            .multilineTextAlignment(.center)
+
+                        Text("Before we find matches for you, please review how your data will be used.")
+                            .font(.subheadline)
+                            .foregroundColor(AppTheme.textSecondary)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(4)
+                            .padding(.horizontal, 8)
+                    }
+
+                    VStack(spacing: 12) {
+                        AIConsentInfoRow(icon: "square.and.pencil", iconColor: .blue,
+                                         title: "What we collect",
+                                         detail: "Your preferences: care type, budget, location, timing, and minimum rating")
+                        AIConsentInfoRow(icon: "arrow.up.right.circle.fill", iconColor: .orange,
+                                         title: "What we send",
+                                         detail: "These preferences are sent to the ChildCare AI backend to generate personalised recommendations")
+                        AIConsentInfoRow(icon: "lock.shield.fill", iconColor: .green,
+                                         title: "What we don't do",
+                                         detail: "We do not sell your data, share it with advertisers, or store it beyond your session")
+                    }
+                    .padding(.horizontal, 4)
+
+                    VStack(spacing: 12) {
+                        Button(action: onAllow) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "checkmark.circle.fill")
+                                Text("Allow & Continue").fontWeight(.bold)
+                            }
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity).frame(height: 54)
+                            .background(themeManager.primaryColor)
+                            .cornerRadius(16)
+                            .shadow(color: themeManager.primaryColor.opacity(0.3), radius: 10, y: 4)
+                        }
+                        Button(action: onDeny) {
+                            Text("Deny").fontWeight(.semibold)
+                                .foregroundColor(AppTheme.textSecondary)
+                                .frame(maxWidth: .infinity).frame(height: 54)
+                                .background(AppTheme.surface)
+                                .cornerRadius(16)
+                                .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.divider, lineWidth: 1))
+                        }
+                    }
+                    .padding(.horizontal, 4)
+                    .padding(.bottom, 36)
+                }
+                .padding(.horizontal, 24)
+            }
+        }
+        .background(AppTheme.background.ignoresSafeArea())
+    }
+}
+
+private struct AIConsentInfoRow: View {
+    let icon: String
+    let iconColor: Color
+    let title: String
+    let detail: String
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            ZStack {
+                Circle().fill(iconColor.opacity(0.12)).frame(width: 40, height: 40)
+                Image(systemName: icon).font(.system(size: 18)).foregroundColor(iconColor)
+            }
+            .padding(.top, 2)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title).font(.subheadline).fontWeight(.semibold).foregroundColor(AppTheme.textPrimary)
+                Text(detail).font(.caption).foregroundColor(AppTheme.textSecondary).lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer()
+        }
+        .padding(16)
+        .background(AppTheme.cardBackground)
+        .cornerRadius(16)
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.divider, lineWidth: 1))
+    }
+}
+
+// MARK: - AI Data Usage Info Screen (Settings > Privacy > AI Data Usage)
+public struct AIDataUsageView: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var consentManager = AIConsentManager.shared
+    @State private var showRevokeConfirm = false
+
+    public var body: some View {
+        VStack(spacing: 0) {
+            AppHeader(title: "AI Data Usage")
+
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 24) {
+                    HStack(spacing: 16) {
+                        ZStack {
+                            Circle().fill(themeManager.primaryColor.opacity(0.12)).frame(width: 56, height: 56)
+                            Image(systemName: "brain.head.profile").font(.system(size: 26)).foregroundColor(themeManager.primaryColor)
+                        }
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("ChildCare AI Recommendations").font(.headline).foregroundColor(AppTheme.textPrimary)
+                            Text("How your data powers AI matching").font(.caption).foregroundColor(AppTheme.textSecondary)
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    .background(themeManager.primaryColor.opacity(0.06))
+                    .cornerRadius(16)
+
+                    VStack(alignment: .leading, spacing: 0) {
+                        AIDataUsageRow(label: "We collect",
+                                       value: "Care type, budget, location, timing preference, minimum rating",
+                                       icon: "square.and.pencil", iconColor: .blue)
+                        Divider().padding(.leading, 52)
+                        AIDataUsageRow(label: "We use it for",
+                                       value: "AI-powered childcare recommendation generation",
+                                       icon: "sparkles", iconColor: themeManager.primaryColor)
+                        Divider().padding(.leading, 52)
+                        AIDataUsageRow(label: "We send to",
+                                       value: "ChildCare AI backend service (no third-party AI vendor)",
+                                       icon: "arrow.up.right.circle", iconColor: .orange)
+                        Divider().padding(.leading, 52)
+                        AIDataUsageRow(label: "We don't",
+                                       value: "Store your preferences beyond the session or share with advertisers",
+                                       icon: "hand.raised.slash", iconColor: .green)
+                    }
+                    .background(AppTheme.cardBackground)
+                    .cornerRadius(20)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(AppTheme.divider, lineWidth: 1))
+
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("CONSENT STATUS")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundColor(AppTheme.textSecondary)
+                            .padding(.leading, 8)
+
+                        HStack(spacing: 12) {
+                            ZStack {
+                                Circle()
+                                    .fill(consentManager.hasConsent ? Color.green.opacity(0.12) : Color.orange.opacity(0.12))
+                                    .frame(width: 42, height: 42)
+                                Image(systemName: consentManager.hasConsent ? "checkmark.seal.fill" : "exclamationmark.triangle.fill")
+                                    .foregroundColor(consentManager.hasConsent ? .green : .orange)
+                            }
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(consentManager.hasConsent ? "AI Access Granted" : "AI Access Not Granted")
+                                    .font(.subheadline).fontWeight(.semibold).foregroundColor(AppTheme.textPrimary)
+                                Text(consentManager.hasConsent
+                                     ? "Preferences are sent to the AI service when you use Recommendations."
+                                     : "You'll be asked for permission next time you use AI Recommendations.")
+                                    .font(.caption).foregroundColor(AppTheme.textSecondary)
+                                    .lineSpacing(2).fixedSize(horizontal: false, vertical: true)
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(AppTheme.cardBackground)
+                        .cornerRadius(16)
+                        .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.divider, lineWidth: 1))
+
+                        if consentManager.hasConsent {
+                            Button(action: { showRevokeConfirm = true }) {
+                                HStack {
+                                    Image(systemName: "xmark.circle")
+                                    Text("Revoke AI Consent").fontWeight(.semibold)
+                                }
+                                .foregroundColor(.red)
+                                .frame(maxWidth: .infinity).frame(height: 50)
+                                .background(Color.red.opacity(0.07))
+                                .cornerRadius(14)
+                                .overlay(RoundedRectangle(cornerRadius: 14).stroke(Color.red.opacity(0.2), lineWidth: 1))
+                            }
+                        }
+                    }
+
+                    Text("Questions about data usage? Contact us at jeevankiran14341@gmail.com")
+                        .font(.caption).foregroundColor(AppTheme.textSecondary)
+                        .multilineTextAlignment(.center).padding(.bottom, 8)
+                }
+                .padding(.horizontal).padding(.top, 16).padding(.bottom, 32)
+            }
+        }
+        .background(AppTheme.background.ignoresSafeArea())
+        .navigationBarHidden(true)
+        .alert("Revoke AI Consent?", isPresented: $showRevokeConfirm) {
+            Button("Revoke", role: .destructive) { consentManager.revokeConsent() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("You will be asked to allow AI data usage again the next time you use AI Recommendations.")
+        }
+    }
+}
+
+private struct AIDataUsageRow: View {
+    let label: String
+    let value: String
+    let icon: String
+    let iconColor: Color
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            ZStack {
+                Circle().fill(iconColor.opacity(0.1)).frame(width: 32, height: 32)
+                Image(systemName: icon).font(.system(size: 14)).foregroundColor(iconColor)
+            }
+            VStack(alignment: .leading, spacing: 3) {
+                Text(label).font(.caption).fontWeight(.bold).foregroundColor(AppTheme.textSecondary)
+                    .textCase(.uppercase)
+                Text(value).font(.subheadline).foregroundColor(AppTheme.textPrimary)
+                    .lineSpacing(3).fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer()
+        }
+        .padding(.vertical, 14).padding(.horizontal, 16)
     }
 }

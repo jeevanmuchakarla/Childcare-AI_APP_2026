@@ -2,34 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-	<!-- ── App Transport Security ── -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<!-- Use this ONLY if your backend is HTTP (not HTTPS) -->
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-
-	<!-- ── Camera Permission ── -->
-	<key>NSCameraUsageDescription</key>
-	<string>ChildCare AI uses your camera to capture photos for daily reports, incident logs, and child activity updates.</string>
-
-	<!-- ── Photo Library (Read) ── -->
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>ChildCare AI needs access to your photo library to attach images to daily reports and incident logs.</string>
-
-	<!-- ── Photo Library (Write) ── -->
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>ChildCare AI saves photos of your child's activities to your photo library if you choose to do so.</string>
-
-	<!-- ── Microphone Permission ── -->
-	<key>NSMicrophoneUsageDescription</key>
-	<string>ChildCare AI uses the microphone when recording videos for daily activity reports.</string>
-
-	<!-- ── Face ID / Biometric Authentication ── -->
-	<key>NSFaceIDUsageDescription</key>
-	<string>ChildCare AI uses Face ID so you can sign in quickly and securely.</string>
-
 </dict>
 </plist>

@@ -35,6 +35,10 @@ public struct AIRecommendationFlow: View {
     @State private var isAnalyzing = false
     @State private var recommendations: [AIRecommendation] = []
     @State private var errorMessage: String? = nil
+
+    // AI Consent
+    @StateObject private var consentManager = AIConsentManager.shared
+    @State private var showConsentSheet = false
     
     public init() {}
     
@@ -118,8 +122,10 @@ public struct AIRecommendationFlow: View {
                     VStack(spacing: 16) {
                         PrimaryButton(title: currentStep == .ratings ? "Find Matches" : "Continue") {
                             if currentStep == .ratings {
-                                Task {
-                                    await startAnalysis()
+                                if consentManager.hasConsent {
+                                    Task { await startAnalysis() }
+                                } else {
+                                    showConsentSheet = true
                                 }
                             } else {
                                 withAnimation {
@@ -134,6 +140,19 @@ public struct AIRecommendationFlow: View {
             }
             .background(AppTheme.background.ignoresSafeArea())
             .navigationBarHidden(true)
+            .sheet(isPresented: $showConsentSheet) {
+                AIConsentPopupView(
+                    onAllow: {
+                        showConsentSheet = false
+                        consentManager.grantConsent()
+                        Task { await startAnalysis() }
+                    },
+                    onDeny: {
+                        showConsentSheet = false
+                    }
+                )
+                .environmentObject(themeManager)
+            }
         }
     }
     
