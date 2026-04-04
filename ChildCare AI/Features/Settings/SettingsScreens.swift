@@ -1583,7 +1583,7 @@ public struct AIDataUsageView: View {
                                        value: "Care type, budget, location, timing preference, minimum rating",
                                        icon: "square.and.pencil", iconColor: .blue)
                         Divider().padding(.leading, 52)
-                        AIDataUsageRow(label: "We use it for",
+                        AIDataUsageRow(label: "We use",
                                        value: "AI-powered childcare recommendation generation via OpenAI",
                                        icon: "sparkles", iconColor: themeManager.primaryColor)
                         Divider().padding(.leading, 52)
