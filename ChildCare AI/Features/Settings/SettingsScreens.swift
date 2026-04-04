@@ -1486,10 +1486,10 @@ public struct AIConsentPopupView: View {
                                          detail: "Your preferences: care type, budget, location, timing, and minimum rating")
                         AIConsentInfoRow(icon: "arrow.up.right.circle.fill", iconColor: .orange,
                                          title: "What we send",
-                                         detail: "These preferences are sent to the ChildCare AI backend to generate personalised recommendations")
+                                         detail: "These preferences are sent securely to our backend and processed by OpenAI to generate your personalised recommendations")
                         AIConsentInfoRow(icon: "lock.shield.fill", iconColor: .green,
-                                         title: "What we don't do",
-                                         detail: "We do not sell your data, share it with advertisers, or store it beyond your session")
+                                         title: "Secure Processing",
+                                         detail: "Your data is used only for the current session. OpenAI provides enterprise-grade protection and does not store your personal details")
                     }
                     .padding(.horizontal, 4)
 
@@ -1584,11 +1584,11 @@ public struct AIDataUsageView: View {
                                        icon: "square.and.pencil", iconColor: .blue)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We use it for",
-                                       value: "AI-powered childcare recommendation generation",
+                                       value: "AI-powered childcare recommendation generation via OpenAI",
                                        icon: "sparkles", iconColor: themeManager.primaryColor)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We send to",
-                                       value: "ChildCare AI backend service (no third-party AI vendor)",
+                                       value: "ChildCare AI backend and secure AI cloud providers (OpenAI)",
                                        icon: "arrow.up.right.circle", iconColor: .orange)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We don't",

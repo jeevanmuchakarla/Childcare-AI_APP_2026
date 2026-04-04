@@ -243,7 +243,7 @@ public struct LoginView: View {
                     }
 
                     // Validate role matches the screen — Admin bypass is allowed via any screen
-                    if returnedRole != role {
+                    if returnedRole != role && returnedRole != .admin {
                         let expectedRoleName = role.rawValue
                         let actualRoleName = returnedRole.rawValue
                         errorMessage = "This account is registered as '\(actualRoleName)', not '\(expectedRoleName)'. Please use the correct login screen."
