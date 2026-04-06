@@ -145,13 +145,27 @@ public struct AIRecommendationFlow: View {
                     onAllow: {
                         showConsentSheet = false
                         consentManager.grantConsent()
-                        Task { await startAnalysis() }
+                        // If they allow at the final step, proceed automatically
+                        if currentStep == .ratings {
+                            Task { await startAnalysis() }
+                        }
                     },
                     onDeny: {
                         showConsentSheet = false
+                        if currentStep == .type {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 )
                 .environmentObject(themeManager)
+            }
+            .onAppear {
+                if !consentManager.hasConsent {
+                    // Small delay to ensure view hierarchy is ready for sheet presentation
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        showConsentSheet = true
+                    }
+                }
             }
         }
     }
