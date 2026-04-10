@@ -378,9 +378,9 @@
             <li><strong>Childcare Matching:</strong> Connect parents with suitable preschools and daycare centers based on preferences and availability</li>
             <li><strong>Booking Management:</strong> Process, confirm, and manage reservations between parents and care centers</li>
             <li><strong>Daily Reporting:</strong> Enable providers to log and share real-time updates on meals, attendance, and activities with parents</li>
-            <li><strong>Smart Insights:</strong> Analyze usage patterns to provide smart recommendations and center efficiency metrics</li>
+            <li><strong>Smart Insights:</strong> On-device matching logic using locally trained datasets to provide personalized childcare recommendations without transmitting your inputs to external AI services</li>
             <li><strong>Notifications &amp; Alerts:</strong> Send timely booking confirmations, daily report updates, and important announcements</li>
-            <li><strong>Service Improvement:</strong> Use aggregated, anonymized data to enhance our recommendation logic and improve app experience</li>
+            <li><strong>Service Improvement:</strong> Use aggregated, anonymized data to enhance our on-device recommendation logic and improve app experience</li>
             <li><strong>Account Management:</strong> Authenticate users, handle password changes, and manage account preferences</li>
             <li><strong>Admin Oversight:</strong> Enable platform administrators to monitor user registrations, approve accounts, and review platform health</li>
         </ul>
@@ -398,8 +398,8 @@
             <p>✅ We do <strong>not</strong> sell your personal or child data. We may share information only in the following limited circumstances:</p>
         </div>
         <ul>
-            <li><strong>Between Parents &amp; Providers:</strong> When a booking is made, relevant parent and child information is shared with the booked care center to facilitate care</li>
-            <li><strong>Service Providers:</strong> Trusted third-party vendors (hosting, email delivery, analytics) operating under strict data protection agreements</li>
+            <li><strong>Secure Messaging:</strong> User messages (Parents to Providers/Admin) are handled securely 100% within our internal system and are not shared with or processed by any third-party services</li>
+            <li><strong>Service Providers:</strong> Trusted third-party vendors (hosting, email delivery) operating under strict data protection agreements; no messaging or personal data is disclosed for commercial purposes</li>
             <li><strong>Platform Administrators:</strong> ChildCare AI admins may access account information to resolve disputes, approve registrations, or ensure platform safety</li>
             <li><strong>Legal Requirements:</strong> When required by law, regulation, or valid legal process</li>
             <li><strong>Safety:</strong> To protect the rights, safety, or property of ChildCare AI, our users, or the public</li>
@@ -419,6 +419,7 @@
             <li><strong>Encryption:</strong> All data is encrypted in transit (TLS/SSL) and at rest (AES-256)</li>
             <li><strong>Secure Authentication:</strong> Passwords are hashed using bcrypt; JWT-based token management ensures secure session access</li>
             <li><strong>Role-Based Access Control:</strong> Data is scoped per user role — parents cannot access other children's data; providers cannot see other centers' data</li>
+            <li><strong>On-Device Privacy:</strong> AI recommendation processing occurs entirely on the user's device, ensuring that sensitive search inputs never leave the app</li>
             <li><strong>Regular Audits:</strong> We conduct periodic security assessments and vulnerability testing</li>
         </ul>
         <div class="callout">
@@ -511,18 +512,18 @@
         <div style="margin: 20px 0; border: 1px solid rgba(139,92,246,0.3); border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.2);">
             <div style="padding: 12px 16px; background: rgba(139,92,246,0.15); border-bottom: 1px solid rgba(139,92,246,0.3); color: #c4b5fd; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">Compliance Disclosure</div>
             <div style="padding: 16px;">
-                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">1. Data Disclosed:</strong> User-input preferences including care type, budget constraints, location search radius, and preferred timing.</p>
-                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">2. Data Recipient:</strong> ChildCare AI Secure Internal Backend System. No data is shared with external third parties or advertisers.</p>
-                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">3. Purpose & Use:</strong> To generate personalized matches between parents and verified childcare providers using proprietary algorithms.</p>
-                <p style="margin: 0;"><strong style="color: #ffffff;">4. User Consent:</strong> All processing is strictly opt-in. Permission is requested via an in-app transparency prompt (App Store Guideline 5.1.2i) before any data is processed.</p>
+                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">1. Data Processing:</strong> Recommendation logic runs entirely on-device. No user data (messages, search inputs, or personal information) is transmitted to external servers or third-party AI processors.</p>
+                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">2. Matching Engine:</strong> Based on a locally trained dataset and proprietary internal matching algorithms for maximum privacy.</p>
+                <p style="margin-bottom: 12px;"><strong style="color: #ffffff;">3. Messaging Security:</strong> All user-to-user and user-to-admin communications are handled securely within our private infrastructure.</p>
+                <p style="margin: 0;"><strong style="color: #ffffff;">4. User Consent:</strong> Processing is strictly opt-in via an in-app transparency prompt before any locally-run analysis occurs.</p>
             </div>
         </div>
 
         <div class="highlight-box" style="background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3);">
-            <p style="color: #fca5a5 !important;">🛡️ <strong>Zero-Sharing Guarantee:</strong> ChildCare AI does <u>not</u> transmit, share, or process your personal data with OpenAI (ChatGPT), Google Gemini, Anthropic, or any other third-party Artificial Intelligence service providers.</p>
+            <p style="color: #fca5a5 !important;">🛡️ <strong>Zero-Sharing Guarantee:</strong> ChildCare AI does <u>not</u> transmit, share, or process your personal data with OpenAI (ChatGPT), Google Gemini, Anthropic, or any other third-party Artificial Intelligence service providers. All matching runs on your device.</p>
         </div>
 
-        <p style="font-size: 0.88rem; font-style: italic; color: #64748b; margin-top: 10px;">All recommendation logic runs exclusively within our private, encrypted server environment.</p>
+        <p style="font-size: 0.88rem; font-style: italic; color: #64748b; margin-top: 10px;">All recommendation logic and user messaging run exclusively within our private, encrypted environment.</p>
     </div>
 
     <div class="section" id="s11">

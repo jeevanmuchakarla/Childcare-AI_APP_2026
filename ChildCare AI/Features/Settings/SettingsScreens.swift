@@ -323,7 +323,7 @@ public struct AppPrivacyScreen: View {
                                    content: "We collect only essential information—such as contact details and child profiles—required to facilitate seamless childcare bookings and real-time updates from providers.")
                     
                     PrivacySection(title: "AI Privacy Standards", 
-                                   content: "Our recommendation logic uses your anonymized preferences to find the best childcare matches. All processing is handled securely within our internal system and is never shared with third-party AI providers.")
+                                   content: "Your recommendation data is processed entirely on-device and is never shared with third-party AI providers.")
                     
                     PrivacySection(title: "Third-Party Disclosure", 
                                    content: "ChildCare AI never sells your personal data. We only share information with care centers you explicitly book with and trusted infrastructure partners.")
@@ -1405,10 +1405,10 @@ public struct PrivacyPolicyScreen: View {
                     ])
                     
                     PrivacySectionItem(title: "How We Use Data", points: [
-                        "Facilitate bookings with providers",
+                        "Facilitate secure bookings with providers",
                         "Deliver real-time daily updates to parents",
-                        "Provide proprietary smart childcare recommendations",
-                        "Improve safety through verification processes"
+                        "Proprietary on-device childcare matching",
+                        "Secure internal messaging (no third-party access)"
                     ])
                     
                     PrivacySectionItem(title: "Data Protection", points: [
@@ -1602,11 +1602,11 @@ public struct AIDataUsageView: View {
                                        icon: "square.and.pencil", iconColor: .blue)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We use",
-                                       value: "Secure childcare recommendation generation via our proprietary database logic",
+                                       value: "On-device matching via locally trained datasets for 100% privacy",
                                        icon: "sparkles", iconColor: themeManager.primaryColor)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We send to",
-                                       value: "ChildCare AI secure internal backend system",
+                                       value: "Nowhere. All matching calculations run entirely on your device.",
                                        icon: "arrow.up.right.circle", iconColor: .orange)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We don't",
@@ -1635,7 +1635,7 @@ public struct AIDataUsageView: View {
                                 Text(consentManager.hasConsent ? "Recommendation Access Granted" : "Recommendation Access Not Granted")
                                     .font(.subheadline).fontWeight(.semibold).foregroundColor(AppTheme.textPrimary)
                                 Text(consentManager.hasConsent
-                                     ? "Preferences are processed by our secure system when you use Recommendations."
+                                     ? "Preferences are processed by our secure on-device matching engine."
                                      : "You'll be asked for permission next time you use Smart Recommendations.")
                                     .font(.caption).foregroundColor(AppTheme.textSecondary)
                                     .lineSpacing(2).fixedSize(horizontal: false, vertical: true)
