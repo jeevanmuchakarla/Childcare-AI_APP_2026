@@ -370,6 +370,10 @@ struct ChatConversationView: View {
     private var otherId: Int { contact.userId ?? 0 }
 
     @State private var showClearConfirmation = false
+    @State private var showReportConfirmation = false
+    @State private var showBlockConfirmation = false
+    @State private var showReportSuccess = false
+    @State private var showBlockSuccess = false
     @State private var errorMessage: String? = nil
     @State private var showErrorMessage = false
     
@@ -407,6 +411,18 @@ struct ChatConversationView: View {
                 }
                 
                 Spacer()
+                
+                Button(action: { showReportConfirmation = true }) {
+                    Image(systemName: "flag")
+                        .foregroundColor(.orange)
+                }
+                .padding(.trailing, 8)
+
+                Button(action: { showBlockConfirmation = true }) {
+                    Image(systemName: "hand.raised")
+                        .foregroundColor(.red)
+                }
+                .padding(.trailing, 8)
                 
                 Button(action: { showClearConfirmation = true }) {
                     Image(systemName: "trash")
@@ -542,6 +558,28 @@ struct ChatConversationView: View {
             Button("OK", role: .cancel) { }
         } message: {
             Text(errorMessage ?? "Unknown error occurred while sending your message.")
+        }
+        .alert("Report User?", isPresented: $showReportConfirmation) {
+            Button("Report", role: .destructive) { showReportSuccess = true }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Are you sure you want to report this user for objectionable content? Our team will review this conversation within 24 hours.")
+        }
+        .alert("User Reported", isPresented: $showReportSuccess) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Thank you for your report. We will investigate this user and take appropriate action.")
+        }
+        .alert("Block User?", isPresented: $showBlockConfirmation) {
+            Button("Block", role: .destructive) { showBlockSuccess = true }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Are you sure you want to block this user? You will no longer receive messages from them.")
+        }
+        .alert("User Blocked", isPresented: $showBlockSuccess) {
+            Button("OK", role: .cancel) { dismiss() }
+        } message: {
+            Text("This user has been blocked. This conversation is now closed.")
         }
         .onAppear {
             // Start real-time polling

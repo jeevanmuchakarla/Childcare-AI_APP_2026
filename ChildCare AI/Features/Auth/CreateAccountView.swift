@@ -206,10 +206,17 @@ public struct CreateAccountView: View {
                                 .font(.system(size: 20))
                         }
                         
-                        Text("I agree to the Terms of Service and Privacy Policy")
-                            .font(.caption)
-                            .foregroundColor(AppTheme.textSecondary)
-                            .fixedSize(horizontal: false, vertical: true)
+                        HStack(spacing: 0) {
+                            Text("I agree to the ")
+                            Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                                .foregroundColor(themeManager.primaryColor)
+                            Text(" and ")
+                            Link("Privacy Policy", destination: URL(string: "https://childcare-ai.com/privacy")!)
+                                .foregroundColor(themeManager.primaryColor)
+                        }
+                        .font(.caption)
+                        .foregroundColor(AppTheme.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
                         Spacer()
                     }
                     .padding(.horizontal, AppTheme.padding)

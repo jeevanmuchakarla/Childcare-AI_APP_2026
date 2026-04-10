@@ -17,6 +17,7 @@ public struct GeneralSettingsScreen: View {
                     SettingsSection(title: "Account") {
                         SettingsRowSimple(title: "View Profile", icon: "person.fill", color: .blue, destination: AnyView(ProfileView()))
                         SettingsRowSimple(title: "Privacy", icon: "shield.fill", color: .green, destination: AnyView(PrivacyAndDataScreen()))
+                        SettingsRowSimple(title: "Delete Account", icon: "trash.fill", color: .red, destination: AnyView(DeleteAccountConfirmationScreen()))
                     }
                     
                     // Preferences Section
