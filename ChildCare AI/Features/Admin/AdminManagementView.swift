@@ -2,7 +2,8 @@ import SwiftUI
 
 public struct AdminManagementView: View {
     @State private var searchText = ""
-    @State private var selectedTab = 0
+    @Binding var selectedTab: Int
+    @State private var innerSelectedTab = 0
     @State private var users: [AdminUser] = []
     @State private var pendingProviders: [PendingProvider] = []
     @State private var isLoading = false
@@ -11,27 +12,28 @@ public struct AdminManagementView: View {
     @EnvironmentObject var themeManager: ThemeManager
     let tabs = ["Parents", "Preschools", "Daycares"]
     
-    public init(initialTab: Int = 0) {
-        _selectedTab = State(initialValue: initialTab)
+    public init(selectedTab: Binding<Int>, initialTab: Int = 0) {
+        self._selectedTab = selectedTab
+        _innerSelectedTab = State(initialValue: initialTab)
     }
     
     public var body: some View {
         VStack(spacing: 0) {
-            AppHeader(title: "Management", showBackButton: false)
+            AppHeader(title: "Management", showBackButton: true, onBack: { selectedTab = 0 })
             // Tab Selector
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(0..<tabs.count, id: \.self) { index in
-                        Button(action: { selectedTab = index }) {
+                        Button(action: { innerSelectedTab = index }) {
                             Text(tabs[index])
                                 .font(.subheadline)
                                 .fontWeight(.bold)
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 10)
-                                .background(selectedTab == index ? themeManager.primaryColor : AppTheme.surface)
-                                .foregroundColor(selectedTab == index ? .white : .gray)
+                                .background(innerSelectedTab == index ? themeManager.primaryColor : AppTheme.surface)
+                                .foregroundColor(innerSelectedTab == index ? .white : .gray)
                                 .cornerRadius(20)
-                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(selectedTab == index ? Color.clear : Color.gray.opacity(0.1), lineWidth: 1))
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(innerSelectedTab == index ? Color.clear : Color.gray.opacity(0.1), lineWidth: 1))
                         }
                     }
                 }
@@ -54,7 +56,7 @@ public struct AdminManagementView: View {
                 VStack(spacing: 16) {
                     if isLoading {
                         ProgressView().padding(.top, 40)
-                    } else if selectedTab == 0 {
+                    } else if innerSelectedTab == 0 {
                         // --- Parents Tab ---
                         let allParents = users.filter { $0.role.capitalized == "Parent" }
                         let pendingParents = allParents.filter { $0.is_approved == false }
@@ -92,7 +94,7 @@ public struct AdminManagementView: View {
                             Text("No parents found.").foregroundColor(.gray).padding(.top, 40)
                         }
                         
-                    } else if selectedTab == 1 {
+                    } else if innerSelectedTab == 1 {
                         // --- Preschools Tab ---
                         let preschools = users.filter { $0.role.capitalized == "Preschool" }
                         ForEach(preschools.filter { searchText.isEmpty || $0.email.localizedCaseInsensitiveContains(searchText) }) { user in
@@ -105,7 +107,7 @@ public struct AdminManagementView: View {
                                 onTap: { selectedUserId = user.id; showUserDetail = true }
                             )
                         }
-                    } else if selectedTab == 2 {
+                    } else if innerSelectedTab == 2 {
                         // --- Daycares Tab ---
                         let daycares = users.filter { $0.role.capitalized == "Daycare" }
                         ForEach(daycares.filter { searchText.isEmpty || $0.email.localizedCaseInsensitiveContains(searchText) }) { user in

@@ -20,7 +20,7 @@ public struct AdminTabView: View {
             .tag(0)
             
             NavigationStack {
-                AdminAllBookingsView()
+                AdminAllBookingsView(selectedTab: $selectedTab)
             }
             .tabItem {
                 Image(systemName: "calendar")
@@ -29,7 +29,7 @@ public struct AdminTabView: View {
             .tag(1)
             
             NavigationStack {
-                AdminManagementView(initialTab: 0)
+                AdminManagementView(selectedTab: $selectedTab, initialTab: 0)
             }
             .tabItem {
                 Image(systemName: "person.2.fill")

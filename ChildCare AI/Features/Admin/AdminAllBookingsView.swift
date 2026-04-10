@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AdminAllBookingsView: View {
+    @Binding var selectedTab: Int
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var themeManager: ThemeManager
     @State private var bookings: [AdminLiveBooking] = []
@@ -22,7 +23,7 @@ struct AdminAllBookingsView: View {
         VStack(spacing: 0) {
             // Header
             HStack {
-                Button(action: { dismiss() }) {
+                Button(action: { selectedTab = 0 }) {
                     Image(systemName: "chevron.left")
                         .font(.title3.bold())
                         .foregroundColor(themeManager.primaryColor)
