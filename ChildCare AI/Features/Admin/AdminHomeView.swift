@@ -116,7 +116,7 @@ public struct AdminHomeView: View {
                         AdminSection(title: "Analytics") {
                             VStack(spacing: 12) {
                                 AdminNavRow(title: "Revenue", icon: "dollarsign.circle.fill", color: .green)
-                                AdminNavRow(title: "AI Performance", icon: "brain.head.profile", color: .purple)
+                                AdminNavRow(title: "System Performance", icon: "bolt.shield.fill", color: .purple)
                             }
                         }
                     }
@@ -148,11 +148,11 @@ public struct AdminHomeView: View {
         case "Approvals": PendingUsersView()
         case "Bookings": AdminManagementView(initialTab: 2)
         case "Revenue": RevenueAnalyticsScreen()
-        case "AI Performance": AIMetricsScreen()
+        case "System Performance": AdminSystemEfficiencyView()
         case "Booking Reports": BookingReportScreen()
         case "Revenue Reports": AnalyticsReportScreen()
         case "Usage Reports": MetricsReportScreen()
-        case "AI Insights": AIInsightsScreen()
+        case "Platform Insights": AdminAnalyticsView()
         default: EmptyView()
         }
     }

@@ -28,8 +28,8 @@ public struct BookingMonitoringScreen: View {
     public var body: some View { AdminListScreen(title: "Live Bookings", icon: "calendar.badge.clock") }
 }
 
-public struct AIMetricsScreen: View {
-    public var body: some View { AdminDashboardScreen(title: "AI Match Performance", icon: "brain.head.profile", dataPoints: ["Match Success Rate: 94%", "Avg Request latency: 1.2s", "Top Feature: Distance Filter"]) }
+public struct SystemMetricsScreen: View {
+    public var body: some View { AdminDashboardScreen(title: "Matching Performance", icon: "bolt.shield.fill", dataPoints: ["Match Success Rate: 94%", "Avg Request latency: 1.2s", "Top Factor: Distance Filter"]) }
 }
 
 // MARK: - Report Screens
@@ -45,8 +45,8 @@ public struct MetricsReportScreen: View {
     public var body: some View { AdminReportScreen(title: "Platform Usage Metrics") }
 }
 
-public struct AIInsightsScreen: View {
-    public var body: some View { AdminReportScreen(title: "AI Recommendation Insights") }
+public struct MatchingInsightsScreen: View {
+    public var body: some View { AdminReportScreen(title: "Matching Logic Insights") }
 }
 
 // MARK: - Reusable Admin Screen Templates

@@ -198,7 +198,7 @@ public struct AIRecommendationFlow: View {
                 self.isAnalyzing = false
             }
         } catch {
-            self.errorMessage = "Failed to fetch AI recommendations: \(error.localizedDescription)"
+            self.errorMessage = "Failed to fetch recommendations: \(error.localizedDescription)"
             self.isAnalyzing = false
         }
     }
@@ -241,11 +241,21 @@ public struct AIRecommendationFlow: View {
                         .foregroundColor(AppTheme.textPrimary)
                 }
                 
-                Text("ChildCare AI leverages advanced algorithms to match your family with the highest-rated preschools and daycares. Our platform simplifies the search process, providing real-time data and personalized recommendations centered on your child's developmental needs and your family's preferences.")
+                Text("ChildCare AI leverages secure, proprietary algorithms to match your family with the highest-rated preschools and daycares. Our platform simplifies the search process, providing real-time data and personalized recommendations centered on your child's developmental needs.")
                     .font(.subheadline)
                     .foregroundColor(AppTheme.textSecondary)
                     .lineSpacing(4)
                     .fixedSize(horizontal: false, vertical: true)
+                
+                HStack(spacing: 8) {
+                    Image(systemName: "shield.checkered")
+                        .foregroundColor(Color(hex: "#00C853"))
+                    Text("No data is shared with third-party AI services. All processing happens within our secure system.")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(themeManager.primaryColor)
+                }
+                .padding(.top, 4)
                 
                 HStack(spacing: 16) {
                     Label("Verified Providers", systemImage: "checkmark.seal.fill")
@@ -545,7 +555,7 @@ public struct AIRecommendationFlow: View {
                         .foregroundColor(themeManager.primaryColor)
                 }
                 Spacer()
-                Text("AI Recommendations")
+                Text("Smart Recommendations")
                     .font(.headline)
                     .foregroundColor(AppTheme.textPrimary)
                 Spacer()
@@ -569,7 +579,7 @@ public struct AIRecommendationFlow: View {
                         .fontWeight(.bold)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    Text("AI-optimized matches for your family")
+                    Text("Optimized matches for your family")
                         .font(.subheadline)
                         .foregroundColor(AppTheme.textSecondary)
                 }

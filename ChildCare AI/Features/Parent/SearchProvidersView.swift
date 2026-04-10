@@ -56,7 +56,7 @@ public struct SearchProvidersView: View {
                                 type: provider.type,
                                 rating: provider.rating,
                                 price: Int(provider.price?.replacingOccurrences(of: "$", with: "").replacingOccurrences(of: "/mo", with: "").replacingOccurrences(of: "/hr", with: "") ?? "0") ?? 0,
-                                experience: "AI Verified",
+                                experience: "Verified Provider",
                                 certifications: ["Background Checked"],
                                 amenities: ["Safe", "Nurturing"],
                                 description: provider.bio ?? "No description available.",
@@ -64,7 +64,7 @@ public struct SearchProvidersView: View {
                             )) {
                                 ProviderSearchCard(
                                     name: provider.name,
-                                    distance: provider.address?.contains("Chennai") == true ? "Local" : "AI Verified",
+                                    distance: provider.address?.contains("Chennai") == true ? "Local" : "Verified",
                                     rating: String(format: "%.1f", provider.rating),
                                     price: provider.price ?? "N/A",
                                     imageName: provider.type == "Preschool" ? "book" : "building.2"

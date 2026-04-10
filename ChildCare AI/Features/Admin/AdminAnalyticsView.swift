@@ -81,7 +81,7 @@ public struct AdminAnalyticsView: View {
                             .fontWeight(.bold)
                         
                         VStack(spacing: 12) {
-                            FeatureUsageRow(title: "AI Search", count: "45k", status: "Active")
+                            FeatureUsageRow(title: "Advanced Selection", count: "45k", status: "Active")
                             FeatureUsageRow(title: "Direct Booking", count: "12k", status: "Active")
                             FeatureUsageRow(title: "Chat", count: "85k", status: "Active")
                         }

@@ -30,8 +30,8 @@ public struct AdminReportsView: View {
                                 ReportStatBox(title: "Total Bookings", value: "\(stats?.bookings.total ?? 0)", icon: "calendar", color: .purple)
                             }
                             
-                            NavigationLink(destination: AdminAIEfficiencyView()) {
-                                ReportStatBox(title: "Match Success", value: stats?.metrics.match_success ?? "0%", icon: "sparkles", color: .orange)
+                            NavigationLink(destination: AdminSystemEfficiencyView()) {
+                                ReportStatBox(title: "Match Success", value: stats?.metrics.match_success ?? "0%", icon: "bolt.shield.fill", color: .orange)
                             }
                         }
                         .padding(.horizontal)

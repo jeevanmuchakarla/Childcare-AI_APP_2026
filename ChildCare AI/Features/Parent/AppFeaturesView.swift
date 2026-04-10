@@ -13,7 +13,7 @@ struct AppFeaturesView: View {
     @EnvironmentObject var themeManager: ThemeManager
     
     let features = [
-        FeatureItem(title: "ChildCare AI", description: "Smart matching with local preschools and daycares based on your child's unique needs.", icon: "sparkles", color: .purple),
+        FeatureItem(title: "Smart Matching", description: "Secure, proprietary matching with local preschools and daycares based on your child's needs.", icon: "sparkles", color: .purple),
         FeatureItem(title: "Real-time Daily Logs", description: "Stay updated with meals, naps, and activities as they happen throughout the day.", icon: "clock.fill", color: .blue),
         FeatureItem(title: "Direct Messaging", description: "Secure, instant communication with providers and our support team.", icon: "message.fill", color: .green),
         FeatureItem(title: "Expert Advice", description: "Personalized parenting insights and developmental milestone tracking.", icon: "lightbulb.fill", color: .orange),
@@ -66,7 +66,7 @@ struct AppFeaturesView: View {
                                 .font(.system(size: 34, weight: .black))
                                 .foregroundColor(AppTheme.textPrimary)
                             
-                            Text("Experience the future of parenting with our AI-powered ecosystem.")
+                            Text("Experience the future of parenting with our secure, smart-matched ecosystem.")
                                 .font(.body)
                                 .foregroundColor(AppTheme.textSecondary)
                                 .lineSpacing(4)

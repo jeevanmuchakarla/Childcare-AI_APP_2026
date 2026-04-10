@@ -13,7 +13,7 @@ public struct OnboardingView: View {
     @State private var currentPage = 0
     
     let pages: [OnboardingPage] = [
-        OnboardingPage(title: "Intelligent Matching", description: "Finding the perfect childcare is easier than ever with AI-driven recommendations tailored to your child's needs.", iconName: "baby.symbol", color: .blue),
+        OnboardingPage(title: "Intelligent Matching", description: "Finding the perfect childcare is easier than ever with smart-matched recommendations tailored to your child's needs.", iconName: "baby.symbol", color: .blue),
         OnboardingPage(title: "Comprehensive Care", description: "Whether you're a parent seeking education or a center managing growth, ChildCare AI streamlines every interaction.", iconName: "person.2.fill", color: .green),
         OnboardingPage(title: "Safety & Peace of Mind", description: "Verified providers, real-time updates, and secure communication ensure peace of mind for every family.", iconName: "checkmark.shield.fill", color: .purple)
     ]

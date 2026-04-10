@@ -151,7 +151,7 @@ public struct ProviderDashboardView: View {
                     // Main Action Grid
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
                         NavigationLink(destination: AIInsightsView()) {
-                            BigActionCard(title: "AI Insights", icon: "brain.headlight.fill", subtitle: "Recommendations", color: .red)
+                            BigActionCard(title: "Smart Insights", icon: "brain.headlight.fill", subtitle: "Recommendations", color: .red)
                         }
                         
                         NavigationLink(destination: CenterStatusView()) {

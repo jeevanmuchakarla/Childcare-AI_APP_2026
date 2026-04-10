@@ -93,7 +93,7 @@ public struct AIRecommendationDetailView: View {
                                     .font(.subheadline)
                                     .fontWeight(.bold)
                                     .foregroundColor(AppTheme.textPrimary)
-                                Text("(AI Verified)")
+                                Text("(Verified)")
                                     .font(.caption)
                                     .foregroundColor(AppTheme.textSecondary)
                             }
@@ -140,7 +140,7 @@ public struct AIRecommendationDetailView: View {
                     
                     // Experience / Why it's a match
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("AI Match Insights")
+                        Text("Match Insights")
                             .font(.headline)
                             .foregroundColor(AppTheme.textPrimary)
                             

@@ -239,7 +239,7 @@ public struct ParentHomeView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 18))
                                 
                                 VStack(alignment: .leading, spacing: 6) {
-                                    Text("ChildCare AI")
+                                    Text("Smart Matches")
                                         .font(.system(size: 24, weight: .black))
                                         .foregroundColor(.white)
                                     Text("Get instant matches & expert advice")

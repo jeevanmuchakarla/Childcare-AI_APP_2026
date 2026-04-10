@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct AdminAIEfficiencyView: View {
+public struct AdminSystemEfficiencyView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var themeManager: ThemeManager
     
@@ -14,7 +14,7 @@ public struct AdminAIEfficiencyView: View {
                     Image(systemName: "chevron.left")
                         .foregroundColor(themeManager.primaryColor)
                 }
-                Text("AI Efficiency")
+                Text("System Efficiency")
                     .font(.headline)
                 Spacer()
             }
@@ -30,7 +30,7 @@ public struct AdminAIEfficiencyView: View {
                                 Circle()
                                     .fill(Color.white.opacity(0.2))
                                     .frame(width: 40, height: 40)
-                                Image(systemName: "cpu")
+                                Image(systemName: "bolt.shield")
                                     .foregroundColor(.white)
                             }
                             
@@ -78,18 +78,18 @@ public struct AdminAIEfficiencyView: View {
                     }
                     .padding(.horizontal)
                     
-                    // AI Training Section
+                    // Logic Optimization Section
                     VStack(alignment: .leading, spacing: 20) {
                         HStack {
-                            Image(systemName: "brain.headset")
+                            Image(systemName: "gearshape.fill")
                                 .foregroundColor(themeManager.primaryColor)
                                 .font(.title3)
-                            Text("AI Training & Optimization")
+                            Text("Logic Optimization")
                                 .font(.headline)
                                 .foregroundColor(AppTheme.textPrimary)
                         }
                         
-                        Text("Update the AI model using newly verified provider data and parent preference patterns to improve match accuracy.")
+                        Text("Update the matching engine using newly verified provider data and parent preference patterns to improve match accuracy.")
                             .font(.caption)
                             .foregroundColor(AppTheme.textSecondary)
                         
@@ -97,7 +97,7 @@ public struct AdminAIEfficiencyView: View {
                             // Mock training action
                         }) {
                             HStack {
-                                Text("Train AI System")
+                                Text("Optimize Matching Engine")
                                     .fontWeight(.bold)
                                 Spacer()
                                 Image(systemName: "arrow.right.circle.fill")
@@ -110,7 +110,7 @@ public struct AdminAIEfficiencyView: View {
                         
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Last Trained")
+                                Text("Last Optimized")
                                     .font(.caption2)
                                     .foregroundColor(.gray)
                                 Text("Today, 10:45 AM")
@@ -218,7 +218,7 @@ struct FactorProgressRow: View {
 }
 
 // MARK: - Compact Dashboard Preview
-extension AdminAIEfficiencyView {
+extension AdminSystemEfficiencyView {
     public struct CompactInsightCard: View {
         @EnvironmentObject var themeManager: ThemeManager
         
@@ -232,7 +232,7 @@ extension AdminAIEfficiencyView {
                             Circle()
                                 .fill(Color(hex: "#6B60F1").opacity(0.1))
                                 .frame(width: 32, height: 32)
-                            Image(systemName: "cpu.fill")
+                            Image(systemName: "bolt.shield.fill")
                                 .font(.system(size: 14))
                                 .foregroundColor(Color(hex: "#6B60F1"))
                         }

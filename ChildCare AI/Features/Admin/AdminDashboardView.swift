@@ -116,8 +116,8 @@ public struct AdminDashboardView: View {
                                 StatCard(title: "Pending Users", value: "\(stats?.metrics.pending_verification ?? 0)", icon: "clock.badge.checkmark.fill", color: .orange, subtitle: "Action Required")
                             }
                             
-                            NavigationLink(destination: AdminAIEfficiencyView()) {
-                                StatCard(title: "Match Success", value: stats?.metrics.match_success ?? "0%", icon: "sparkles", color: .purple, subtitle: "AI Efficiency")
+                            NavigationLink(destination: AdminSystemEfficiencyView()) {
+                                StatCard(title: "Match Success", value: stats?.metrics.match_success ?? "0%", icon: "bolt.shield.fill", color: .purple, subtitle: "System Efficiency")
                             }
                         }
                         .padding(.horizontal)
@@ -163,11 +163,11 @@ public struct AdminDashboardView: View {
                     // AIPerformance Preview
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            Text("AI Performance Insights")
+                            Text("Matching Performance")
                                 .font(.headline)
                                 .fontWeight(.bold)
                             Spacer()
-                            NavigationLink(destination: AdminAIEfficiencyView()) {
+                            NavigationLink(destination: AdminSystemEfficiencyView()) {
                                 Text("Full Report")
                                     .font(.caption)
                                     .fontWeight(.bold)
@@ -176,7 +176,7 @@ public struct AdminDashboardView: View {
                         }
                         .padding(.horizontal)
                         
-                        AdminAIEfficiencyView.CompactInsightCard()
+                        AdminSystemEfficiencyView.CompactInsightCard()
                             .padding(.horizontal)
                     }
                     

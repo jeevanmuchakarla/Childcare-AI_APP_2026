@@ -269,10 +269,26 @@ public struct PrivacyAndDataScreen: View {
                             .font(.subheadline)
                             .foregroundColor(AppTheme.textSecondary)
                             .lineSpacing(4)
+                        
+                        Divider()
+                            .background(themeManager.primaryColor.opacity(0.2))
+                        
+                        HStack(spacing: 12) {
+                            Image(systemName: "checkmark.shield.fill")
+                                .foregroundColor(Color(hex: "#00C853"))
+                                .font(.title3)
+                            
+                            Text("This app does not share user data with any third-party AI services. All features run locally or within our secure system.")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(AppTheme.textPrimary)
+                                .lineSpacing(2)
+                        }
                     }
                     .padding()
                     .background(themeManager.primaryColor.opacity(0.05))
                     .cornerRadius(16)
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(themeManager.primaryColor.opacity(0.1), lineWidth: 1))
                     .padding(.horizontal)
                     
                     Spacer()
@@ -307,7 +323,7 @@ public struct AppPrivacyScreen: View {
                                    content: "We collect only essential information—such as contact details and child profiles—required to facilitate seamless childcare bookings and real-time updates from providers.")
                     
                     PrivacySection(title: "AI Privacy Standards", 
-                                   content: "Our AI-powered recommendations use anonymized preferences. You have full control over AI data usage and can revoke consent at any time from the 'AI Data Usage' menu.")
+                                   content: "Our recommendation logic uses your anonymized preferences to find the best childcare matches. All processing is handled securely within our internal system and is never shared with third-party AI providers.")
                     
                     PrivacySection(title: "Third-Party Disclosure", 
                                    content: "ChildCare AI never sells your personal data. We only share information with care centers you explicitly book with and trusted infrastructure partners.")
@@ -479,7 +495,7 @@ public struct SupportScreen: View {
                             .padding(.leading, 8)
                         
                         VStack(spacing: 0) {
-                            FAQRow(question: "How do I find a verified childcare?", answer: "Use the 'World Childcares' or 'Verified Users' filter in AI Recommendations to find centers that meet our quality standards.")
+                            FAQRow(question: "How do I find a verified childcare?", answer: "Use the 'World Childcares' or 'Verified Users' filter in Smart Recommendations to find centers that meet our quality standards.")
                             FAQRow(question: "Is my data safe?", answer: "Yes, ChildCare AI utilizes industry-standard end-to-end encryption for all your sensitive information and real-time storage.")
                             FAQRow(question: "How do real-time updates work?", answer: "Providers send daily reports containing activities, meals, and photos that appear instantly on your home screen.")
                             FAQRow(question: "What is the 'Go' button for?", answer: "The 'Go' button in recommendations opens the childcare's location directly in your maps app for easy navigation.", showDivider: false)
@@ -1311,7 +1327,7 @@ public struct TermsAndConditionsScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    Text("Last updated: March 2026")
+                    Text("Last updated: April 11, 2026")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                     
@@ -1323,11 +1339,13 @@ public struct TermsAndConditionsScreen: View {
                     
                     TermSection(number: "2", title: "User Responsibilities", content: "Users must provide accurate information. Parents are responsible for verifying provider credentials, although we provide verification badges for convenience.")
                     
-                    TermSection(number: "3", title: "Real-time Data", content: "Daily reports and activities are provided by childcare centers. We ensure the transmission of this data but are not responsible for the accuracy of content submitted by providers.")
+                    TermSection(number: "3", title: "Matching Technology", content: "Our recommendation logic uses proprietary smart matching technology. It processes your anonymized preferences to find suitable matches without sharing your identifiable data with third-party AI services.")
                     
-                    TermSection(number: "4", title: "Privacy", content: "Your data is handled according to our Privacy Policy. We use encrypted storage to protect all sensitive child and parent information.")
+                    TermSection(number: "4", title: "Real-time Data", content: "Daily reports and activities are provided by childcare centers. We ensure the transmission of this data but are not responsible for the accuracy of content submitted by providers.")
                     
-                    TermSection(number: "5", title: "Usage", content: "Use this app responsibly for managing childcare needs. Commercial use for purposes other than those intended is prohibited.")
+                    TermSection(number: "5", title: "Privacy", content: "Your data is handled according to our Privacy Policy. We use encrypted storage to protect all sensitive child and parent information.")
+                    
+                    TermSection(number: "6", title: "Usage", content: "Use this app responsibly for managing childcare needs. Commercial use for purposes other than those intended is prohibited.")
                 }
                 .padding(24)
             }
@@ -1371,7 +1389,7 @@ public struct PrivacyPolicyScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    Text("Last updated: March 2026")
+                    Text("Last updated: April 2026")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                     
@@ -1389,7 +1407,7 @@ public struct PrivacyPolicyScreen: View {
                     PrivacySectionItem(title: "How We Use Data", points: [
                         "Facilitate bookings with providers",
                         "Deliver real-time daily updates to parents",
-                        "Provide AI-powered childcare recommendations",
+                        "Provide proprietary smart childcare recommendations",
                         "Improve safety through verification processes"
                     ])
                     
@@ -1486,10 +1504,10 @@ public struct AIConsentPopupView: View {
                                          detail: "Your preferences: care type, budget, location, timing, and minimum rating")
                         AIConsentInfoRow(icon: "arrow.up.right.circle.fill", iconColor: .orange,
                                          title: "What we send",
-                                         detail: "These preferences are sent securely to our backend and processed by OpenAI to generate your personalised recommendations")
+                                         detail: "These preferences are sent securely to our backend and processed by our proprietary matching engine to generate your personalised recommendations")
                         AIConsentInfoRow(icon: "lock.shield.fill", iconColor: .green,
                                          title: "Secure Processing",
-                                         detail: "Your data is used only for the current session. OpenAI provides enterprise-grade protection and does not store your personal details")
+                                         detail: "Your data is used only for the current session. Our internal system provides enterprise-grade protection and does not store your personal details")
                     }
                     .padding(.horizontal, 4)
 
@@ -1584,11 +1602,11 @@ public struct AIDataUsageView: View {
                                        icon: "square.and.pencil", iconColor: .blue)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We use",
-                                       value: "AI-powered childcare recommendation generation via OpenAI",
+                                       value: "Secure childcare recommendation generation via our proprietary database logic",
                                        icon: "sparkles", iconColor: themeManager.primaryColor)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We send to",
-                                       value: "ChildCare AI backend and secure AI cloud providers (OpenAI)",
+                                       value: "ChildCare AI secure internal backend system",
                                        icon: "arrow.up.right.circle", iconColor: .orange)
                         Divider().padding(.leading, 52)
                         AIDataUsageRow(label: "We don't",
@@ -1614,11 +1632,11 @@ public struct AIDataUsageView: View {
                                     .foregroundColor(consentManager.hasConsent ? .green : .orange)
                             }
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(consentManager.hasConsent ? "AI Access Granted" : "AI Access Not Granted")
+                                Text(consentManager.hasConsent ? "Recommendation Access Granted" : "Recommendation Access Not Granted")
                                     .font(.subheadline).fontWeight(.semibold).foregroundColor(AppTheme.textPrimary)
                                 Text(consentManager.hasConsent
-                                     ? "Preferences are sent to the AI service when you use Recommendations."
-                                     : "You'll be asked for permission next time you use AI Recommendations.")
+                                     ? "Preferences are processed by our secure system when you use Recommendations."
+                                     : "You'll be asked for permission next time you use Smart Recommendations.")
                                     .font(.caption).foregroundColor(AppTheme.textSecondary)
                                     .lineSpacing(2).fixedSize(horizontal: false, vertical: true)
                             }
@@ -1633,7 +1651,7 @@ public struct AIDataUsageView: View {
                             Button(action: { showRevokeConfirm = true }) {
                                 HStack {
                                     Image(systemName: "xmark.circle")
-                                    Text("Revoke AI Consent").fontWeight(.semibold)
+                                    Text("Revoke Recommendation Consent").fontWeight(.semibold)
                                 }
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity).frame(height: 50)
@@ -1653,11 +1671,11 @@ public struct AIDataUsageView: View {
         }
         .background(AppTheme.background.ignoresSafeArea())
         .navigationBarHidden(true)
-        .alert("Revoke AI Consent?", isPresented: $showRevokeConfirm) {
+        .alert("Revoke Consent?", isPresented: $showRevokeConfirm) {
             Button("Revoke", role: .destructive) { consentManager.revokeConsent() }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("You will be asked to allow AI data usage again the next time you use AI Recommendations.")
+            Text("You will be asked to allow data usage again the next time you use Smart Recommendations.")
         }
     }
 }
