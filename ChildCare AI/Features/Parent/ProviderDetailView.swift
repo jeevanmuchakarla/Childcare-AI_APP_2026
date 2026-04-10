@@ -169,7 +169,7 @@ public struct ProviderDetailView: View {
                 .padding(.horizontal, AppTheme.padding)
                 .padding(.top, 16)
                 .padding(.bottom, 34) // For safe area
-                .background(Color.white.shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: -5))
+                .background(AppTheme.surface.shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: -5))
             }
         }
         .navigationBarHidden(true)

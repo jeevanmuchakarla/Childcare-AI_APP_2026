@@ -47,7 +47,7 @@ public struct AddChildProfileView: View {
                                 .foregroundColor(.gray)
                             TextField("Child's Name", text: $fullName)
                                 .padding()
-                                .background(Color.white)
+                                .background(AppTheme.surface)
                                 .cornerRadius(12)
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
                         }
@@ -67,7 +67,7 @@ public struct AddChildProfileView: View {
                                     .foregroundColor(.gray)
                             }
                             .padding(.horizontal)
-                            .background(Color.white)
+                            .background(AppTheme.surface)
                             .cornerRadius(12)
                             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
                         }
@@ -104,7 +104,7 @@ public struct AddChildProfileView: View {
                                 .foregroundColor(.gray)
                             TextField("e.g. Peanuts, Dairy (or None)", text: $foodAllergies)
                                 .padding()
-                                .background(Color.white)
+                                .background(AppTheme.surface)
                                 .cornerRadius(12)
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
                         }
@@ -116,7 +116,7 @@ public struct AddChildProfileView: View {
                                 .foregroundColor(.gray)
                             TextField("e.g. Dinosaurs, Painting", text: $interests)
                                 .padding()
-                                .background(Color.white)
+                                .background(AppTheme.surface)
                                 .cornerRadius(12)
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
                         }
@@ -137,7 +137,7 @@ public struct AddChildProfileView: View {
                                         .padding(.vertical, 16)
                                 }
                             }
-                            .background(Color.white)
+                            .background(AppTheme.surface)
                             .cornerRadius(12)
                             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1)))
                         }
@@ -194,7 +194,7 @@ struct GenderButton: View {
                 .foregroundColor(isSelected ? .white : .gray)
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
-                .background(isSelected ? themeManager.primaryColor : Color.white)
+                .background(isSelected ? themeManager.primaryColor : AppTheme.surface)
                 .cornerRadius(12)
                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(isSelected ? themeManager.primaryColor : Color.gray.opacity(0.1)))
         }

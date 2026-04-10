@@ -91,21 +91,24 @@ public struct ChildProfileView: View {
                             }
                         }
                         
-                        VStack(spacing: 4) {
+                        VStack(spacing: 6) {
                             Text(childModel?.name ?? name)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundColor(AppTheme.textPrimary)
+                                .font(.title)
+                                .fontWeight(.black)
+                                .foregroundColor(.white)
                             
-                            HStack {
+                            HStack(spacing: 6) {
                                 Image(systemName: "calendar")
+                                    .font(.caption)
                                 Text(childModel?.age ?? age)
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
                             }
-                            .font(.caption)
-                            .foregroundColor(AppTheme.textSecondary)
+                            .foregroundColor(.white.opacity(0.9))
                         }
+                        .padding(.top, 4)
                     }
-                    .padding(.top, 5)
+                    .padding(.top, 10)
                 }
             }
             

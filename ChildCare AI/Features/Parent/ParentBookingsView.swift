@@ -164,7 +164,7 @@ struct BookingRedesignCard: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(AppTheme.surface)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
     }

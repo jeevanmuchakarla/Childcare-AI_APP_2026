@@ -18,6 +18,11 @@ public struct EditChildProfileView: View {
     @State private var showingAgePicker = false
     let ageOptions = ["0-1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-6 years", "6-7 years", "7-8 years", "8-9 years", "9-10 years", "10-11 years", "11-12 years", "12+ years"]
     
+    // Photo Picker state
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var selectedImageData: Data?
+    @State private var uiImage: UIImage?
+    
     @EnvironmentObject var childStore: ChildStore
     let childId: Int
 
@@ -33,6 +38,34 @@ public struct EditChildProfileView: View {
     public var body: some View {
         NavigationView {
             Form {
+                Section {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 12) {
+                            if let uiImage = uiImage {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Circle())
+                            } else {
+                                Circle()
+                                    .fill(Color.gray.opacity(0.1))
+                                    .frame(width: 80, height: 80)
+                                    .overlay(Image(systemName: "camera").foregroundColor(.gray))
+                            }
+                            
+                            PhotosPicker(selection: $selectedItem, matching: .images) {
+                                Text("Change Photo")
+                                    .font(.subheadline)
+                                    .foregroundColor(themeManager.primaryColor)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.vertical, 8)
+                }
+                
                 Section(header: Text("Basic Info")) {
                     TextField("Child Name", text: $childName)
                     
@@ -85,6 +118,14 @@ public struct EditChildProfileView: View {
                     .disabled(isSaving || childName.isEmpty)
                 }
             }
+            .onChange(of: selectedItem) { newItem in
+                Task {
+                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                        selectedImageData = data
+                        uiImage = UIImage(data: data)
+                    }
+                }
+            }
         }
     }
     
@@ -104,6 +145,11 @@ public struct EditChildProfileView: View {
                     medicalNotes: medicalNotes,
                     emergencyContact: emergencyContact
                 )
+                
+                // Upload photo if selected
+                if let data = selectedImageData {
+                    _ = try await ChildService.shared.uploadChildPhoto(childId: childId, imageData: data)
+                }
                 
                 // Refresh child store
                 await childStore.loadChildren(parentId: userId)

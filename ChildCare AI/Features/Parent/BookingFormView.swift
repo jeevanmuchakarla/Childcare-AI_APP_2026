@@ -311,7 +311,7 @@ struct SuccessOverlay: View {
                 }
             }
             .padding(30)
-            .background(Color.white)
+            .background(AppTheme.surface)
             .cornerRadius(32)
             .padding(.horizontal, 40)
         }

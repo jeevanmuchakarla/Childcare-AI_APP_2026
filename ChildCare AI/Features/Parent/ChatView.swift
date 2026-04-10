@@ -415,7 +415,7 @@ struct ChatConversationView: View {
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
-            .background(Color(hex: "#F0F2F5")) // WhatsApp-like light gray header background
+            .background(AppTheme.surface) // Dynamic header background
             
             Divider()
                 // Live Messages - Isolated in sub-view to prevent re-renders on typing
@@ -488,7 +488,7 @@ struct ChatConversationView: View {
                             TextField("Message", text: $messageText)
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
-                                .background(Color.white)
+                                .background(AppTheme.background)
                                 .cornerRadius(20)
                             
                             PhotosPicker(selection: $selectedItem, matching: .images) {
@@ -524,7 +524,7 @@ struct ChatConversationView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 8)
                     }
-                    .background(Color(hex: "#F0F2F5"))
+                    .background(AppTheme.surface)
                 }
             } // Close VStack
         .background(AppTheme.background.ignoresSafeArea())
@@ -643,7 +643,7 @@ struct MessageListView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ZStack {
-                Color(hex: "#DAD3CC")
+                AppTheme.background
                     .ignoresSafeArea()
                 
                 ScrollView {
@@ -725,10 +725,10 @@ struct LiveMessageBubble: View {
                 if !message.text.isEmpty {
                     Text(message.text)
                         .font(.system(size: 16))
-                        .foregroundColor(.black)
+                        .foregroundColor(AppTheme.textPrimary)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
-                        .background(message.isFromMe ? Color(hex: "#E7FFDB") : .white)
+                        .background(message.isFromMe ? themeManager.primaryColor.opacity(0.15) : AppTheme.surface)
                         .cornerRadius(12)
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)

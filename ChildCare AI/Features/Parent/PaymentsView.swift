@@ -38,7 +38,7 @@ public struct PaymentsView: View {
                                 .foregroundColor(.green)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 4)
-                                .background(Color.white)
+                                .background(AppTheme.background)
                                 .cornerRadius(8)
                         }
                         

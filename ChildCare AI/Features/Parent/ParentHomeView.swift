@@ -557,7 +557,7 @@ struct CategorySquareCard: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 20)
-            .background(Color.white)
+            .background(AppTheme.cardBackground)
             .cornerRadius(20)
             .shadow(color: Color.black.opacity(isIndianTheme ? 0.1 : 0.05), radius: 10, x: 0, y: 4)
             .overlay(
