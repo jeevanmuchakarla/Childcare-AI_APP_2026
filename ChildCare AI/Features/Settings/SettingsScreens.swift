@@ -329,6 +329,12 @@ public struct AppPrivacyScreen: View {
                     PrivacySection(title: "Third-Party Disclosure", 
                                    content: "ChildCare AI never sells your personal data. We only share information with care centers you explicitly book with and trusted infrastructure partners.")
 
+                    PrivacySection(title: "Safety & Moderation", 
+                                   content: "We maintain a zero-tolerance policy for objectionable content. You have full access to blocking and reporting tools in all community features to ensure a safe environment.")
+
+                    PrivacySection(title: "Right to Erasure", 
+                                   content: "You can permanently delete your account and all associated personal data at any time via Settings. All data is purged from our secure servers within 30 days.")
+
                     VStack(alignment: .center, spacing: 16) {
                         Divider()
                         
