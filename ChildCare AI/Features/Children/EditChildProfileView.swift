@@ -14,6 +14,10 @@ public struct EditChildProfileView: View {
     @State private var isSaving = false
     @State private var errorMessage: String?
     
+    // Age Picker state
+    @State private var showingAgePicker = false
+    let ageOptions = ["0-1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-6 years", "6-7 years", "7-8 years", "8-9 years", "9-10 years", "10-11 years", "11-12 years", "12+ years"]
+    
     @EnvironmentObject var childStore: ChildStore
     let childId: Int
 
@@ -31,7 +35,19 @@ public struct EditChildProfileView: View {
             Form {
                 Section(header: Text("Basic Info")) {
                     TextField("Child Name", text: $childName)
-                    TextField("Age / Group", text: $ageGroup)
+                    
+                    Button(action: { showingAgePicker = true }) {
+                        HStack {
+                            Text("Age / Group")
+                                .foregroundColor(AppTheme.textPrimary)
+                            Spacer()
+                            Text(ageGroup.isEmpty ? "Select Age" : ageGroup)
+                                .foregroundColor(ageGroup.isEmpty ? .gray : .blue)
+                            Image(systemName: "chevron.right")
+                                .font(.caption2)
+                                .foregroundColor(.gray)
+                        }
+                    }
                 }
                 
                 Section(header: Text("Medical & Emergency")) {
@@ -49,6 +65,11 @@ public struct EditChildProfileView: View {
             }
             .navigationTitle("Edit Profile")
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $showingAgePicker) {
+                AgePickerSheet(title: "Select Child's Age", selection: $ageGroup, options: ageOptions) {
+                    showingAgePicker = false
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") { dismiss() }
@@ -96,6 +117,54 @@ public struct EditChildProfileView: View {
                     isSaving = false
                     errorMessage = "Failed to update profile. Please try again."
                 }
+            }
+        }
+    }
+}
+
+// Since we already have AgePickerSheet in CreateAccountView, 
+// if they are in different modules we might need a shared one.
+// But for now, we'll keep it simple or check if it's already available.
+// I'll add a duplicate here to avoid link errors if the files are compiled separately.
+struct AgePickerSheet: View {
+    let title: String
+    @Binding var selection: String
+    let options: [String]
+    let onDone: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text(title)
+                .font(.headline)
+                .padding(.top)
+            
+            Picker(title, selection: $selection) {
+                if selection.isEmpty {
+                    Text("Select Age").tag("")
+                }
+                ForEach(options, id: \.self) { option in
+                    Text(option).tag(option)
+                }
+            }
+            .pickerStyle(.wheel)
+            .labelsHidden()
+            
+            Button(action: onDone) {
+                Text("Done")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(12)
+            }
+            .padding(.horizontal)
+            .padding(.bottom)
+        }
+        .presentationDetents([.height(350)])
+        .onAppear {
+            if selection.isEmpty {
+                selection = options[0]
             }
         }
     }

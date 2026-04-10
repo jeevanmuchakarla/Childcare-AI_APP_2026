@@ -1327,7 +1327,7 @@ public struct TermsAndConditionsScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    Text("Last updated: April 11, 2026")
+                    Text("Last updated: April 10, 2026")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                     
