@@ -351,7 +351,7 @@ public struct AppPrivacyScreen: View {
                             .cornerRadius(12)
                         }
                         
-                        Text("Version 1.0.0 (Build 2026.04.01)")
+                        Text("Version 1.0.0 (Build 2026.04.10)")
                             .font(.system(size: 10))
                             .foregroundColor(.gray.opacity(0.6))
                             .padding(.top, 8)
@@ -1389,7 +1389,7 @@ public struct PrivacyPolicyScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(AppTheme.textPrimary)
                     
-                    Text("Last updated: April 2026")
+                    Text("Last updated: April 10, 2026")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                     
@@ -1413,9 +1413,9 @@ public struct PrivacyPolicyScreen: View {
                     
                     PrivacySectionItem(title: "Data Protection", points: [
                         "100% Secure Real-time Storage",
-                        "End-to-end data encryption",
-                        "Compliant with data protection regulations",
-                        "Regular security audits and updates"
+                        "End-to-end data encryption (AES-256)",
+                        "Zero-Sharing Guarantee: No data shared with OpenAI, Google, or third-party AI",
+                        "Compliant with data protection regulations"
                     ])
                     
                     Text("We do not sell your personal information. Your data is only shared with childcare providers you explicitly choose to interact with.")
