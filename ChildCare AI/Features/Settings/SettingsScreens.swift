@@ -326,8 +326,7 @@ public struct AppPrivacyScreen: View {
                     PrivacySection(title: "AI Privacy Standards", 
                                    content: "Your recommendation data is processed entirely on-device and is never shared with third-party AI providers.")
                     
-                    PrivacySection(title: "Third-Party Disclosure", 
-                                   content: "ChildCare AI never sells your personal data. We only share information with care centers you explicitly book with and trusted infrastructure partners.")
+
 
                     PrivacySection(title: "Safety & Moderation", 
                                    content: "We maintain a zero-tolerance policy for objectionable content. You have full access to blocking and reporting tools in all community features to ensure a safe environment.")
