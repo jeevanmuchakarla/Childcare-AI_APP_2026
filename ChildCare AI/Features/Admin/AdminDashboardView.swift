@@ -1,6 +1,7 @@
 import SwiftUI
 
 public struct AdminDashboardView: View {
+    @Binding var selectedTab: Int
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var themeManager: ThemeManager
     @State private var navigateToNotifications = false
@@ -9,7 +10,9 @@ public struct AdminDashboardView: View {
     @State private var pendingCount = 0
     @State private var isLoading = false
     
-    public init() {}
+    public init(selectedTab: Binding<Int>) {
+        self._selectedTab = selectedTab
+    }
     
     public var body: some View {
         VStack(spacing: 0) {
@@ -104,7 +107,7 @@ public struct AdminDashboardView: View {
                             .padding(.horizontal)
                         
                         LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
-                            NavigationLink(destination: AdminManagementView()) {
+                            NavigationLink(destination: AdminManagementView(selectedTab: $selectedTab)) {
                                 StatCard(title: "Active Users", value: "\(stats?.users.total ?? 0)", icon: "person.2.fill", color: .blue, subtitle: "Total Accounts")
                             }
                             

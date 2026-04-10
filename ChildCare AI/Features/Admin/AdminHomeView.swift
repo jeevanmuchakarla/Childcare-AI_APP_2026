@@ -1,6 +1,7 @@
 import SwiftUI
 
 public struct AdminHomeView: View {
+    @Binding var selectedTab: Int
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var authService = AuthService.shared
@@ -8,7 +9,9 @@ public struct AdminHomeView: View {
     @State private var navigateToNotifications = false
     @State private var stats: PlatformStats?
     
-    public init() {}
+    public init(selectedTab: Binding<Int>) {
+        self._selectedTab = selectedTab
+    }
     
     public var body: some View {
         NavigationStack {
@@ -144,9 +147,9 @@ public struct AdminHomeView: View {
     @ViewBuilder
     private func adminDestination(for title: String) -> some View {
         switch title {
-        case "Users": AdminManagementView(initialTab: 0)
+        case "Users": AdminManagementView(selectedTab: $selectedTab, initialTab: 0)
         case "Approvals": PendingUsersView()
-        case "Bookings": AdminManagementView(initialTab: 2)
+        case "Bookings": AdminManagementView(selectedTab: $selectedTab, initialTab: 2)
         case "Revenue": RevenueAnalyticsScreen()
         case "System Performance": AdminSystemEfficiencyView()
         case "Booking Reports": BookingReportScreen()

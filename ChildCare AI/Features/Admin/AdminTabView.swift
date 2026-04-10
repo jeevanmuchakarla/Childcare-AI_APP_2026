@@ -11,7 +11,7 @@ public struct AdminTabView: View {
     public var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                AdminDashboardView()
+                AdminDashboardView(selectedTab: $selectedTab)
             }
             .tabItem {
                 Image(systemName: "house.fill")
