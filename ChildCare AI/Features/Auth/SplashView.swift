@@ -19,7 +19,7 @@ public struct SplashView: View {
                     .frame(width: 240, height: 240)
                     .padding(.bottom, 20)
                 
-                Text("ChildCare AI™")
+                Text("ChildCare™")
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(AppTheme.textPrimary) // Adaptive primary text
                     .padding(.horizontal, 16)
@@ -28,7 +28,7 @@ public struct SplashView: View {
                     .cornerRadius(12)
                     .shadow(color: Color.black.opacity(0.1), radius: 10)
                 
-                Text("AI-Powered Childcare Discovery")
+                Text("Smart Childcare Discovery")
                     .font(.subheadline)
                     .foregroundColor(Color.white.opacity(0.7))
                 
@@ -38,7 +38,7 @@ public struct SplashView: View {
                 VStack(spacing: 8) {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    Text("Initializing AI Core...")
+                    Text("Initializing System...")
                         .font(.caption2)
                         .foregroundColor(Color.white.opacity(0.5))
                 }
